@@ -4,37 +4,250 @@
  box-sizing: border-box;
 }
 
+body {
+ font-family: 'Arturo Black outline';
+ background: url('../assets/images/human.jpg')no-repeat center center / cover;
+ width: 100vw;
+ height: 100vh;
+ overflow: hidden;
+}
+
 .app {
  padding: 50px;
 }
 
+.container {
+ max-width: 1200px;
+ width: 100%;
+ margin: 0 auto;
+}
+
+.current_table {
+}
+
+.slider {
+ position: relative;
+}
+
+.slider-list {
+}
+
+.slider-track {
+}
+
+.slide {
+ position: absolute;
+ transition: all 1.5s ease-in-out 0s;
+ left: 0;
+ transform: translateY(20%);
+}
+
+.slide.previous {
+ left: -102%;
+}
+
+.slide.next {
+ left: 102%;
+}
+
 .wrapper-table_title {
+ color: purple;
  text-align: center;
  margin-bottom: 20px;
+ line-height: 35px;
 }
 
 table {
+ width: 91vw;
  border-spacing: 5px;
  overflow-x: auto;
  display: block;
+ scroll-behavior: smooth;
 }
 
 td, th {
  position: relative;
  min-width: 60px;
+ height: 41px;
  border: 1px solid rgb(255, 255, 255);
- padding: 10px;
- background-color: rgba(223, 223, 200, 0.9);
+ padding: 10px 2px;
+ background: rgba(223, 223, 200, 0.5);
  border-radius: 10px;
  font-family: 'Choco cooky';
  text-align: center;
+ font-weight: bold;
+ color: rgb(94, 0, 183);
+}
+
+td {
+ position: relative;
+ font-size: 0;
+ transition: font-size 2s ease-out;
 }
 
 td:focus {
  transform: scale(1.2);
- transition: all ease 1s;
+ transition: transform ease 1s, font-size 1s ease-out;
  outline: 2px solid rgb(100, 57, 139);
  outline-offset: -4px ;
  border: none;
  color: rgb(100, 57, 139);
+}
+
+.cell {
+ padding: 4px 2px 16px;
+}
+
+.sum{
+ padding: 10px 2px;
+ font-size: 18px;
+}
+
+.publ:after, .video:after, .pp:after, .hours:after, .iz:after {
+ position: absolute;
+ bottom: 2%;
+ right: 7%;
+ color: black;
+ font-size: 0px;
+ font-family: 'Arturo Black outline';
+ transition: font-size 1s ease-out 0.5s;
+}
+
+.publ.content:after, .video.content:after, .pp.content:after, .hours.content:after, .iz.content:after {
+ font-size: 9px;
+}
+
+.publ:after {
+ content: 'Публ';
+}
+
+.video:after {
+ content: 'Видео';
+}
+
+.pp:after {
+ content: 'ПП';
+}
+
+.hours:after {
+ content: 'Часы';
+}
+
+.iz:after {
+ content: 'Из';
+}
+
+.days {
+ transition: all 1s ease-out 1.5s;
+}
+
+.days.days_today {
+ background: green;
+ color: blue;
+}
+
+.btn_delete_values {
+ position: relative;
+ cursor: pointer;
+ background: rgba(223, 223, 200, 0.5) url(../assets/images/recycle.png) no-repeat center center / contain;
+ transition: background 1s ease-out;
+}
+
+.btn_delete_values:hover {
+ transform: scale(1.1);
+ transition: transform 0.5s ease;
+ transition: background 1s ease-out;
+}
+
+.btn_delete_values:hover:after {
+ width: 90%;
+}
+
+.btn_delete_values::after {
+ position: absolute;
+ content: '';
+ height: 2px;
+ width: 0%;
+ background-color: black;
+ bottom: 0;
+ left: 5%;
+ transition: width 0.5s ease;
+}
+
+.btn_delete_values::after {
+}
+
+.wrapper_buttons {
+ display: flex;
+ opacity: 1;
+ transition: opacity 1s ease-out;
+}
+
+.wrapper_buttons.hide {
+ opacity: 0;
+}
+
+.wrapper_previous, .wrapper_next {
+ position: absolute;
+ top: 60px;
+ background-color: rgba(223, 223, 200, 0.5);
+ border-right: 0px solid #ffffffad;
+ border-left: 0px solid #ffffffad;
+ width: 39px;
+ height: -webkit-fill-available;
+ border-radius: 5px;
+ transition: all 0.3s ease-out;
+}
+
+.wrapper_previous {
+ left: -40px;
+}
+
+.wrapper_next {
+ right: -40px;
+}
+
+.wrapper_previous:active, .wrapper_next:active {
+ transform: scale(0.98);
+ transition: transform 0.1s;
+}
+
+.wrapper_previous:active {
+ left: -43.5px;
+}
+
+.wrapper_next:active {
+ right: -43.5px;
+}
+
+.wrapper_previous:hover {
+ border-right: 39px solid #ffffffad;
+ cursor: pointer;
+}
+
+.wrapper_next:hover {
+ border-left: 39px solid #ffffffad;
+ cursor: pointer;
+}
+
+.button_previous, .button_next {
+ position: absolute;
+ top:50%;
+ transform: translateY(-50%);
+ width: 20px;
+ height: 20px;
+ border-top: 20px solid transparent;
+ border-bottom: 20px solid transparent;
+ z-index: 2;
+}
+
+.button_previous {
+ border-right: 30px solid #5f7599ad;
+ left: 4px;
+
+}
+
+.button_next {
+ border-left: 30px solid #5f7599ad;
+ right: 4px;
 }
