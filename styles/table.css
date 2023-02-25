@@ -1,0 +1,296 @@
+.current_table {
+}
+
+.slider {
+ position: relative;
+}
+
+.slider-list {
+}
+
+.slider-track {
+}
+
+.slide {
+ position: absolute;
+ transition: all 1.5s ease-in-out 0s;
+ left: 0;
+ top: 0;
+}
+
+.slide.previous {
+ left: -102%;
+}
+
+.slide.next {
+ left: 102%;
+}
+
+.wrapper-table_title {
+ text-align: center;
+ margin-bottom: 30px;
+ line-height: 35px;
+ font-size: 0;
+ transition: font-size 2s ease-out 0.5s;
+}
+
+.wrapper-table_title.transitionFz {
+ font-size: 1.5em;
+}
+
+table {
+ width: inherit;
+ border-spacing: 5px;
+ overflow-x: auto;
+ display: block;
+ scroll-behavior: smooth;
+}
+
+.table__total {
+ width: fit-content;
+ margin: 10px auto 0;
+}
+
+.month__name {
+ font-family: 'Natasha';
+}
+
+.total__modal {
+ padding: 10px 10px;
+}
+
+td, th {
+ position: relative;
+ min-width: 60px;
+ height: 41px;
+ padding: 10px 2px;
+ border-radius: 10px;
+ font-family: 'Choco cooky';
+ text-align: center;
+ font-weight: bold;
+}
+
+td {
+ position: relative;
+ font-size: 0;
+ transition: font-size 2s ease-out;
+}
+
+td.transitionFz {
+ font-size: 16px;
+}
+
+td:focus {
+ transform: scale(1.2);
+ transition: transform ease 1s, font-size 1s ease-out;
+ outline-offset: -4px ;
+}
+
+.cell {
+ padding: 4px 2px 16px;
+}
+
+.sum{
+ padding: 10px 2px;
+ font-size: 18px;
+}
+
+.publ:after, .video:after, .pp:after, .hours:after, .iz:after {
+ position: absolute;
+ bottom: 2%;
+ right: 7%;
+ font-size: 0px;
+ transition: font-size 1s ease-out 0.5s;
+ letter-spacing: 1.5px;
+}
+
+.publ.transitionFz:after, .video.transitionFz:after, .pp.transitionFz:after, .hours.transitionFz:after, .iz.transitionFz:after {
+ font-size: 9px;
+}
+
+.publ:after {
+ content: 'Публ';
+}
+
+.video:after {
+ content: 'Видео';
+}
+
+.pp:after {
+ content: 'ПП';
+}
+
+.hours:after {
+ content: 'Часы';
+}
+
+.iz:after {
+ content: 'Из';
+}
+
+.days {
+ transition: all 1s ease-out 1.5s;
+}
+
+.btn_delete_values {
+ position: relative;
+ cursor: pointer;
+ transition: background 1s ease-out;
+}
+
+.btn_delete_values:hover {
+ transform: scale(1.1);
+ transition: transform 0.5s ease;
+ transition: background 1s ease-out;
+}
+
+.btn_delete_values:hover:after {
+ width: 90%;
+}
+
+.btn_delete_values::after {
+ position: absolute;
+ content: '';
+ height: 2px;
+ width: 0%;
+ bottom: 0;
+ left: 5%;
+ transition: width 0.5s ease;
+}
+
+.wrapper_buttons {
+ display: flex;
+ opacity: 1;
+ transition: opacity 1s ease-out;
+}
+
+.wrapper_buttons.hide {
+ opacity: 0;
+}
+
+.wrapper_previous, .wrapper_next {
+ position: absolute;
+ top: 69px;
+ width: 39px;
+ height: -webkit-fill-available;
+ border-radius: 5px;
+ transition: all 0.3s ease-out;
+}
+
+.wrapper_previous {
+ left: -40px;
+}
+
+.wrapper_next {
+ right: -40px;
+}
+
+.wrapper_previous:active, .wrapper_next:active {
+ transform: scale(0.98);
+ transition: transform 0.1s;
+}
+
+.wrapper_previous:active {
+ left: -43.5px;
+}
+
+.wrapper_next:active {
+ right: -43.5px;
+}
+
+.wrapper_previous:hover {
+ cursor: pointer;
+}
+
+.wrapper_next:hover {
+ cursor: pointer;
+}
+
+.button_previous, .button_next {
+ position: absolute;
+ top:50%;
+ transform: translateY(-50%);
+ width: 20px;
+ height: 20px;
+ border-top: 20px solid transparent;
+ border-bottom: 20px solid transparent;
+ z-index: 2;
+}
+
+.button_previous {
+ left: 4px;
+}
+
+.button_next {
+ right: 4px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.hours__pioneer {
+	border-radius: 10px;
+	width: fit-content;
+	margin-left: auto;
+	opacity: 0;
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	display: none;
+}
+
+.hours__pioneer.open_menu {
+	display: block;
+	opacity: 1;
+	transition: display 0.5s ease-in;
+	transition: opacity 0.5s ease-in 0.5s;
+}
+
+.mustardSeed__wrapper {
+	position: absolute;
+	top: 35px;
+	display: flex;
+}
+
+.mustardSeed__wrapper > div:nth-child(2) {
+	margin-left: 10px;
+}
+
+.wrapper__counter {
+	align-items: center;
+	display: flex;
+	font-size: 15px;
+}
+
+.wrapper__counter.hide {
+	display: none;
+}
+
+.mustardSeed__icon1 {
+	background: url(../assets/images/lamp.png)no-repeat center center / contain;
+	width: 30px;
+	height: 30px;
+}
+
+.mustardSeed__icon2{
+	background: url(../assets/images/лампо_ка.png)no-repeat center center / contain;
+	width: 30px;
+	height: 30px;
+}
+
+.mustardSeed__counter1, .mustardSeed__counter2 {
+	color: #fff;
+}

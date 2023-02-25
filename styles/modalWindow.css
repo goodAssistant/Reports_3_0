@@ -1,0 +1,124 @@
+.modal__window {
+ position: absolute;
+ top: 5%;
+ left: -150%;
+ transform: translate(-50%);
+ max-width: fit-content;
+ width: 100%;
+ border-radius: 25px;
+ padding: 35px 24px 20px;
+ transition: left 1s ease-out 0s;
+}
+
+.modal__window:after {
+ position: absolute;
+ content: '';
+ width: 80%;
+ height: 3px;
+ top: 30px;
+ left: 10%;
+ border-radius: 10px;
+}
+
+.modal__window.open {
+ left: 50%;
+ animation: animeModal 2s ease 1s 1 normal forwards;
+ z-index: 30;
+}
+
+.modal__window.info.open {
+ text-align: center;
+}
+
+.modal__text {
+ font-family: Verdana, Geneva, Tahoma, sans-serif;
+ font-weight: bold;
+ max-width: 86%;
+ margin: 0 auto;
+ text-align: center;
+ margin-bottom: 15px
+}
+
+.modal__data {
+ color: rgba(1, 121, 217, 1);;
+}
+
+.btns {
+ width: fit-content;
+ margin-left: auto;
+}
+
+.modal__btn {
+ width: 40px;
+ height: 40px;
+ border-radius: 10px;
+ border: none;
+ cursor: pointer;
+ transition: transform 0.3s ease-out;
+}
+
+.modal__btn:hover {
+ transform: scale(1.1);
+ box-shadow:3px 3px 10px 1px #0a0907, 0px 0px 10px 3px #ffffff inset;
+}
+
+.modal__btn:active {
+ transform: scale(0.9);
+ box-shadow: 0px 0px 10px 3px #595448 inset;
+}
+
+.modal__text {
+ max-width: 80%;
+}
+
+.yes__btn {
+ background: url(../assets/images/smile_ok.png) no-repeat center center / contain;
+}
+
+.no__btn {
+ margin-left: 50px;
+ background: url(../assets/images/smile_no.png) no-repeat center center / contain;
+}
+
+.overlay {
+ opacity: 0;
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100vw;
+ height: 100vh;
+ transition: opacity 0.3s ease-out;
+}
+
+.overlay.open{
+ opacity: 1;
+ z-index: 1;
+}
+
+@keyframes animeModal {
+0%,
+100% {
+ transform: translate(-50%)
+}
+
+10%,
+30%,
+50%,
+70% {
+ transform: translate(-60%);
+}
+
+20%,
+40%,
+60% {
+ transform: translate(-40%);
+}
+
+80% {
+ transform: translate(-48%);
+}
+
+90% {
+ transform: translate(-58%);
+}
+}

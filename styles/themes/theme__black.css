@@ -1,0 +1,252 @@
+/* +++++++++++++++++++++++++++++++++++++index++++++++++++++++++++++++++++++++++++++ */
+
+.app.black__purple {
+ font-family: 'Arturo Black outline';
+ background-color: #000000;
+}
+
+.app.black__purple .wrapper-table_title {
+ color: purple;
+}
+
+.app.black__purple td, th {
+ color: rgb(94, 0, 183);
+ background: rgb(226, 226, 210);
+ box-shadow: 0 0 2px var(--color-JW-label)inset, 0 0 10px var(--color-JW-label)inset;
+}
+
+.app.black__purple td:focus {
+ outline: 2px solid rgb(100, 57, 139);
+ color: rgb(100, 57, 139);
+}
+
+.app.black__purple .publ:after, .video:after, .pp:after, .hours:after, .iz:after {
+ color: black;
+ font-family: 'Arturo Black outline';
+}
+
+.app.black__purple .days.days_today {
+ background: var(--color-JW-label) ;
+ color: rgb(255, 255, 255);
+ font-family: 'Natasha';
+}
+
+.app.black__purple .btn_delete_values {
+ background: rgba(255, 255, 255, 0.5) url(../../assets/images/recycle.png) no-repeat center center / contain;
+}
+
+.app.black__purple .btn_delete_values.active {
+ background: rgba(223, 223, 200, 0.5) url(../../assets/images/smile_ok.png)no-repeat center center / contain;
+}
+
+.app.black__purple .btn_delete_values.mustardSeed__icon1 {
+	background: rgba(93, 126, 40, 0.6)  url(../../assets/images/lamp.png)no-repeat center center / contain;
+	box-shadow: 0px 0px 20px 5px rgba(255, 238, 0, 0.6);
+}
+
+.app.black__purple .btn_delete_values.mustardSeed__icon1.active {
+ background: rgba(223, 223, 200, 0.5) url(../../assets/images/smile_ok.png)no-repeat center center / contain;
+ box-shadow: none;
+}
+
+.app.black__purple .btn_delete_values.mustardSeed__icon2 {
+	background: rgb(183 183 70 / 70%) url(../../assets/images/лампо_ка.png)no-repeat center center / contain;
+ box-shadow: 0px 0px 10px rgb(251 141 7 / 80%), 0px 0px 10px 5px rgb(251 181 7 / 80%)inset;
+}
+
+.app.black__purple .btn_delete_values.mustardSeed__icon2.active {
+ background: rgba(223, 223, 200, 0.5) url(../../assets/images/smile_ok.png)no-repeat center center / contain;
+ box-shadow: none;
+}
+
+.app.black__purple .btn_delete_values::after {
+ background-color: white;
+}
+
+.app.black__purple .wrapper_previous, .wrapper_next {
+ background-color: rgba(255, 255, 255, 0.4);
+}
+
+.app.black__purple .wrapper_previous:hover {
+ border-right: 39px solid #ffffffad;
+}
+
+.app.black__purple .wrapper_next:hover {
+ border-left: 39px solid #ffffffad;
+}
+
+.app.black__purple .button_previous {
+ border-right: 30px solid var(--color-JW-label);
+}
+
+.app.black__purple .button_next {
+ border-left: 30px solid var(--color-JW-label);
+}
+
+/* +++++++++++++++++++++++++++++++++++++menu burger++++++++++++++++++++++++++++++++++++++ */
+
+.app.black__purple .menu__burger__header span {
+ background-color: var(--color-JW-label);
+}
+
+.app.black__purple .menu__burger__headerspan, .menu__burger__header:after, .menu__burger__header:before {
+ background-color: var(--color-JW-label);
+}
+
+.app.black__purple .mouse__over {
+ color: var(--color-JW-label);
+ font-family: 'Natasha';
+}
+
+.app.black__purple .nav {
+ box-shadow: 0 0 2px white, 0 0 10px white;
+ background-color: var(--color-JW-label);
+}
+
+.app.black__purple .nav a {
+ font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+ color: rgb(255, 255, 255);
+}
+
+.app.black__purple .menu__item:after {
+ background-color: #fff;
+}
+
+.app.black__purple .release {
+ color: rgb(255, 145, 0);
+}
+
+.app.black__purple .back_to_top {
+ color: var(--color-JW-label);
+ background: rgba(0, 255, 187, 0.6);
+}
+
+.app.black__purple .back_to_top:hover {
+ background: rgba(255, 180, 0, 0.6);
+}
+
+/* +++++++++++++++++++++++++++++++++++++instructions++++++++++++++++++++++++++++++++++++++ */
+
+.app.black__purple .instr__wrapper {
+ font-family: 'Choco cooky';
+ background-color: rgb(193 149 95 / 90%);
+ box-shadow: 4px 4px 10px 2px rgba(11, 11, 12, 0.5);
+}
+
+/* +++++++++++++++++++++++++++++++++++++modal window++++++++++++++++++++++++++++++++++++++ */
+
+.app.black__purple .modal__window {
+ background-color: rgb(225 225 196 / 70%);
+ box-shadow: 3px 3px 10px 2px rgba(12, 12, 12, 0.8);
+}
+
+.app.black__purple .modal__window:after {
+ background-color: rgba(1, 121, 217, 1);
+}
+
+.app.black__purple .modal__data {
+ color: rgba(1, 121, 217, 1);;
+}
+
+.app.black__purple .modal__btn {
+ box-shadow: 3px 3px 10px 1px #0a0907;
+}
+
+.app.black__purple .modal__btn:hover {
+ box-shadow:3px 3px 10px 1px #0a0907, 0px 0px 10px 3px #ffffff inset;
+}
+
+.app.black__purple .modal__btn:active {
+ box-shadow: 0px 0px 10px 3px #595448 inset;
+}
+
+.app.black__purple .overlay {
+ background-color: rgba(255, 255, 255, 0.164);
+}
+
+/* +++++++++++++++++++++++++++++++++++++tables menu wrapper+++++++++++++++++++++++++++++++++++ */
+
+.app.black__purple .tables__menu__wrapper.open, .tables__total.open {
+ box-shadow: 5px 5px 5px 0px rgb(0 0 0 / 70%);
+	background: rgba(89, 19, 100, 0.8); 
+}
+
+/* +++++++++++++++++++++++++++++++++++++Themes Wrapper+++++++++++++++++++++++++++++++++++ */
+
+.app.black__purple .themes__wrapper {
+ color: #fff;
+ box-shadow: 5px 5px 5px 0px rgb(0 0 0 / 70%);
+ background-color: rgba(89, 19, 100, 0.8);
+}
+
+.app.black__purple .themes__title {
+ font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+ color: #fff;
+}
+
+.app.black__purple .menu__item a {
+ color: #fff;
+	box-shadow: 5px 6px 10px 0px rgb(0, 0, 0, 0.7);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.form__wrapper.theme__black {
+ box-shadow: 8px 8px 10px 0px rgba(201, 201, 180, 0.6);
+}
+
+.tables__wrapper.theme__black, .tables__total.theme__black {
+	background-color: rgba(89, 19, 100, 0.8);
+}
+
+.modal__text__wrapp > .month__name.theme__black {
+	color: #3f51b5;
+}
+
+.hours__pioneer.theme__black {
+	color: #000000;
+	box-shadow: 0px 0px 10px 2px rgb(255 229 0 / 80%), 0px 0px 90px 0px rgb(150 128 112 / 80%) inset;
+	padding: 5px;
+	font-weight: bold;
+}
+
+td.theme__black, th.theme__black {
+	box-shadow: 0px 0px 10px 10px rgba(89, 19, 100, 0.6);
+}
+
+.total__modal.theme__black {
+	box-shadow: 0px 0px 10px 3px #3f51b5;
+}
+
+.btn__delete__values.theme__black {
+ padding: 0;
+ border: 1px solid rgba(89, 19, 100, 0.6);
+	background: rgba(223, 223, 200, 0.9) url(../img/emptyBox.png) no-repeat center center / contain;
+	box-shadow: 0px 0px 10px 3px rgba(54, 44, 55, 0.6);
+}
+
+.btn__delete__values.garbage.theme__black {
+	background: rgba(89, 19, 100, 0.6) url(../img/fullBox.png) no-repeat center center / contain;
+	box-shadow: 0px 0px 20px 2px rgba(255, 0, 0, 0.6);
+}
+
+.btn__delete__values.mustardSeed.theme__black {
+	background: rgba(93, 126, 40, 0.6) url(../img/lamp.png) no-repeat center center / contain;
+	box-shadow: 0px 0px 20px 5px rgba(255, 238, 0, 0.6);
+	border: none;
+}
+
+.btn__delete.theme__black {
+	box-shadow: 0px 0px 10px 6px rgba(100, 57, 139, 1);
+ color: red;
+}
