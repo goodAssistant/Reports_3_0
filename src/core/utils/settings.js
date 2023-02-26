@@ -115,9 +115,9 @@ function deleteValuesIsLocalStorage(cellsDay, key, target) {
   delete REPORTS[key].values[target.id]
   setToLocalStorage('reports', REPORTS)
   setTimeout(() => {
-    pullValuesToTable(key.split('/')[0], key.split('/')[1])
     monthHTML.slide.querySelector(`[data-date="${target.id}"]`).classList.remove('mustardSeed__icon1')
     monthHTML.slide.querySelector(`[data-date="${target.id}"]`).classList.remove('mustardSeed__icon2')
+    pullValuesToTable(key.split('/')[0], key.split('/')[1])
     cellsDay.forEach(elem => elem.style.fontSize = '16px')
   }, 2100)
 }

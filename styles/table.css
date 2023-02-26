@@ -279,13 +279,13 @@ td:focus {
 	display: none;
 }
 
-.mustardSeed__icon1 {
+.mustardSeed1 {
 	background: url(../assets/images/lamp.png)no-repeat center center / contain;
 	width: 30px;
 	height: 30px;
 }
 
-.mustardSeed__icon2{
+.mustardSeed2 {
 	background: url(../assets/images/лампо_ка.png)no-repeat center center / contain;
 	width: 30px;
 	height: 30px;

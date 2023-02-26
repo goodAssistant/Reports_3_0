@@ -29,7 +29,7 @@ function setInstructions() {
   <h4 class="instr__bye" style="text-align: center; margin-bottom: 10px">Успехов тебе, дорогой мой друг!!!</h4>
   <p class="prava release">Все не защищённые права, не защищены</p>
   <p class="inc release">Eternity Corporation</p>
-  <p class="instr__footer release">Release 2.2</p>
+  <p class="instr__footer release">Release 3.0</p>
  `
  instrWrapper.innerHTML = template
  instrWrapper.append(deleteInstr)

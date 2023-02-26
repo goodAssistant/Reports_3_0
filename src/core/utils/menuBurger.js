@@ -16,6 +16,13 @@ class Menu {
   }
 
   renderBurgerMenu() {
+    const menu = {
+      welcome: 'Good Assistant: "Познакомимся?',
+      change__table: 'Выбрать таблицу',
+      change__theme: 'Сменить тему',
+      total__month: 'Итоги за месяц',
+      clear__data: 'Очистить все данные',
+    }
     this.wrapperBurger.innerHTML = `
       <div class="menu__burger__header" onClick="openBurgerMenu(event)">
         <div class="mouse__over">
@@ -25,33 +32,15 @@ class Menu {
       </div>
       <div class="nav" onClick="getClckMenuItems(event)">
         <div class="menu">
+          ${Object.keys(menu).map(key => `
           <div class="menu__item">
-            <a data-action="welcome" href="#">
-              Good Assistant: "Познакомимся?"
+            <a data-action=${key} href="#">
+              ${menu[key]}
             </a>
           </div>
-          <div class="menu__item">
-            <a data-action="change__table" href="#">
-              Выбрать таблицу
-            </a>
-          </div>
-          <div class="menu__item">
-            <a data-action="change__theme" href="#">
-              Сменить тему
-            </a>
-          </div>
-          <div class="menu__item">
-            <a data-action="total__month" href="#">
-              Итоги за месяц
-            </a>
-          </div>
-          <div class="menu__item">
-            <a data-action="clear__data" href="#">
-              Очистить все данные
-            </a>
-          </div>
+          `).join('')}
           <div class="release">
-            Release 2.2
+            Release 3.0 
           </div>
         </div>
       </div>
@@ -61,25 +50,21 @@ class Menu {
   }
 
   renderThemesMenu() {
+    const themes = {
+      black__purple:'Black - purple',
+      milk: 'Milk',
+      blue__yellow: 'Blue - yellow',
+      street__ball: 'Street basketball',
+      road: 'Road'
+    }
     this.themesWrapper.innerHTML = `
       <h4 class="themes__title">Выбери тему:</h4>
       <div class="wrapperThemesMenu" onClick="getChangeThemes(event)">
-      <div class="menu__item">
-          <a href="#" data-theme="black__purple">Black - purple</a>
-        </div>
+        ${Object.keys(themes).map(key => `
         <div class="menu__item">
-          <a href="#" data-theme="milk">Milk</a>
+          <a href="#" data-theme=${key}>${themes[key]}</a>
         </div>
-        <div class="menu__item">
-          <a href="#" data-theme="blue__yellow">Blue - yellow</a>
-          </div>
-          <div class="menu__item">
-          <a href="#" data-theme="street__ball">Street basketball</a>
-          </div>
-        <div class="menu__item">
-        <a href="#" data-theme="road">Road</a>
-        </div>
-        </div>
+        `).join('')}
     `
     this.container.append(this.themesWrapper)
   }

@@ -126,13 +126,13 @@ class MonthHTML {
     if(!counter2) hide2 = 'hide'
     this.mustardSeedWrapper.innerHTML = `
       <div class="wrapper__counter ${hide1}">
-        <div class="mustardSeed__icon1"></div>
+        <div class="mustardSeed1"></div>
         <div class="mustardSeed__counter1">
       - ${counter1}
         </div>
       </div>
       <div class="wrapper__counter ${hide2}">
-      <div class="mustardSeed__icon2"></div>
+      <div class="mustardSeed2"></div>
         <div class="mustardSeed__counter2">
       - ${counter2}
         </div>
@@ -182,7 +182,7 @@ function getMusteredSeed(year, month) {
     if(values[day].hours >= 150) {
       monthHTML.container.querySelector(`[data-date="${day}"]`).classList.remove('mustardSeed__icon2')
       monthHTML.container.querySelector(`[data-date="${day}"]`).classList.add('mustardSeed__icon1')
-    } else if(Object.values(values[day]).some(elem => elem > 0) && values[day].hours < 150) {
+    } else if(Object.values(values[day]).some(elem => elem > 0)) {
       monthHTML.container.querySelector(`[data-date="${day}"]`).classList.remove('mustardSeed__icon1')
       monthHTML.container.querySelector(`[data-date="${day}"]`).classList.add('mustardSeed__icon2')
     }
@@ -199,7 +199,6 @@ function getCounters() {
 
 monthHTML.render(currentYear, currentMonth)
 monthHTML.getReportsTitle()
-getMusteredSeed(currentYear, currentMonth)
 pullValuesToTable(currentYear, currentMonth)
 setCurrentScrollInsertValue(new Date().getDate())
 const tdsHTML = monthHTML.container.querySelectorAll('td')
@@ -339,13 +338,12 @@ function getValuesForMonth(event) {
                 tds.forEach(elemTd => {
                     elemTd.onfocus = () => {
                         if(target.id !== elemTd.id) {
-                            elem.classList.remove('active')
-                            elem.setAttribute('data-action', 'delete')
-                            pullValuesToTable(currentYear, currentMonth)
+                          elem.classList.remove('active')
+                          elem.setAttribute('data-action', 'delete')
+                          pullValuesToTable(currentYear, currentMonth)
                         }
                     }
                 })
-                
             }
       })
       target.onblur = () => {cellsTextContent()}
@@ -401,7 +399,6 @@ function getValuesForMonth(event) {
             }
         })
     }
-
 }
 
 document.addEventListener('click', event => {
