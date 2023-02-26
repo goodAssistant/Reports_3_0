@@ -182,7 +182,7 @@ function getMusteredSeed(year, month) {
     if(values[day].hours >= 150) {
       monthHTML.container.querySelector(`[data-date="${day}"]`).classList.remove('mustardSeed__icon2')
       monthHTML.container.querySelector(`[data-date="${day}"]`).classList.add('mustardSeed__icon1')
-    } else if(Object.values(values[day]).some(elem => elem > 0)) {
+    } else if(Object.values(values[day]).some(elem => elem > 0) && values[day].hours < 150) {
       monthHTML.container.querySelector(`[data-date="${day}"]`).classList.remove('mustardSeed__icon1')
       monthHTML.container.querySelector(`[data-date="${day}"]`).classList.add('mustardSeed__icon2')
     }
