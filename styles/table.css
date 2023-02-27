@@ -177,6 +177,24 @@ td:focus {
  transition: all 0.3s ease-out;
 }
 
+.wrapper_previous:after, .wrapper_next:after {
+ content: '';
+ position: absolute;
+ height: 100%;
+ width: 0%;
+ top: 0;
+ transition: transform 0.1s ease-out, width 0.3s ease-out, left 0.2s ease-out;
+ border-radius: 5px;
+}
+
+.wrapper_previous:after {
+ right: 0;
+}
+
+.wrapper_next:after {
+ left: 0;
+}
+
 .wrapper_previous {
  left: -40px;
 }
@@ -187,7 +205,6 @@ td:focus {
 
 .wrapper_previous:active, .wrapper_next:active {
  transform: scale(0.98);
- transition: transform 0.1s;
 }
 
 .wrapper_previous:active {
@@ -198,7 +215,7 @@ td:focus {
  right: -43.5px;
 }
 
-.wrapper_previous:hover {
+.wrapper_previous:hover, .wrapper_next:hover {
  cursor: pointer;
 }
 

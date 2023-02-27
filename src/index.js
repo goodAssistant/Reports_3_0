@@ -11,8 +11,8 @@ let REPORTS = getFromLocalStorage('reports')
 let currentYear = new Date().getFullYear()
 let currentMonth = new Date().getMonth()
 
-// currentYear = 2024
-// currentMonth = 4
+// currentYear = 2023
+// currentMonth = 5
 
 const puncts = ['Число', 'Публ', 'Видео', 'ПП', 'Часы', 'Из', 'Очистить»']
 const months = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь']
@@ -207,7 +207,7 @@ tdsHTML.forEach(elem => {
   elem.classList.add('transitionFz')
 })
 
-getRandomColorRgba(monthHTML.title, alpha)
+//getRandomColorRgba(monthHTML.title, alpha)
 
 function setCurrentScrollInsertValue(value) {
   const table = monthHTML.container.querySelector('table')
@@ -290,7 +290,7 @@ function convertMinutesToHours(mins) {
   }
 }
 
-function convertHoursToMinutes(time, bool = true) {
+function convertHoursToMinutes(time) {
   let arrTime = time.split(/\b/g)
   if(isNaN(time.split(/\b/g)[0]) || time.search(/[A-Z]+/gi) + 1) {
     imitationAlert(

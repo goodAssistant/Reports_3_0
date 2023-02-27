@@ -165,9 +165,13 @@ function getClckMenuItems(event) {
       menuBurgerHeader.classList.remove('open')
     break
     case 'clear__data':
-      localStorage.clear()
-      setTimeout(() => {location.reload()}, 500)
+      imitationConfirm(monthHTML, '<div style="display: flex; align-items: center"><div style="flex-shrink:200">Ты уверен, что желаешь очистить все данные без возможности восстановления?</div><span style="background: url(../assets/images/hmmm__smile.png)no-repeat center center / contain; width: 50px; height: 50px"></span></div>', clearLocalStorage)
       menuBurgerHeader.classList.remove('open')
     break
   }
+}
+
+function clearLocalStorage() {
+  localStorage.clear()
+  setTimeout(() => {location.reload()}, 500)
 }

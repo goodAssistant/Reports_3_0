@@ -67,12 +67,9 @@
  background-color: rgba(255, 255, 255, 0.4);
 }
 
-.app.black__purple .wrapper_previous:hover {
- border-right: 39px solid #ffffffad;
-}
-
-.app.black__purple .wrapper_next:hover {
- border-left: 39px solid #ffffffad;
+.app.black__purple .wrapper_previous:hover:after, .wrapper_next:hover:after {
+ background-color: #ffffffad;
+ width: 100%;
 }
 
 .app.black__purple .button_previous {
@@ -136,24 +133,29 @@
 /* +++++++++++++++++++++++++++++++++++++modal window++++++++++++++++++++++++++++++++++++++ */
 
 .app.black__purple .modal__window {
- background-color: rgb(225 225 196 / 70%);
- box-shadow: 3px 3px 10px 2px rgba(12, 12, 12, 0.8);
+ background-color: var(--color-JW-label);
+ box-shadow: 0 0 2px white, 0 0 10px white;
+}
+
+.app.black__purple .modal__text {
+color: #fff;
 }
 
 .app.black__purple .modal__window:after {
- background-color: rgba(1, 121, 217, 1);
+ background-color: rgb(68, 255, 246);
+ box-shadow: 0 0 2px white, 0 0 10px white;
 }
 
 .app.black__purple .modal__data {
- color: rgba(1, 121, 217, 1);;
+ color:  rgb(68, 255, 246);
 }
 
 .app.black__purple .modal__btn {
- box-shadow: 3px 3px 10px 1px #0a0907;
+ box-shadow: 0 0 2px white, 0 0 10px white;
 }
 
 .app.black__purple .modal__btn:hover {
- box-shadow:3px 3px 10px 1px #0a0907, 0px 0px 10px 3px #ffffff inset;
+ box-shadow:3px 3px 10px 2px #0a0907, 0px 0px 10px 3px #ffffff9c inset;
 }
 
 .app.black__purple .modal__btn:active {
@@ -167,16 +169,16 @@
 /* +++++++++++++++++++++++++++++++++++++tables menu wrapper+++++++++++++++++++++++++++++++++++ */
 
 .app.black__purple .tables__menu__wrapper.open, .tables__total.open {
- box-shadow: 5px 5px 5px 0px rgb(0 0 0 / 70%);
-	background: rgba(89, 19, 100, 0.8); 
+ box-shadow: 0 0 2px white, 0 0 10px white;
+	background: var(--color-JW-label);
 }
 
 /* +++++++++++++++++++++++++++++++++++++Themes Wrapper+++++++++++++++++++++++++++++++++++ */
 
 .app.black__purple .themes__wrapper {
  color: #fff;
- box-shadow: 5px 5px 5px 0px rgb(0 0 0 / 70%);
- background-color: rgba(89, 19, 100, 0.8);
+ box-shadow: 0 0 2px white, 0 0 10px white;
+ background-color: var(--color-JW-label);
 }
 
 .app.black__purple .themes__title {
