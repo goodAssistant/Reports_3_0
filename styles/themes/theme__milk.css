@@ -1,115 +1,302 @@
 /* ------------------- theme__milk ----------------*/
 
-.header.theme__milk {
- background-color: #d9dab8;
+/* +++++++++++++++++++++++++++++++++++++index++++++++++++++++++++++++++++++++++++++ */
+:root {
+ --page-background-color-milk: #d9dab8;
+
+ --title-color-milk: rgba(26, 123, 112, 0.8);
+
+ --all-text-color-milk: white;
+
+ --all-wrappers-background-color-milk: rgba(26, 123, 112, 0.7);
+ --all-wrappers-menu-boxshadow-milk: 0px 0px 2px 2px rgba(26, 123, 112, 0.5), 0 0 10px 2px rgba(189, 234, 229, 0.5);
+
+ --td-th-color-milk: rgb(19, 131, 97);
+ --td-th-background-milk: #d9dab8;
+ --td-th-box-shadow-milk: 0px 3px 10px 3px rgba(26, 123, 112, 0.5)inset, 0 0 5px 2px rgba(26, 123, 112, 0.5);
+
+
+ --td-focus-outline-milk: 2px solid rgba(26, 123, 112, 0.5);
+ --td-after-focus-color-milk: var(--color-JW-label);
+
+ --after-td-text-color-milk: rgba(26, 123, 112, 1);
+
+ --days-today-background-milk: var(--color-JW-label);
+ --days-today-color-milk: #fff;
+ 
+ --delete_btn-background-color-icon1-milk: rgba(93, 126, 40, 0.6);
+ --delete_btn-boxshadow-icon1-milk: 0px 0px 20px 5px rgba(255, 238, 0, 0.6);
+
+ --delete_btn-background-color-icon2-milk: rgb(183 183 70 / 70%);
+ --delete_btn-boxshadow-icon2-milk: 0px 0px 10px rgb(251 141 7 / 80%), 0px 0px 10px 5px rgb(251 181 7 / 80%)inset;
+
+ --after-delete-btn-color-milk: white;
+ --after-wrappers-btn-switch-color-hover-milk: #ffffffad;
+ --wrappers-btn-switch-background-color-milk: rgba(255, 255, 255, 0.4);
+ --triangle-color-milk: rgba(26, 123, 112, 1);
+
+ --burger-menu-color-milk: rgba(26, 123, 112, 1);
+
+
+ --release-color-milk: rgb(0, 26, 255);
+
+ --back-to-top-background-color-milk: rgb(172, 105, 18);
+ --back-to-top-background-color-hover-milk: var(--release-color);
+
+ --modal-btn-boxshadow-hover-milk: 3px 3px 10px 2px #0a0907, 0px 0px 10px 3px #ffffff9c inset;
+ --modal-btn-boxshadow-active-milk: 0px 0px 10px 3px #595448 inset;
+
+ --overlay-background-color-milk: rgba(255, 255, 255, 0.164);
+
+ --menu-item-boxshadow-milk: 5px 6px 10px 0px rgb(0, 0, 0, 0.7);
+
+ --mustardseed-counter-text-color-milk: var(--after-td-text-color-milk);
 }
 
-.menu__burger__header.theme__milk span, .menu__burger__header.theme__milk:after, .menu__burger__header.theme__milk:before {
- background-color: rgba(26, 123, 112, 0.5);
+.app.milk {
+ background-color: var(--page-background-color-milk);
 }
 
-.menu__burger__header.open_menu.theme__milk:before, .menu__burger__header.open_menu.theme__milk:after {
- background-color: rgba(26, 123, 112, 0.5);
+.app.milk .wrapper-table_title {
+ color: var(--title-color-milk);
 }
 
-.mouse__over.theme__milk {
- color: rgba(26, 123, 112, 0.5);
- font-weight: bold;
+.app.milk td {
+ color: var(--td-th-color-milk);
+ background: var(--td-th-background-milk);
+ box-shadow: var(--td-th-box-shadow-milk);
 }
 
-.nav.open_menu.theme__milk, .themes__wrapper.theme__milk  {
- background-color: rgba(26, 123, 112, 0.5);
+.app.milk th {
+ color: var(--td-th-color-milk);
+ background: var(--td-th-background-milk);
+ box-shadow: var(--td-th-box-shadow-milk);
 }
 
-.tables__wrapper.open_menu.theme__milk, .tables__total.open_menu.theme__milk {
-	background-color: rgba(26, 123, 112, 0.5);
+.app.milk td:focus {
+ outline: var(--td-focus-outline-milk);
+ color: var(--td-after-focus-color-milk);
 }
 
-.form__wrapper.theme__milk {
- box-shadow: 8px 8px 10px 0px rgba(26, 123, 112, 0.5), 0 0 4px 8px rgba(189, 234, 229, 0.5);
- background: transparent;
+.app.milk .publ:after {
+ color: var(--after-td-text-color-milk);
+ font-family: 'Arturo Black outline';
 }
 
-.form__title.theme__milk {
- color: rgba(26, 123, 112, 0.5);
+.app.milk .video:after {
+ color: var(--after-td-text-color-milk);
+ font-family: 'Arturo Black outline';
 }
 
-.inputs.theme__milk {
- box-shadow: 4px 4px 10px 0px rgba(100, 80, 73, 1);
-	color: rgba(26, 123, 112, 0.5);
+.app.milk .pp:after {
+ color: var(--after-td-text-color-milk);
+ font-family: 'Arturo Black outline';
 }
 
-.inputs.theme__milk:focus {
- box-shadow: 0 0 10px 4px rgba(189, 234, 229, 0.8)inset, 0 0 6px 6px rgba(189, 234, 229, 0.5);
-	border: none;
+.app.milk .hours:after {
+ color: var(--after-td-text-color-milk);
+ font-family: 'Arturo Black outline';
 }
 
-.btns_add.theme__milk {
- box-shadow: 4px 4px 10px 0px rgba(100, 80, 73, 1);
-	border: none;
- background-color: rgba(26, 123, 112, 0.5);
-	color: #d9dab8;
+.app.milk .iz:after {
+ color: var(--after-td-text-color-milk);
+ font-family: 'Arturo Black outline';
 }
 
-.btns_add.theme__milk:hover {
- box-shadow: 0 0 10px 4px rgba(189, 234, 229, 0.8)inset, 0 0 6px 6px rgba(189, 234, 229, 0.9);
+.app.milk .days.days_today {
+ background: var(--days-today-background-milk) ;
+ color: var(--days-today-color-milk);
+ font-family: 'Natasha';
 }
 
-.month__name.theme__milk {
-	color: rgba(26, 123, 112, 0.5);
+.app.milk .btn_delete_values {
+ background: var(--td-th-background-milk) url(../../assets/images/recycle.png) no-repeat center center / contain;
+ box-shadow: var(--td-th-box-shadow-milk);
 }
 
-.hours__pioneer.theme__milk {
-	color: #637860;
-	box-shadow: 0px 0px 1px 7px rgb(203 224 205), 0px 0px 90px 0px rgb(121 171 148) inset;
-	padding: 5px;
-	font-weight: bold;
+.app.milk .btn_delete_values.active {
+ background: var(--td-th-background-milk) url(../../assets/images/smile_ok.png)no-repeat center center / contain;
 }
 
-td.theme__milk, th.theme__milk {
- box-shadow: 0px 0px 10px 3px rgba(54, 44, 55, 0.6);
+.app.milk .btn_delete_values.mustardSeed__icon1 {
+	background: var(--delete_btn-background-color-icon1-milk)  url(../../assets/images/lamp.png)no-repeat center center / contain;
+	box-shadow: var(--delete_btn-boxshadow-icon1-milk);
 }
 
-td.theme__milk:focus {
- outline: 2px solid rgba(26, 123, 112, 0.5);
+.app.milk .btn_delete_values.mustardSeed__icon1.active {
+ background: var(--td-th-background-milk) url(../../assets/images/smile_ok.png)no-repeat center center / contain;
+ box-shadow: var(--td-th-box-shadow-milk);
 }
 
-.btn__delete.theme__milk {
-	box-shadow: 0px 0px 10px 3px rgba(54, 44, 55, 0.6);
-	color: #000;
+.app.milk .btn_delete_values.mustardSeed__icon2 {
+	background: var(--delete_btn-background-color-icon2-milk) url(../../assets/images/лампо_ка.png)no-repeat center center / contain;
+ box-shadow: var(--delete_btn-boxshadow-icon2-milk);
 }
 
-.btn__delete__values.theme__milk {
- padding: 0;
- border: 1px solid rgba(89, 19, 100, 0.6);
-	background: rgba(223, 223, 200, 0.9) url(../img/recycle.png) no-repeat center center / contain;
- box-shadow: 0px 0px 10px 3px rgba(54, 44, 55, 0.6);
- border: none;
+.app.milk .btn_delete_values.mustardSeed__icon2.active {
+ background: var(--td-th-background-milk) url(../../assets/images/smile_ok.png)no-repeat center center / contain;
+ box-shadow: var(--td-th-box-shadow-milk);
 }
 
-.btn__delete__values.garbage.theme__milk {
-	background: rgba(204, 204, 144, 0.9) url(../img/recyclefull.png) no-repeat center center / contain;
-	box-shadow: 0px 0px 10px 2px rgba(9, 255, 0, 0.6);
- border: none;
+.app.milk .btn_delete_values::after {
+ background-color: var(--after-delete-btn-color-milk);
 }
 
-.btn__delete__values.mustardSeed.theme__milk {
-	background: rgba(93, 126, 40, 0.6) url(../img/lamp.png) no-repeat center center / contain;
-	box-shadow: 0px 0px 20px 5px rgba(255, 238, 0, 0.6);
-	border: none;
+.app.milk .wrapper_previous {
+ background-color: var(--wrappers-btn-switch-background-color-milk);
 }
 
-.btn__delete.theme__milk {
-	color: #6d3120;
-	border: 2px solid #6d3120;
- box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.9);
+.app.milk .wrapper_next {
+ background-color: var(--wrappers-btn-switch-background-color-milk);
 }
 
-.btn__delete.theme__milk {
-	border: none;
+.app.milk .wrapper_previous:hover:after {
+ background-color: var(--after-wrappers-btn-switch-color-hover-milk);
+ width: 100%;
 }
 
-.btn__delete.theme__milk:hover {
-	border: none;
- box-shadow: 0 0 10px 4px rgba(189, 234, 229, 0.8)inset, 0 0 6px 6px rgba(189, 234, 229, 0.9);
+.app.milk .wrapper_next:hover:after {
+ background-color: var(--after-wrappers-btn-switch-color-hover-milk);
+ width: 100%;
+}
+
+.app.milk .button_previous {
+ border-right: 30px solid var(--triangle-color-milk);
+}
+
+.app.milk .button_next {
+ border-left: 30px solid var(--triangle-color-milk);
+}
+
+.app.milk .mustardSeed__counter1 {
+	color: var(--mustardseed-counter-text-color-milk);
+}
+
+.app.milk .mustardSeed__counter2 {
+	color: var(--mustardseed-counter-text-color-milk);
+}
+
+/* +++++++++++++++++++++++++++++++++++++menu burger++++++++++++++++++++++++++++++++++++++ */
+
+.app.milk .menu__burger__header > span {
+ background-color: var(--burger-menu-color-milk);
+}
+
+.app.milk .menu__burger__header:after {
+ background-color: var(--burger-menu-color-milk);
+}
+
+.app.milk .menu__burger__header:before {
+ background-color: var(--burger-menu-color-milk);
+}
+
+.app.milk .mouse__over {
+ color: var(--burger-menu-color-milk);
+ font-family: 'Natasha';
+}
+
+.app.milk .nav {
+ box-shadow: var(--all-wrappers-menu-boxshadow-milk);
+ background-color: var(--all-wrappers-background-color-milk);
+}
+
+.app.milk .nav > a {
+ font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+ color: var(--all-text-color-milk);
+}
+
+.app.milk .menu__item:after {
+ background-color: var(--all-text-color-milk);
+}
+
+.app.milk .release {
+ color: var(--release-color-milk);
+}
+
+.app.milk .back_to_top {
+ background: var(--back-to-top-background-color-milk);
+}
+
+.app.milk .back_to_top:hover {
+ background: var(--back-to-top-background-color-hover-milk);
+}
+
+/* +++++++++++++++++++++++++++++++++++++instructions++++++++++++++++++++++++++++++++++++++ */
+
+.app.milk .instr__wrapper {
+ font-family: 'Choco cooky';
+ background-color: var(--all-wrappers-background-color-milk);
+ box-shadow: var(--all-wrappers-menu-boxshadow-milk);
+ color: var(--all-text-color-milk);
+}
+
+.app.milk .instr__wrapper::after {
+ background-color: var(--release-color-milk);
+ box-shadow: var(--all-wrappers-menu-boxshadow-milk);
+}
+
+/* +++++++++++++++++++++++++++++++++++++modal window++++++++++++++++++++++++++++++++++++++ */
+
+.app.milk .modal__window {
+ background-color: var(--all-wrappers-background-color-milk);
+ box-shadow: var(--all-wrappers-menu-boxshadow-milk);
+}
+
+.app.milk .modal__text {
+color: var(--all-text-color-milk);
+}
+
+.app.milk .modal__window:after {
+ background-color: var(--release-color-milk);
+ box-shadow: var(--all-wrappers-menu-boxshadow-milk);
+}
+
+.app.milk .modal__data {
+ color:  var(--release-color-milk);
+}
+
+.app.milk .modal__btn {
+ box-shadow: var(--all-wrappers-menu-boxshadow-milk);
+}
+
+.app.milk .modal__btn:hover {
+ box-shadow: var(--modal-btn-boxshadow-hover-milk);
+}
+
+.app.milk .modal__btn:active {
+ box-shadow: var(--modal-btn-boxshadow-active-milk);
+}
+
+.app.milk .overlay {
+ background-color: var(--overlay-background-color-milk);
+}
+
+/* +++++++++++++++++++++++++++++++++++++tables menu wrapper+++++++++++++++++++++++++++++++++++ */
+
+.app.milk .tables__menu__wrapper.open {
+ box-shadow: var(--all-wrappers-menu-boxshadow-milk);
+	background: var(--all-wrappers-background-color-milk);
+}
+
+.app.milk .tables__total.open {
+ box-shadow: var(--all-wrappers-menu-boxshadow-milk);
+	background: var(--all-wrappers-background-color-milk);
+}
+
+/* +++++++++++++++++++++++++++++++++++++Themes Wrapper+++++++++++++++++++++++++++++++++++ */
+
+.app.milk .themes__wrapper {
+ color: var(--all-text-color-milk);
+ box-shadow: var(--all-wrappers-menu-boxshadow-milk);
+ background-color: var(--all-wrappers-background-color-milk);
+}
+
+.app.milk .themes__title {
+ font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+ color: var(--all-text-color-milk);
+}
+
+.app.milk .menu__item > a {
+ color: var(--all-text-color-milk);
+	box-shadow: var(--menu-item-boxshadow-milk);
 }

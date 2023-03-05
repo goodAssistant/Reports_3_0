@@ -30,7 +30,7 @@ class Menu {
         </div>
         <span></span>
       </div>
-      <div class="nav" onClick="getClckMenuItems(event)">
+      <div class="nav" onClick="getClickMenuItems(event)">
         <div class="menu">
           ${Object.keys(menu).map(key => `
           <div class="menu__item">
@@ -53,8 +53,8 @@ class Menu {
     const themes = {
       black__purple:'Black - purple',
       milk: 'Milk',
-      blue__yellow: 'Blue - yellow',
       street__ball: 'Street basketball',
+      on__style: 'On style',
       road: 'Road'
     }
     this.themesWrapper.innerHTML = `
@@ -84,12 +84,12 @@ class Menu {
     else this.tablesMenuWrapper.classList.remove('getTotalMonths')
     this.tablesMenuWrapper.innerHTML = `
     <h4 class="themes__title">Выбери месяц:</h4>
-    ${arr.map(elem => `
+    ${arr.map(elem => elem !== arr.at(0) ? `
       <div class="menu__item" onClick="runItemTablesMenu(event)">
         <a class="menu__link" id=${elem.year}/${elem.month} href="#">
           ${elem.monthName} ${elem.year}
         </a>
-      </div>`).join('')}
+      </div>` : '').join('')}
     `
     this.container.append(this.tablesMenuWrapper)
   }
@@ -116,7 +116,7 @@ class Menu {
           <th class="total__modal">
             ${punct}:
           </th>
-          <td class="total__modal transitionFz">
+          <td class="total__modal">
             ${idx === 3 ? convertMinutesToHours(totalValues[idx]) : totalValues[idx]}
           </td>
         </tr>
@@ -140,7 +140,7 @@ function openBurgerMenu({target}) {
   }
 }
 
-function getClckMenuItems(event) {
+function getClickMenuItems(event) {
   event.preventDefault()
   const { target } = event
   switch(target.dataset.action) {

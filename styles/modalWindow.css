@@ -1,6 +1,6 @@
 .modal__window {
  position: absolute;
- top: 5%;
+ top: 10%;
  left: -150%;
  transform: translate(-50%);
  max-width: fit-content;
@@ -24,6 +24,8 @@
  left: 50%;
  animation: animeModal 2s ease 1s 1 normal forwards;
  z-index: 30;
+ width: inherit;
+ top: 10%;
 }
 
 .modal__window.info.open {

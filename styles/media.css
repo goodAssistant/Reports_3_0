@@ -2,6 +2,9 @@
 
 /*1200px..... */
 @media screen and (max-width: 100000px) {
+ .app.street__ball {
+  background: url(../assets/images/basket730_1024.jpg)no-repeat center center / cover;
+ }
  .container {
   width: 98%;
  }
@@ -25,24 +28,8 @@
  .modal__window {
   max-width: fit-content;
  }
- .themes__wrapper {
-  top: 125px;
- }
- .themes__wrapper.open {
-  left:75.5vw;
-  opacity: 1;
-  transition: opacity 1.2s ease 0.5s;
-  animation: myAnim 1s ease 1.2s 1 normal forwards;
- }
- @keyframes myAnim {
-  0% {
-   left: 75.5vw;
-   top: 125px;
-  }
-  100% {
-   left: 4%;
-   top: 45px;
-  }
+ .instr__wrapper.active {
+  max-height: 700px;
  }
 }
 
@@ -76,86 +63,28 @@
  .wrapper_next:active {
   right: -1%;
  }
- .themes__wrapper {
-  top: 170px;
- }
- .themes__wrapper.open {
-  left:68.9vw;
-  opacity: 1;
-  transition: opacity 1.2s ease 0.5s;
-  animation: myAnim 1s ease 1.2s 1 normal forwards;
- }
- @keyframes myAnim {
-  0% {
-  left: 68.9vw;
-   top: 170px;
-  }
-
-  100% {
-  left: 4%;
-   top: 45px;
-  }
- }
 }
 
 /* 320-658px  */
 @media screen and (max-width: 658px) {
+ .app.street__ball {
+  background: url(../assets/images/basket431_604.jpg)no-repeat center center / cover;
+ }
  .modal__window{
   max-width: 330px;
  }
-}
-
-/* 320-488px  */
-@media screen and (max-width: 488px) {
-  .instr__wrapper.active {
-    height: 85vh;
-    overflow-y: auto;
-   }
+ .instr__wrapper.active {
+  max-height: 90vh;
+ }
 }
 
 /* 320-576px  */
 @media screen and (max-width: 576px) {
-  td, th {
-   font-size: 10px;
-  }
-  .btn__delete {
-   font-size: 12px;
-   letter-spacing: 4px;
-  }
-  .back_to_top {
-   right:0;
-  }
-  .themes__wrapper {
-    top: 283px;
-  }
-  .themes__wrapper.open_menu {
-   left:42.9vw;
-   opacity: 1;
-   transition: opacity 1.2s ease 0.5s;
-   animation: myAnim 1s ease 1.2s 1 normal forwards;
-  }
-  .instr__wrapper {
-    width: 105%;
-  }
-  @keyframes myAnim {
-    0% {
-    left: 42.9vw;
-      top: 283px;
-    }
-  
-    100% {
-    left: 0;
-      top: 40px;
-    }
-  }
-}
-
-@keyframes slideRight {
-	0% {
-		transform: translateX(0);
-	}
-
-	100% {
-		transform: translateX(100px);
-	}
+ .btn__delete {
+  font-size: 12px;
+  letter-spacing: 4px;
+ }
+ .instr__wrapper {
+  width: 95%;
+ }
 }

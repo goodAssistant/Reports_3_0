@@ -1,254 +1,256 @@
 /* +++++++++++++++++++++++++++++++++++++index++++++++++++++++++++++++++++++++++++++ */
+:root {
+ --page-background-color-black__purple: #000000;
+
+ --title-color-black__purple: purple;
+
+ --all-text-color-black__purple: white;
+
+ --all-wrappers-background-color-black__purple: var(--color-JW-label);
+ --all-wrappers-menu-boxshadow-black__purple: 0 0 2px white, 0 0 10px white;
+
+ --td-th-color-black__purple: rgb(94, 0, 183);
+ --td-th-background-black__purple: rgb(226, 226, 210);
+ --td-th-box-shadow-black__purple: 0 0 2px var(--color-JW-label)inset, 0 0 10px var(--color-JW-label)inset;
+
+ --td-focus-outline-black__purple: 2px solid rgb(100, 57, 139);
+ --td-after-focus-color-black__purple: rgb(100, 57, 139);
+
+ --after-td-text-color-black__purple: black;
+
+ --days-today-background-black__purple: var(--color-JW-label);
+ --days-today-color-black__purple: #fff;
+ 
+ --delete_btn-background-color-icon1-black__purple: rgba(93, 126, 40, 0.6);
+ --delete_btn-boxshadow-icon1-black__purple: 0px 0px 20px 5px rgba(255, 238, 0, 0.6);
+
+ --delete_btn-background-color-icon2-black__purple: rgb(183 183 70 / 70%);
+ --delete_btn-boxshadow-icon2-black__purple: 0px 0px 10px rgb(251 141 7 / 80%), 0px 0px 10px 5px rgb(251 181 7 / 80%)inset;
+
+ --after-delete-btn-color-black__purple: var(--color-JW-label);
+ --after-wrappers-btn-switch-color-hover-black__purple: #ffffffad;
+ --wrappers-btn-switch-background-color-black__purple: rgba(255, 255, 255, 0.4);
+ --triangle-color-black__purple: var(--color-JW-label);
+
+ --burger-menu-color-black__purple: var(--color-JW-label);
+
+
+ --release-color-black__purple: rgb(0 254 255);
+
+ --back-to-top-background-color-black__purple: var(--color-JW-label);
+ --back-to-top-background-color-hover-black__purple: var(--release-color);
+
+ --modal-btn-boxshadow-hover-black__purple: 3px 3px 10px 2px #0a0907, 0px 0px 10px 3px #ffffff9c inset;
+ --modal-btn-boxshadow-active-black__purple: 0px 0px 10px 3px #595448 inset;
+
+ --overlay-background-color-black__purple: rgba(255, 255, 255, 0.164);
+
+ --menu-item-boxshadow-black__purple: 5px 6px 10px 0px rgb(0, 0, 0, 0.7);
+
+ --mustardseed-counter-text-color-black__purple: white;
+}
+
 
 .app.black__purple {
- font-family: 'Arturo Black outline';
- background-color: #000000;
+ background-color: var(--page-background-color-black__purple);
 }
 
 .app.black__purple .wrapper-table_title {
- color: purple;
+ color: var(--title-color-black__purple);
 }
 
 .app.black__purple td, th {
- color: rgb(94, 0, 183);
- background: rgb(226, 226, 210);
- box-shadow: 0 0 2px var(--color-JW-label)inset, 0 0 10px var(--color-JW-label)inset;
+ color: var(--td-th-color-black__purple);
+ background: var(--td-th-background-black__purple);
+ box-shadow: var(--td-th-box-shadow-black__purple);
 }
 
 .app.black__purple td:focus {
- outline: 2px solid rgb(100, 57, 139);
- color: rgb(100, 57, 139);
+ outline: var(--td-focus-outline-black__purple);
+ color: var(--td-after-focus-color-black__purple);
 }
 
 .app.black__purple .publ:after, .video:after, .pp:after, .hours:after, .iz:after {
- color: black;
+ color: var(--after-td-text-color-black__purple);
  font-family: 'Arturo Black outline';
 }
 
 .app.black__purple .days.days_today {
- background: var(--color-JW-label) ;
- color: rgb(255, 255, 255);
+ background: var(--days-today-background-black__purple) ;
+ color: var(--days-today-color-black__purple);
  font-family: 'Natasha';
 }
 
 .app.black__purple .btn_delete_values {
- background: rgba(255, 255, 255, 0.5) url(../../assets/images/recycle.png) no-repeat center center / contain;
+ background: var(--td-th-background-black__purple) url(../../assets/images/emptyBox.png) no-repeat center center / contain;
+ box-shadow: 0 0 2px var(--color-JW-label)inset, 0 0 10px var(--color-JW-label)inset;
 }
 
 .app.black__purple .btn_delete_values.active {
- background: rgba(223, 223, 200, 0.5) url(../../assets/images/smile_ok.png)no-repeat center center / contain;
+ background: var(--td-th-background-black__purple) url(../../assets/images/smile_ok.png)no-repeat center center / contain;
 }
 
 .app.black__purple .btn_delete_values.mustardSeed__icon1 {
-	background: rgba(93, 126, 40, 0.6)  url(../../assets/images/lamp.png)no-repeat center center / contain;
-	box-shadow: 0px 0px 20px 5px rgba(255, 238, 0, 0.6);
+	background: var(--delete_btn-background-color-icon1-black__purple)  url(../../assets/images/lamp.png)no-repeat center center / contain;
+	box-shadow: var(--delete_btn-boxshadow-icon1-black__purple);
 }
 
 .app.black__purple .btn_delete_values.mustardSeed__icon1.active {
- background: rgba(223, 223, 200, 0.5) url(../../assets/images/smile_ok.png)no-repeat center center / contain;
- box-shadow: none;
+ background: var(--td-th-background-black__purple) url(../../assets/images/smile_ok.png)no-repeat center center / contain;
+ box-shadow: var(--td-th-box-shadow-black__purple);
 }
 
 .app.black__purple .btn_delete_values.mustardSeed__icon2 {
-	background: rgb(183 183 70 / 70%) url(../../assets/images/лампо_ка.png)no-repeat center center / contain;
- box-shadow: 0px 0px 10px rgb(251 141 7 / 80%), 0px 0px 10px 5px rgb(251 181 7 / 80%)inset;
+	background: var(--delete_btn-background-color-icon2-black__purple) url(../../assets/images/лампо_ка.png)no-repeat center center / contain;
+ box-shadow: var(--delete_btn-boxshadow-icon2-black__purple);
 }
 
 .app.black__purple .btn_delete_values.mustardSeed__icon2.active {
- background: rgba(223, 223, 200, 0.5) url(../../assets/images/smile_ok.png)no-repeat center center / contain;
- box-shadow: none;
+ background: var(--td-th-background-black__purple) url(../../assets/images/smile_ok.png)no-repeat center center / contain;
+ box-shadow: var(--td-th-box-shadow-black__purple);
 }
 
 .app.black__purple .btn_delete_values::after {
- background-color: white;
+ background-color: var(--after-delete-btn-color-black__purple);
 }
 
 .app.black__purple .wrapper_previous, .wrapper_next {
- background-color: rgba(255, 255, 255, 0.4);
+ background-color: var(--wrappers-btn-switch-background-color-black__purple);
 }
 
 .app.black__purple .wrapper_previous:hover:after, .wrapper_next:hover:after {
- background-color: #ffffffad;
+ background-color: var(--after-wrappers-btn-switch-color-hover-black__purple);
  width: 100%;
 }
 
 .app.black__purple .button_previous {
- border-right: 30px solid var(--color-JW-label);
+ border-right: 30px solid var(--triangle-color-black__purple);
 }
 
 .app.black__purple .button_next {
- border-left: 30px solid var(--color-JW-label);
+ border-left: 30px solid var(--triangle-color-black__purple);
+}
+
+.app.black__purple .mustardSeed__counter1 {
+	color: var(--mustardseed-counter-text-color-black__purple);
+}
+
+.app.black__purple .mustardSeed__counter2 {
+	color: var(--mustardseed-counter-text-color-black__purple);
 }
 
 /* +++++++++++++++++++++++++++++++++++++menu burger++++++++++++++++++++++++++++++++++++++ */
 
-.app.black__purple .menu__burger__header span {
- background-color: var(--color-JW-label);
+.app.black__purple .menu__burger__header > span {
+ background-color: var(--burger-menu-color-black__purple);
 }
 
-.app.black__purple .menu__burger__headerspan, .menu__burger__header:after, .menu__burger__header:before {
- background-color: var(--color-JW-label);
+.app.black__purple .menu__burger__header:after, .menu__burger__header:before {
+ background-color: var(--burger-menu-color-black__purple);
 }
 
 .app.black__purple .mouse__over {
- color: var(--color-JW-label);
+ color: var(--burger-menu-color-black__purple);
  font-family: 'Natasha';
 }
 
 .app.black__purple .nav {
- box-shadow: 0 0 2px white, 0 0 10px white;
- background-color: var(--color-JW-label);
+ box-shadow: var(--all-wrappers-menu-boxshadow-black__purple);
+ background-color: var(--all-wrappers-background-color-black__purple);
 }
 
-.app.black__purple .nav a {
+.app.black__purple .nav > a {
  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
- color: rgb(255, 255, 255);
+ color: var(--all-text-color-black__purple);
 }
 
 .app.black__purple .menu__item:after {
- background-color: #fff;
+ background-color: var(--all-text-color-black__purple);
 }
 
 .app.black__purple .release {
- color: rgb(255, 145, 0);
+ color: var(--release-color-black__purple);
 }
 
 .app.black__purple .back_to_top {
- color: var(--color-JW-label);
- background: rgba(0, 255, 187, 0.6);
+ background: var(--back-to-top-background-color-black__purple);
 }
 
 .app.black__purple .back_to_top:hover {
- background: rgba(255, 180, 0, 0.6);
+ background: var(--back-to-top-background-color-hover-black__purple);
 }
 
 /* +++++++++++++++++++++++++++++++++++++instructions++++++++++++++++++++++++++++++++++++++ */
 
 .app.black__purple .instr__wrapper {
  font-family: 'Choco cooky';
- background-color: rgb(193 149 95 / 90%);
- box-shadow: 4px 4px 10px 2px rgba(11, 11, 12, 0.5);
+ background-color: var(--all-wrappers-background-color-black__purple);
+ box-shadow: var(--all-wrappers-menu-boxshadow-black__purple);
+ color: var(--all-text-color-black__purple);
+}
+
+.app.black__purple .instr__wrapper::after {
+ background-color: var(--release-color-black__purple);
+ box-shadow: var(--all-wrappers-menu-boxshadow-black__purple);
 }
 
 /* +++++++++++++++++++++++++++++++++++++modal window++++++++++++++++++++++++++++++++++++++ */
 
 .app.black__purple .modal__window {
- background-color: var(--color-JW-label);
- box-shadow: 0 0 2px white, 0 0 10px white;
+ background-color: var(--all-wrappers-background-color-black__purple);
+ box-shadow: var(--all-wrappers-menu-boxshadow-black__purple);
 }
 
 .app.black__purple .modal__text {
-color: #fff;
+color: var(--all-text-color-black__purple);
 }
 
 .app.black__purple .modal__window:after {
- background-color: rgb(68, 255, 246);
- box-shadow: 0 0 2px white, 0 0 10px white;
+ background-color: var(--release-color-black__purple);
+ box-shadow: var(--all-wrappers-menu-boxshadow-black__purple);
 }
 
 .app.black__purple .modal__data {
- color:  rgb(68, 255, 246);
+ color:  var(--release-color-black__purple);
 }
 
 .app.black__purple .modal__btn {
- box-shadow: 0 0 2px white, 0 0 10px white;
+ box-shadow: var(--all-wrappers-menu-boxshadow-black__purple);
 }
 
 .app.black__purple .modal__btn:hover {
- box-shadow:3px 3px 10px 2px #0a0907, 0px 0px 10px 3px #ffffff9c inset;
+ box-shadow: var(--modal-btn-boxshadow-hover-black__purple);
 }
 
 .app.black__purple .modal__btn:active {
- box-shadow: 0px 0px 10px 3px #595448 inset;
+ box-shadow: var(--modal-btn-boxshadow-active-black__purple);
 }
 
 .app.black__purple .overlay {
- background-color: rgba(255, 255, 255, 0.164);
+ background-color: var(--overlay-background-color-black__purple);
 }
 
 /* +++++++++++++++++++++++++++++++++++++tables menu wrapper+++++++++++++++++++++++++++++++++++ */
 
 .app.black__purple .tables__menu__wrapper.open, .tables__total.open {
- box-shadow: 0 0 2px white, 0 0 10px white;
-	background: var(--color-JW-label);
+ box-shadow: var(--all-wrappers-menu-boxshadow-black__purple);
+	background: var(--all-wrappers-background-color-black__purple);
 }
 
 /* +++++++++++++++++++++++++++++++++++++Themes Wrapper+++++++++++++++++++++++++++++++++++ */
 
 .app.black__purple .themes__wrapper {
- color: #fff;
- box-shadow: 0 0 2px white, 0 0 10px white;
- background-color: var(--color-JW-label);
+ color: var(--all-text-color-black__purple);
+ box-shadow: var(--all-wrappers-menu-boxshadow-black__purple);
+ background-color: var(--all-wrappers-background-color-black__purple);
 }
 
 .app.black__purple .themes__title {
  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
- color: #fff;
+ color: var(--all-text-color-black__purple);
 }
 
-.app.black__purple .menu__item a {
- color: #fff;
-	box-shadow: 5px 6px 10px 0px rgb(0, 0, 0, 0.7);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-.form__wrapper.theme__black {
- box-shadow: 8px 8px 10px 0px rgba(201, 201, 180, 0.6);
-}
-
-.tables__wrapper.theme__black, .tables__total.theme__black {
-	background-color: rgba(89, 19, 100, 0.8);
-}
-
-.modal__text__wrapp > .month__name.theme__black {
-	color: #3f51b5;
-}
-
-.hours__pioneer.theme__black {
-	color: #000000;
-	box-shadow: 0px 0px 10px 2px rgb(255 229 0 / 80%), 0px 0px 90px 0px rgb(150 128 112 / 80%) inset;
-	padding: 5px;
-	font-weight: bold;
-}
-
-td.theme__black, th.theme__black {
-	box-shadow: 0px 0px 10px 10px rgba(89, 19, 100, 0.6);
-}
-
-.total__modal.theme__black {
-	box-shadow: 0px 0px 10px 3px #3f51b5;
-}
-
-.btn__delete__values.theme__black {
- padding: 0;
- border: 1px solid rgba(89, 19, 100, 0.6);
-	background: rgba(223, 223, 200, 0.9) url(../img/emptyBox.png) no-repeat center center / contain;
-	box-shadow: 0px 0px 10px 3px rgba(54, 44, 55, 0.6);
-}
-
-.btn__delete__values.garbage.theme__black {
-	background: rgba(89, 19, 100, 0.6) url(../img/fullBox.png) no-repeat center center / contain;
-	box-shadow: 0px 0px 20px 2px rgba(255, 0, 0, 0.6);
-}
-
-.btn__delete__values.mustardSeed.theme__black {
-	background: rgba(93, 126, 40, 0.6) url(../img/lamp.png) no-repeat center center / contain;
-	box-shadow: 0px 0px 20px 5px rgba(255, 238, 0, 0.6);
-	border: none;
-}
-
-.btn__delete.theme__black {
-	box-shadow: 0px 0px 10px 6px rgba(100, 57, 139, 1);
- color: red;
+.app.black__purple .menu__item > a {
+ color: var(--all-text-color-black__purple);
+	box-shadow: var(--menu-item-boxshadow-black__purple);
 }

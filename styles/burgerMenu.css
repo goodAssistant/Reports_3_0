@@ -126,11 +126,11 @@
 
 .back_to_top {
  position: fixed;
- bottom: 4vh;
+ bottom: 1vh;
  right: 2vw;
  z-index: 9999;
- width: 20px;
- height: 20px;
+ width: 30px;
+ height: 30px;
  cursor: pointer;
  border-radius: 50px;
  display: none;

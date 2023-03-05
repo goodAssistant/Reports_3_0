@@ -46,6 +46,7 @@ function setInstructions() {
   })
  const goTopBtn = document.createElement('div')
  goTopBtn.className = 'back_to_top'
+ goTopBtn.innerHTML = '&#9757';
  instrWrapper.addEventListener("scroll", function() {
   if(instrWrapper.scrollTop >= 50) {
     monthHTML.container.append(goTopBtn)

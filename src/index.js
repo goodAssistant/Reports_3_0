@@ -7,17 +7,17 @@ const setToLocalStorage = (key, data) => {
 }
 
 let REPORTS = getFromLocalStorage('reports')
-
+if(!Object.keys(REPORTS).length) REPORTS.theme = 'black__purple'
 let currentYear = new Date().getFullYear()
 let currentMonth = new Date().getMonth()
 
 // currentYear = 2023
-// currentMonth = 5
+// currentMonth = 6
 
 const puncts = ['Число', 'Публ', 'Видео', 'ПП', 'Часы', 'Из', 'Очистить»']
 const months = ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь']
 
-function numDaysOfMonth(year, month) {
+function  numDaysOfMonth(year, month) {
 	return new Date(year, month + 1, 0).getDate()
 }
 
@@ -28,7 +28,7 @@ function range(count) {
 function chunk(arr, n) {
     let newArr = []
     while(arr.length) {
-        newArr.push(arr.splice(0, n))
+      newArr.push(arr.splice(0, n))
     }
     return newArr
 }
@@ -87,6 +87,8 @@ class MonthHTML {
       globalContainer.querySelector('.slider-track').append(renderTableHTML(matrixMonth, data, this.selector))
     }
 
+    this.body.className = `app ${this.data.theme}`
+
     if(Object.keys(this.data).length > 1) {
         setTimeout(() => {
         addNextPrevButtonToHTML(this.body.querySelector('.' + this.selector.split(' ')[1]))
@@ -98,10 +100,10 @@ class MonthHTML {
   addDataReports(year, month) {
     if(!Object.keys(this.data).some(el => el === `${year}/${month}`)) {
       this.data[`${year}/${month}`] = {
-          year: year,
-          monthName: months[month],
-          month: month,
-          values: {}
+        year: year,
+        monthName: months[month],
+        month: month,
+        values: {}
       }
       setToLocalStorage('reports', this.data)
     }
@@ -202,12 +204,12 @@ monthHTML.getReportsTitle()
 pullValuesToTable(currentYear, currentMonth)
 setCurrentScrollInsertValue(new Date().getDate())
 const tdsHTML = monthHTML.container.querySelectorAll('td')
-monthHTML.container.querySelector('.wrapper-table_title').classList.add('transitionFz')
-tdsHTML.forEach(elem => {
-  elem.classList.add('transitionFz')
-})
+//monthHTML.container.querySelector('.wrapper-table_title').classList.add('transitionFz')
+//tdsHTML.forEach(elem => {
+//  elem.classList.add('transitionFz')
+//})
 
-//getRandomColorRgba(monthHTML.title, alpha)
+getRandomColorRgba(monthHTML.title, alpha)
 
 function setCurrentScrollInsertValue(value) {
   const table = monthHTML.container.querySelector('table')
@@ -413,6 +415,7 @@ document.addEventListener('click', event => {
       setTimeout(() => {
           btnDeleteChangeBackground.setAttribute('data-action', 'delete')
       }, 0)
+      pullValuesToTable(currentYear, currentMonth)
     }
   }
 })

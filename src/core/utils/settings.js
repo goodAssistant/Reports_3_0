@@ -118,7 +118,7 @@ function deleteValuesIsLocalStorage(cellsDay, key, target) {
     monthHTML.slide.querySelector(`[data-date="${target.id}"]`).classList.remove('mustardSeed__icon1')
     monthHTML.slide.querySelector(`[data-date="${target.id}"]`).classList.remove('mustardSeed__icon2')
     pullValuesToTable(key.split('/')[0], key.split('/')[1])
-    cellsDay.forEach(elem => elem.style.fontSize = '16px')
+    //cellsDay.forEach(elem => elem.style.fontSize = '16px')
   }, 2100)
 }
 
@@ -132,10 +132,10 @@ function getAndDeleteSlide(module, body, data, {year, month, selector, relay}, c
   currentSlide.querySelector('.wrapper_buttons').style.opacity = 0
   currentDay.style.transition = 'all 1s ease-out 0s'
   currentDay.classList.remove('days_today')
-  currentSlide.querySelector('.wrapper-table_title').classList.remove('transitionFz')
-  currentSlide.querySelectorAll('td').forEach(elem => {
-    elem.classList.remove('transitionFz')
-  })
+  //currentSlide.querySelector('.wrapper-table_title').classList.remove('transitionFz')
+  //currentSlide.querySelectorAll('td').forEach(elem => {
+  //  elem.classList.remove('transitionFz')
+  //})
 
   setTimeout(() => {
     newSlide.render(year, month)
@@ -158,10 +158,10 @@ function getAndDeleteSlide(module, body, data, {year, month, selector, relay}, c
       getValuesForMonth(event)
       deleteValuesSpecificDay(event, document.querySelector('.container'), months)
     })
-    bodyTable.querySelectorAll('td').forEach(elem => {
-      elem.classList.add('transitionFz')
-    })
-    newSlide.slide.querySelector('.wrapper-table_title').classList.add('transitionFz')
+    //bodyTable.querySelectorAll('td').forEach(elem => {
+    //  elem.classList.add('transitionFz')
+    //})
+    //newSlide.slide.querySelector('.wrapper-table_title').classList.add('transitionFz')
     newSlide.slide.querySelector('.wrapper_buttons').classList.remove('hide')
   }, 3100)
 }
@@ -170,7 +170,7 @@ function getAndCheckCurrentYearAndMonth(data, year, month, functions, relay) {
   let rate
   if(!data[[`${functions.funcYear(year, month)}/${functions.funcMonth(month)}`]]) {
     if(relay === 'previous') rate = Object.keys(data).length - 1
-    else rate = 0
+    else rate = 1
     return {
       currentYear: Object.keys(data)[rate].split('/')[0],
       currentMonth: Object.keys(data)[rate].split('/')[1]
@@ -384,6 +384,8 @@ function getChangeThemes(event) {
   const { target } = event 
   if(target.dataset.theme) {
     monthHTML.getAndDeleteOverlay()
+    REPORTS.theme = target.dataset.theme
+    setToLocalStorage('reports', REPORTS)
     setTimeout(() => {
       monthHTML.container.closest('.app').className = `app ${target.dataset.theme}`
     }, 800)

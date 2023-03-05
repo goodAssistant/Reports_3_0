@@ -1,159 +1,304 @@
-.header.theme__road {
- background: url(../img/road.jpg) no-repeat center center / cover;
+/* ------------------- theme__road ----------------*/
+
+/* +++++++++++++++++++++++++++++++++++++index++++++++++++++++++++++++++++++++++++++ */
+:root {
+ --page-background-color-road: url(https://bing.ioliu.cn/v1/rand?w=640&h=480) no-repeat center center / cover;
+
+ --title-color-road: rgba(144, 240, 229, 0.8);
+
+ --all-text-color-road: white;
+
+ --all-wrappers-background-color-road: linear-gradient(21deg, rgba(163, 162, 159, 0.8) 30%, rgba(110, 112, 143, 0.8) 71%);
+ --all-wrappers-menu-boxshadow-road: 0px 0px 2px 1px rgb(103, 156, 134), 0 0 10px 1px rgb(199, 232, 236)inset;
+
+ --td-th-color-road: white;
+ --td-th-background-road: transparent;
+ --td-th-box-shadow-road: 4px 4px 1px -1px rgba(0, 0, 0, 0.5), 0 0 8px 2px rgba(120, 124, 124, 0.767)inset;
+
+
+ --td-focus-outline-road: 2px solid rgb(77, 74, 73);
+ --td-after-focus-color-road: white;
+
+ --after-td-text-color-road: white;
+
+ --days-today-background-road: var(--color-JW-label);
+ --days-today-color-road: #fff;
+ 
+ --delete_btn-background-color-icon1-road: rgba(93, 126, 40, 0.6);
+ --delete_btn-boxshadow-icon1-road: 0px 0px 20px 5px rgba(255, 238, 0, 0.6);
+
+ --delete_btn-background-color-icon2-road: rgb(183 183 70 / 70%);
+ --delete_btn-boxshadow-icon2-road: 0px 0px 10px rgb(251 141 7 / 80%), 0px 0px 10px 5px rgb(251 181 7 / 80%)inset;
+
+ --after-delete-btn-color-road: #6d3120;
+ --after-wrappers-btn-switch-color-hover-road: #ffffffad;
+ --wrappers-btn-switch-background-color-road: rgba(255, 255, 255, 0.4);
+ --triangle-color-road: #626464;
+
+ --burger-menu-color-road: linear-gradient(21deg, #55e9d5 30%, #2432c4 71%);
+
+ --release-color-road: rgb(5, 40, 70);
+
+ --back-to-top-background-color-road: rgb(172, 105, 18);
+ --back-to-top-background-color-hover-road: var(--release-color);
+
+ --modal-btn-boxshadow-hover-road: 3px 3px 10px 2px #0a0907, 0px 0px 10px 3px #ffffff9c inset;
+ --modal-btn-boxshadow-active-road: 0px 0px 10px 3px #595448 inset;
+
+ --overlay-background-color-road: rgba(255, 255, 255, 0.164);
+
+ --menu-item-boxshadow-road: 5px 6px 10px 0px rgb(0, 0, 0, 0.7);
+
+ --mustardseed-counter-text-color-road: var(--after-td-text-color-road);
 }
 
-.menu__burger__header.theme__road span, .menu__burger__header.theme__road:after, .menu__burger__header.theme__road:before {
- background: linear-gradient(42deg, rgba(41, 43, 66, 0.8) -10%, rgba(141, 131, 109, 0.8) 59%);
+.app.road {
+ background: var(--page-background-color-road);
 }
 
-.menu__burger__header.open_menu.theme__road:before, .menu__burger__header.open_menu.theme__road:after {
- background: linear-gradient(21deg, #8d836d 30%, #292b42 71%);
+.app.road .wrapper-table_title {
+ color: var(--title-color-road);
+ font-family: 'Natasha';
 }
 
-.mouse__over.theme__road {
- color: rgb(255, 140, 0);
- font-weight: bold;
+.app.road td {
+ color: var(--td-th-color-road);
+ background: var(--td-th-background-road);
+ box-shadow: var(--td-th-box-shadow-road);
+ border-radius: 0px;
 }
 
-.nav.open_menu.theme__road, .themes__wrapper.theme__road  {
- background: linear-gradient(21deg, rgba(141, 131, 109, 0.6) 30%, rgba(41, 43, 66, 0.6) 71%);
-}
-.tables__wrapper.open_menu.theme__road, .tables__total.open_menu.theme__road {
-	background: linear-gradient(21deg, rgba(141, 131, 109, 0.6) 30%, rgba(41, 43, 66, 0.6) 71%);
-}
-
-.menu__link.theme__road {
-	color: #ffb500;
+.app.road th {
+ color: var(--td-th-color-road);
+ background: var(--td-th-background-road);
+ box-shadow: var(--td-th-box-shadow-road);
+ border-radius: 0px;
 }
 
-.menu__link.theme__road a {
-	color: #ffb500;
+.app.road td:focus {
+ outline: var(--td-focus-outline-road);
+ color: var(--td-after-focus-color-road);
 }
 
-.themes__title.theme__road {
-	color: rgb(255 180 0 / 60%);
-}
-
-/* .form_month.theme__road {
- background: linear-gradient(42deg, rgba(41, 43, 66, 0.8) -10%, rgba(141, 131, 109, 0.8) 59%);
-}
-
-.form_result.theme__road {
- background: linear-gradient(42deg, rgba(41, 43, 66, 0.8) -10%, rgba(141, 131, 109, 0.8) 59%);
-} */
-
-.form__wrapper.theme__road {
- box-shadow: 8px 8px 10px 0px rgba(0, 0, 0, 0.8);
- background: transparent;
-}
-
-.form__title.theme__road {
- color: #6d3120;
-}
-
-.inputs.theme__road {
- background-color: transparent;
- box-shadow: 4px 4px 10px 0px rgba(213, 146, 124, 1);
-	color: #ffffff;
-}
-
-.inputs.theme__road:focus {
- box-shadow: 4px 4px 4px 0px rgb(231, 217, 212), 0px 0px 4px 2px rgb(231, 217, 212)inset;
-	border: none;
-}
-
-.inputs.theme__road::-webkit-input-placeholder { 
- color: #fff; text-overflow: ellipsis; 
+.app.road .publ:after {
+ color: var(--after-td-text-color-road);
  font-family: 'Arturo Black outline';
 }
 
-.inputs.theme__road:-moz-placeholder { 
- color: #fff !important; text-overflow: ellipsis; 
+.app.road .video:after {
+ color: var(--after-td-text-color-road);
  font-family: 'Arturo Black outline';
 }
 
-.inputs.theme__road::-moz-placeholder { 
- color: #fff !important; text-overflow: ellipsis; 
+.app.road .pp:after {
+ color: var(--after-td-text-color-road);
  font-family: 'Arturo Black outline';
 }
 
-.inputs.theme__road:-ms-input-placeholder { 
- color: #fff !important; text-overflow: ellipsis; 
+.app.road .hours:after {
+ color: var(--after-td-text-color-road);
  font-family: 'Arturo Black outline';
 }
 
-.btns_add.theme__road {
- box-shadow: 4px 4px 10px 0px rgba(190, 167, 194, 0.8);
-	border: solid rgb(251, 141, 7);
-	color: #fff;
- background-color: transparent;
-}
-
-.month__name.theme__road {
+.app.road .iz:after {
+ color: var(--after-td-text-color-road);
  font-family: 'Arturo Black outline';
-	color: #fff;
 }
 
-.modal__text__wrapp > .month__name.theme__road {
-	color: #6d3120;
-	font-family: 'Natasha';
+.app.road .days.days_today {
+ background: var(--days-today-background-road) ;
+ color: var(--days-today-color-road);
+ font-family: 'Natasha';
 }
 
-.total__modal.theme__road {
-	color: #6d3120;
+.app.road .btn_delete_values {
+ background: var(--td-th-background-road) url(../../assets/images/emptyGarbage.png) no-repeat center center / contain;
+ box-shadow: var(--td-th-box-shadow-road);
 }
 
-.hours__pioneer.theme__road {
-	color: #2bff00;
-	box-shadow: 0px 0px 10px 2px rgb(255 229 0 / 80%), 0px 0px 90px 0px rgb(180 107 51 / 80%) inset;
-	padding: 5px;
-	font-weight: bold;
+.app.road .btn_delete_values.active {
+ background: var(--td-th-background-road) url(../../assets/images/smile_ok.png)no-repeat center center / contain;
 }
 
-td.theme__road, th.theme__road {
- box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.9);
-	color: #ffffff;
-	background-color: rgb(225 225 196 / 20%);
+.app.road .btn_delete_values.mustardSeed__icon1 {
+	background: var(--delete_btn-background-color-icon1-road)  url(../../assets/images/lamp.png)no-repeat center center / contain;
+	box-shadow: var(--delete_btn-boxshadow-icon1-road);
 }
 
-td.theme__road {
-	font-weight: bold;
+.app.road .btn_delete_values.mustardSeed__icon1.active {
+ background: var(--td-th-background-road) url(../../assets/images/smile_ok.png)no-repeat center center / contain;
+ box-shadow: var(--td-th-box-shadow-road);
 }
 
-th.theme__road {
-	font-family: 'Arturo Black outline';
+.app.road .btn_delete_values.mustardSeed__icon2 {
+	background: var(--delete_btn-background-color-icon2-road) url(../../assets/images/лампо_ка.png)no-repeat center center / contain;
+ box-shadow: var(--delete_btn-boxshadow-icon2-road);
 }
 
-td.theme__road:focus {
- outline: 2px solid rgb(244, 197, 175);
+.app.road .btn_delete_values.mustardSeed__icon2.active {
+ background: var(--td-th-background-road) url(../../assets/images/smile_ok.png)no-repeat center center / contain;
+ box-shadow: var(--td-th-box-shadow-road);
 }
 
-.btn__delete__values.theme__road {
- padding: 0;
- border: 1px solid rgba(89, 19, 100, 0.6);
-	background: rgba(223, 223, 200, 0.7) url(../img/emptyGarbage.png) no-repeat center center / contain;
-	box-shadow: 0px 0px 10px 3px rgba(27, 23, 28, 0.9);
+.app.road .btn_delete_values::after {
+ background: var(--after-delete-btn-color-road);
 }
 
-.btn__delete__values.garbage.theme__road {
-	background: transparent url(../img/fullGarbage.png) no-repeat center center / contain;
-	box-shadow: 0px 0px 10px 4px rgba(251, 141, 7, 0.8);
-	border: none;
+.app.road .wrapper_previous {
+ background: var(--wrappers-btn-switch-background-color-road);
 }
 
-.btn__delete__values.mustardSeed.theme__road {
-	background: rgba(93, 126, 40, 0.6) url(../img/lamp.png) no-repeat center center / contain;
-	box-shadow: 0px 0px 20px 5px rgba(255, 238, 0, 0.6);
-	border: none;
+.app.road .wrapper_next {
+ background: var(--wrappers-btn-switch-background-color-road);
 }
 
-.btn__delete.theme__road {
- background-color: rgba(223, 223, 200, 0.2);
-	color: #ffffff;
-	border: 2px solid #6d3120;
- box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.9);
+.app.road .wrapper_previous:hover:after {
+ background: var(--after-wrappers-btn-switch-color-hover-road);
+ width: 100%;
 }
 
-.btn__delete.theme__road:hover {
-	border: 2px solid #ff3700;
+.app.road .wrapper_next:hover:after {
+ background: var(--after-wrappers-btn-switch-color-hover-road);
+ width: 100%;
+}
+
+.app.road .button_previous {
+ border-right: 30px solid var(--triangle-color-road);
+}
+
+.app.road .button_next {
+ border-left: 30px solid var(--triangle-color-road);
+}
+
+.app.road .mustardSeed__counter1 {
+	color: var(--mustardseed-counter-text-color-road);
+}
+
+.app.road .mustardSeed__counter2 {
+	color: var(--mustardseed-counter-text-color-road);
+}
+
+/* +++++++++++++++++++++++++++++++++++++menu burger++++++++++++++++++++++++++++++++++++++ */
+
+.app.road .menu__burger__header > span {
+ background: var(--burger-menu-color-road);
+}
+
+.app.road .menu__burger__header:after {
+ background: var(--burger-menu-color-road);
+}
+
+.app.road .menu__burger__header:before {
+ background: var(--burger-menu-color-road);
+}
+
+.app.road .mouse__over {
+ color: rgb(60, 222, 228);
+ font-family: 'Natasha';
+}
+
+.app.road .nav {
+ box-shadow: var(--all-wrappers-menu-boxshadow-road);
+ background: var(--all-wrappers-background-color-road);
+}
+
+.app.road .nav > a {
+ font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+ color: var(--all-text-color-road);
+}
+
+.app.road .menu__item:after {
+ background: var(--all-text-color-road);
+}
+
+.app.road .release {
+ color: var(--release-color-road);
+}
+
+.app.road .back_to_top {
+ background: var(--back-to-top-background-color-road);
+}
+
+.app.road .back_to_top:hover {
+ background: var(--back-to-top-background-color-hover-road);
+}
+
+/* +++++++++++++++++++++++++++++++++++++instructions++++++++++++++++++++++++++++++++++++++ */
+
+.app.road .instr__wrapper {
+ font-family: 'Choco cooky';
+ background: var(--all-wrappers-background-color-road);
+ box-shadow: var(--all-wrappers-menu-boxshadow-road);
+ color: var(--all-text-color-road);
+}
+
+.app.road .instr__wrapper::after {
+ background: var(--release-color-road);
+ box-shadow: var(--all-wrappers-menu-boxshadow-road);
+}
+
+/* +++++++++++++++++++++++++++++++++++++modal window++++++++++++++++++++++++++++++++++++++ */
+
+.app.road .modal__window {
+ background: var(--all-wrappers-background-color-road);
+ box-shadow: var(--all-wrappers-menu-boxshadow-road);
+}
+
+.app.road .modal__text {
+color: var(--all-text-color-road);
+}
+
+.app.road .modal__window:after {
+ background: var(--release-color-road);
+ box-shadow: var(--all-wrappers-menu-boxshadow-road);
+}
+
+.app.road .modal__data {
+ color:  var(--release-color-road);
+}
+
+.app.road .modal__btn {
+ box-shadow: var(--all-wrappers-menu-boxshadow-road);
+}
+
+.app.road .modal__btn:hover {
+ box-shadow: var(--modal-btn-boxshadow-hover-road);
+}
+
+.app.road .modal__btn:active {
+ box-shadow: var(--modal-btn-boxshadow-active-road);
+}
+
+.app.road .overlay {
+ background: var(--overlay-background-color-road);
+}
+
+/* +++++++++++++++++++++++++++++++++++++tables menu wrapper+++++++++++++++++++++++++++++++++++ */
+
+.app.road .tables__menu__wrapper.open {
+ box-shadow: var(--all-wrappers-menu-boxshadow-road);
+	background: var(--all-wrappers-background-color-road);
+}
+
+.app.road .tables__total.open {
+ box-shadow: var(--all-wrappers-menu-boxshadow-road);
+	background: var(--all-wrappers-background-color-road);
+}
+
+/* +++++++++++++++++++++++++++++++++++++Themes Wrapper+++++++++++++++++++++++++++++++++++ */
+
+.app.road .themes__wrapper {
+ color: var(--all-text-color-road);
+ box-shadow: var(--all-wrappers-menu-boxshadow-road);
+ background: var(--all-wrappers-background-color-road);
+}
+
+.app.road .themes__title {
+ font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+ color: var(--all-text-color-road);
+}
+
+.app.road .menu__item > a {
+ color: var(--all-text-color-road);
+	box-shadow: var(--menu-item-boxshadow-road);
 }

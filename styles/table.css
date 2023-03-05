@@ -27,10 +27,11 @@
 }
 
 .wrapper-table_title {
+ font-family: 'Arturo Black outline';
  text-align: center;
  margin-bottom: 30px;
  line-height: 35px;
- font-size: 0;
+ font-size: 1.5em;
  transition: font-size 2s ease-out 0.5s;
 }
 
@@ -72,7 +73,7 @@ td, th {
 
 td {
  position: relative;
- font-size: 0;
+ font-size: 16px;
  transition: font-size 2s ease-out;
 }
 
@@ -86,6 +87,10 @@ td:focus {
  outline-offset: -4px ;
 }
 
+td.total__modal {
+ width: 130px;
+}
+
 .cell {
  padding: 4px 2px 16px;
 }
@@ -93,13 +98,14 @@ td:focus {
 .sum{
  padding: 10px 2px;
  font-size: 18px;
+ min-width: 90px;
 }
 
 .publ:after, .video:after, .pp:after, .hours:after, .iz:after {
  position: absolute;
  bottom: 2%;
  right: 7%;
- font-size: 0px;
+ font-size: 9px;
  transition: font-size 1s ease-out 0.5s;
  letter-spacing: 1.5px;
 }
@@ -129,7 +135,7 @@ td:focus {
 }
 
 .days {
- transition: all 1s ease-out 1.5s;
+ transition: background 1s ease-out 1.5s;
 }
 
 .btn_delete_values {
@@ -309,5 +315,5 @@ td:focus {
 }
 
 .mustardSeed__counter1, .mustardSeed__counter2 {
-	color: #fff;
+ font-family: 'Arturo Black outline';
 }

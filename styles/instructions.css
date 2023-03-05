@@ -1,6 +1,6 @@
 .instr__wrapper {
  position: absolute;
- top: 45px;
+ top: 7vh;
  left: -300%;
  width: 90%;
  z-index: 2000;
@@ -9,17 +9,28 @@
  transition: left 1.5s ease-out, transform 1.5s ease-out;
 }
 
+.instr__wrapper::after {
+ position: absolute;
+ content: '';
+ top: 23px;
+ left: 5%;
+ height: 3px;
+ width: 90%;
+ border-radius: 10px;
+}
+
 .instr__wrapper.active {
  left: 50%;
  transform: translate(-50%);
  height: fit-content;
  scroll-behavior: smooth;
+ overflow-y: auto;
 }
 
 .delete__instr {
  position: absolute;
- top: 10px;
- left: 3%;
+ top: 1.2%;
+ right: 2%;
  z-index: 3000;
  width: 15px;
  height: 15px;

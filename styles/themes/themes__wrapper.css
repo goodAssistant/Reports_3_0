@@ -3,9 +3,8 @@
 
 .themes__wrapper {
  position: absolute;
-	max-width: fit-content;
+	max-width: 170px;
 	width: 100%;
- top: 86px;
  left: -5000%;
  padding: 10px 15px;
  border-radius: 25px;
@@ -20,7 +19,9 @@
 }
 
 .themes__wrapper.open {
-	left:78.6vw;
+	left: 95%;
+ top: 95%;
+ transform: translate(-100%, -100%);
  opacity: 1;
  animation: myAnim 1s ease 1.2s 1 normal forwards;
 }
@@ -36,16 +37,22 @@
 	padding: 2px 5px;
 	border-radius: 5px;
  text-decoration: none;
+ font-weight: bold;
 }
 
 @keyframes myAnim {
 	0% {
-  left: 78.6vw;
-		top: 86px;
+  left: 95%;
+		top: 95%;
+  transform: translate(-100%, -100%);
+
+
 	}
 
 	100% {
-  left: 4%;
-		top: 45px;
+  left: 5%;
+		top: 5%;
+  transform: translateX(0);
+
 	}
 }
