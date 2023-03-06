@@ -45,7 +45,6 @@ class Menu {
         </div>
       </div>
     `
-
     this.container.append(this.wrapperBurger)
   }
 
@@ -55,7 +54,7 @@ class Menu {
       milk: 'Milk',
       street__ball: 'Street basketball',
       on__style: 'On style',
-      road: 'Road'
+      random__image: 'Random image'
     }
     this.themesWrapper.innerHTML = `
       <h4 class="themes__title">Выбери тему:</h4>

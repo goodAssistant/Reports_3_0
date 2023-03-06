@@ -1,304 +1,304 @@
-/* ------------------- theme__road ----------------*/
+/* ------------------- theme__random__image ----------------*/
 
 /* +++++++++++++++++++++++++++++++++++++index++++++++++++++++++++++++++++++++++++++ */
 :root {
- --page-background-color-road: url(https://bing.ioliu.cn/v1/rand?w=640&h=480) no-repeat center center / cover;
+ --page-background-color-random__image: url(https://bing.ioliu.cn/v1/rand?w=640&h=480) no-repeat center center / cover;
 
- --title-color-road: rgba(144, 240, 229, 0.8);
+ --title-color-random__image: rgba(144, 240, 229, 0.8);
 
- --all-text-color-road: white;
+ --all-text-color-random__image: white;
 
- --all-wrappers-background-color-road: linear-gradient(21deg, rgba(163, 162, 159, 0.8) 30%, rgba(110, 112, 143, 0.8) 71%);
- --all-wrappers-menu-boxshadow-road: 0px 0px 2px 1px rgb(103, 156, 134), 0 0 10px 1px rgb(199, 232, 236)inset;
+ --all-wrappers-background-color-random__image: linear-gradient(21deg, rgba(163, 162, 159, 0.8) 30%, rgba(110, 112, 143, 0.8) 71%);
+ --all-wrappers-menu-boxshadow-random__image: 0px 0px 2px 1px rgb(103, 156, 134), 0 0 10px 1px rgb(199, 232, 236)inset;
 
- --td-th-color-road: white;
- --td-th-background-road: transparent;
- --td-th-box-shadow-road: 4px 4px 1px -1px rgba(0, 0, 0, 0.5), 0 0 8px 2px rgba(120, 124, 124, 0.767)inset;
+ --td-th-color-random__image: white;
+ --td-th-background-random__image: transparent;
+ --td-th-box-shadow-random__image: 4px 4px 1px -1px rgba(0, 0, 0, 0.5), 0 0 8px 2px rgba(120, 124, 124, 0.767)inset;
 
 
- --td-focus-outline-road: 2px solid rgb(77, 74, 73);
- --td-after-focus-color-road: white;
+ --td-focus-outline-random__image: 2px solid rgb(77, 74, 73);
+ --td-after-focus-color-random__image: white;
 
- --after-td-text-color-road: white;
+ --after-td-text-color-random__image: white;
 
- --days-today-background-road: var(--color-JW-label);
- --days-today-color-road: #fff;
+ --days-today-background-random__image: var(--color-JW-label);
+ --days-today-color-random__image: #fff;
  
- --delete_btn-background-color-icon1-road: rgba(93, 126, 40, 0.6);
- --delete_btn-boxshadow-icon1-road: 0px 0px 20px 5px rgba(255, 238, 0, 0.6);
+ --delete_btn-background-color-icon1-random__image: rgba(93, 126, 40, 0.6);
+ --delete_btn-boxshadow-icon1-random__image: 0px 0px 20px 5px rgba(255, 238, 0, 0.6);
 
- --delete_btn-background-color-icon2-road: rgb(183 183 70 / 70%);
- --delete_btn-boxshadow-icon2-road: 0px 0px 10px rgb(251 141 7 / 80%), 0px 0px 10px 5px rgb(251 181 7 / 80%)inset;
+ --delete_btn-background-color-icon2-random__image: rgb(183 183 70 / 70%);
+ --delete_btn-boxshadow-icon2-random__image: 0px 0px 10px rgb(251 141 7 / 80%), 0px 0px 10px 5px rgb(251 181 7 / 80%)inset;
 
- --after-delete-btn-color-road: #6d3120;
- --after-wrappers-btn-switch-color-hover-road: #ffffffad;
- --wrappers-btn-switch-background-color-road: rgba(255, 255, 255, 0.4);
- --triangle-color-road: #626464;
+ --after-delete-btn-color-random__image: #07f8f8;
+ --after-wrappers-btn-switch-color-hover-random__image: #ffffffad;
+ --wrappers-btn-switch-background-color-random__image: rgba(255, 255, 255, 0.4);
+ --triangle-color-random__image: #626464;
 
- --burger-menu-color-road: linear-gradient(21deg, #55e9d5 30%, #2432c4 71%);
+ --burger-menu-color-random__image: linear-gradient(21deg, #55e9d5 30%, #2432c4 71%);
 
- --release-color-road: rgb(5, 40, 70);
+ --release-color-random__image: rgb(5, 40, 70);
 
- --back-to-top-background-color-road: rgb(172, 105, 18);
- --back-to-top-background-color-hover-road: var(--release-color);
+ --back-to-top-background-color-random__image: rgb(172, 105, 18);
+ --back-to-top-background-color-hover-random__image: var(--release-color);
 
- --modal-btn-boxshadow-hover-road: 3px 3px 10px 2px #0a0907, 0px 0px 10px 3px #ffffff9c inset;
- --modal-btn-boxshadow-active-road: 0px 0px 10px 3px #595448 inset;
+ --modal-btn-boxshadow-hover-random__image: 3px 3px 10px 2px #0a0907, 0px 0px 10px 3px #ffffff9c inset;
+ --modal-btn-boxshadow-active-random__image: 0px 0px 10px 3px #595448 inset;
 
- --overlay-background-color-road: rgba(255, 255, 255, 0.164);
+ --overlay-background-color-random__image: rgba(255, 255, 255, 0.164);
 
- --menu-item-boxshadow-road: 5px 6px 10px 0px rgb(0, 0, 0, 0.7);
+ --menu-item-boxshadow-random__image: 5px 6px 10px 0px rgb(0, 0, 0, 0.7);
 
- --mustardseed-counter-text-color-road: var(--after-td-text-color-road);
+ --mustardseed-counter-text-color-random__image: var(--after-td-text-color-random__image);
 }
 
-.app.road {
- background: var(--page-background-color-road);
+.app.random__image {
+ background: var(--page-background-color-random__image);
 }
 
-.app.road .wrapper-table_title {
- color: var(--title-color-road);
+.app.random__image .wrapper-table_title {
+ color: var(--title-color-random__image);
  font-family: 'Natasha';
 }
 
-.app.road td {
- color: var(--td-th-color-road);
- background: var(--td-th-background-road);
- box-shadow: var(--td-th-box-shadow-road);
+.app.random__image td {
+ color: var(--td-th-color-random__image);
+ background: var(--td-th-background-random__image);
+ box-shadow: var(--td-th-box-shadow-random__image);
  border-radius: 0px;
 }
 
-.app.road th {
- color: var(--td-th-color-road);
- background: var(--td-th-background-road);
- box-shadow: var(--td-th-box-shadow-road);
+.app.random__image th {
+ color: var(--td-th-color-random__image);
+ background: var(--td-th-background-random__image);
+ box-shadow: var(--td-th-box-shadow-random__image);
  border-radius: 0px;
 }
 
-.app.road td:focus {
- outline: var(--td-focus-outline-road);
- color: var(--td-after-focus-color-road);
+.app.random__image td:focus {
+ outline: var(--td-focus-outline-random__image);
+ color: var(--td-after-focus-color-random__image);
 }
 
-.app.road .publ:after {
- color: var(--after-td-text-color-road);
+.app.random__image .publ:after {
+ color: var(--after-td-text-color-random__image);
  font-family: 'Arturo Black outline';
 }
 
-.app.road .video:after {
- color: var(--after-td-text-color-road);
+.app.random__image .video:after {
+ color: var(--after-td-text-color-random__image);
  font-family: 'Arturo Black outline';
 }
 
-.app.road .pp:after {
- color: var(--after-td-text-color-road);
+.app.random__image .pp:after {
+ color: var(--after-td-text-color-random__image);
  font-family: 'Arturo Black outline';
 }
 
-.app.road .hours:after {
- color: var(--after-td-text-color-road);
+.app.random__image .hours:after {
+ color: var(--after-td-text-color-random__image);
  font-family: 'Arturo Black outline';
 }
 
-.app.road .iz:after {
- color: var(--after-td-text-color-road);
+.app.random__image .iz:after {
+ color: var(--after-td-text-color-random__image);
  font-family: 'Arturo Black outline';
 }
 
-.app.road .days.days_today {
- background: var(--days-today-background-road) ;
- color: var(--days-today-color-road);
+.app.random__image .days.days_today {
+ background: var(--days-today-background-random__image) ;
+ color: var(--days-today-color-random__image);
  font-family: 'Natasha';
 }
 
-.app.road .btn_delete_values {
- background: var(--td-th-background-road) url(../../assets/images/emptyGarbage.png) no-repeat center center / contain;
- box-shadow: var(--td-th-box-shadow-road);
+.app.random__image .btn_delete_values {
+ background: var(--td-th-background-random__image) url(../../assets/images/empty.png) no-repeat center center / contain;
+ box-shadow: var(--td-th-box-shadow-random__image);
 }
 
-.app.road .btn_delete_values.active {
- background: var(--td-th-background-road) url(../../assets/images/smile_ok.png)no-repeat center center / contain;
+.app.random__image .btn_delete_values.active {
+ background: var(--td-th-background-random__image) url(../../assets/images/smile_ok.png)no-repeat center center / contain;
 }
 
-.app.road .btn_delete_values.mustardSeed__icon1 {
-	background: var(--delete_btn-background-color-icon1-road)  url(../../assets/images/lamp.png)no-repeat center center / contain;
-	box-shadow: var(--delete_btn-boxshadow-icon1-road);
+.app.random__image .btn_delete_values.mustardSeed__icon1 {
+	background: var(--delete_btn-background-color-icon1-random__image)  url(../../assets/images/lamp.png)no-repeat center center / contain;
+	box-shadow: var(--delete_btn-boxshadow-icon1-random__image);
 }
 
-.app.road .btn_delete_values.mustardSeed__icon1.active {
- background: var(--td-th-background-road) url(../../assets/images/smile_ok.png)no-repeat center center / contain;
- box-shadow: var(--td-th-box-shadow-road);
+.app.random__image .btn_delete_values.mustardSeed__icon1.active {
+ background: var(--td-th-background-random__image) url(../../assets/images/smile_ok.png)no-repeat center center / contain;
+ box-shadow: var(--td-th-box-shadow-random__image);
 }
 
-.app.road .btn_delete_values.mustardSeed__icon2 {
-	background: var(--delete_btn-background-color-icon2-road) url(../../assets/images/лампо_ка.png)no-repeat center center / contain;
- box-shadow: var(--delete_btn-boxshadow-icon2-road);
+.app.random__image .btn_delete_values.mustardSeed__icon2 {
+	background: var(--delete_btn-background-color-icon2-random__image) url(../../assets/images/лампо_ка.png)no-repeat center center / contain;
+ box-shadow: var(--delete_btn-boxshadow-icon2-random__image);
 }
 
-.app.road .btn_delete_values.mustardSeed__icon2.active {
- background: var(--td-th-background-road) url(../../assets/images/smile_ok.png)no-repeat center center / contain;
- box-shadow: var(--td-th-box-shadow-road);
+.app.random__image .btn_delete_values.mustardSeed__icon2.active {
+ background: var(--td-th-background-random__image) url(../../assets/images/smile_ok.png)no-repeat center center / contain;
+ box-shadow: var(--td-th-box-shadow-random__image);
 }
 
-.app.road .btn_delete_values::after {
- background: var(--after-delete-btn-color-road);
+.app.random__image .btn_delete_values::after {
+ background: var(--after-delete-btn-color-random__image);
 }
 
-.app.road .wrapper_previous {
- background: var(--wrappers-btn-switch-background-color-road);
+.app.random__image .wrapper_previous {
+ background: var(--wrappers-btn-switch-background-color-random__image);
 }
 
-.app.road .wrapper_next {
- background: var(--wrappers-btn-switch-background-color-road);
+.app.random__image .wrapper_next {
+ background: var(--wrappers-btn-switch-background-color-random__image);
 }
 
-.app.road .wrapper_previous:hover:after {
- background: var(--after-wrappers-btn-switch-color-hover-road);
+.app.random__image .wrapper_previous:hover:after {
+ background: var(--after-wrappers-btn-switch-color-hover-random__image);
  width: 100%;
 }
 
-.app.road .wrapper_next:hover:after {
- background: var(--after-wrappers-btn-switch-color-hover-road);
+.app.random__image .wrapper_next:hover:after {
+ background: var(--after-wrappers-btn-switch-color-hover-random__image);
  width: 100%;
 }
 
-.app.road .button_previous {
- border-right: 30px solid var(--triangle-color-road);
+.app.random__image .button_previous {
+ border-right: 30px solid var(--triangle-color-random__image);
 }
 
-.app.road .button_next {
- border-left: 30px solid var(--triangle-color-road);
+.app.random__image .button_next {
+ border-left: 30px solid var(--triangle-color-random__image);
 }
 
-.app.road .mustardSeed__counter1 {
-	color: var(--mustardseed-counter-text-color-road);
+.app.random__image .mustardSeed__counter1 {
+	color: var(--mustardseed-counter-text-color-random__image);
 }
 
-.app.road .mustardSeed__counter2 {
-	color: var(--mustardseed-counter-text-color-road);
+.app.random__image .mustardSeed__counter2 {
+	color: var(--mustardseed-counter-text-color-random__image);
 }
 
 /* +++++++++++++++++++++++++++++++++++++menu burger++++++++++++++++++++++++++++++++++++++ */
 
-.app.road .menu__burger__header > span {
- background: var(--burger-menu-color-road);
+.app.random__image .menu__burger__header > span {
+ background: var(--burger-menu-color-random__image);
 }
 
-.app.road .menu__burger__header:after {
- background: var(--burger-menu-color-road);
+.app.random__image .menu__burger__header:after {
+ background: var(--burger-menu-color-random__image);
 }
 
-.app.road .menu__burger__header:before {
- background: var(--burger-menu-color-road);
+.app.random__image .menu__burger__header:before {
+ background: var(--burger-menu-color-random__image);
 }
 
-.app.road .mouse__over {
+.app.random__image .mouse__over {
  color: rgb(60, 222, 228);
  font-family: 'Natasha';
 }
 
-.app.road .nav {
- box-shadow: var(--all-wrappers-menu-boxshadow-road);
- background: var(--all-wrappers-background-color-road);
+.app.random__image .nav {
+ box-shadow: var(--all-wrappers-menu-boxshadow-random__image);
+ background: var(--all-wrappers-background-color-random__image);
 }
 
-.app.road .nav > a {
+.app.random__image .nav > a {
  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
- color: var(--all-text-color-road);
+ color: var(--all-text-color-random__image);
 }
 
-.app.road .menu__item:after {
- background: var(--all-text-color-road);
+.app.random__image .menu__item:after {
+ background: var(--all-text-color-random__image);
 }
 
-.app.road .release {
- color: var(--release-color-road);
+.app.random__image .release {
+ color: var(--release-color-random__image);
 }
 
-.app.road .back_to_top {
- background: var(--back-to-top-background-color-road);
+.app.random__image .back_to_top {
+ background: var(--back-to-top-background-color-random__image);
 }
 
-.app.road .back_to_top:hover {
- background: var(--back-to-top-background-color-hover-road);
+.app.random__image .back_to_top:hover {
+ background: var(--back-to-top-background-color-hover-random__image);
 }
 
 /* +++++++++++++++++++++++++++++++++++++instructions++++++++++++++++++++++++++++++++++++++ */
 
-.app.road .instr__wrapper {
+.app.random__image .instr__wrapper {
  font-family: 'Choco cooky';
- background: var(--all-wrappers-background-color-road);
- box-shadow: var(--all-wrappers-menu-boxshadow-road);
- color: var(--all-text-color-road);
+ background: var(--all-wrappers-background-color-random__image);
+ box-shadow: var(--all-wrappers-menu-boxshadow-random__image);
+ color: var(--all-text-color-random__image);
 }
 
-.app.road .instr__wrapper::after {
- background: var(--release-color-road);
- box-shadow: var(--all-wrappers-menu-boxshadow-road);
+.app.random__image .instr__wrapper::after {
+ background: var(--release-color-random__image);
+ box-shadow: var(--all-wrappers-menu-boxshadow-random__image);
 }
 
 /* +++++++++++++++++++++++++++++++++++++modal window++++++++++++++++++++++++++++++++++++++ */
 
-.app.road .modal__window {
- background: var(--all-wrappers-background-color-road);
- box-shadow: var(--all-wrappers-menu-boxshadow-road);
+.app.random__image .modal__window {
+ background: var(--all-wrappers-background-color-random__image);
+ box-shadow: var(--all-wrappers-menu-boxshadow-random__image);
 }
 
-.app.road .modal__text {
-color: var(--all-text-color-road);
+.app.random__image .modal__text {
+color: var(--all-text-color-random__image);
 }
 
-.app.road .modal__window:after {
- background: var(--release-color-road);
- box-shadow: var(--all-wrappers-menu-boxshadow-road);
+.app.random__image .modal__window:after {
+ background: var(--release-color-random__image);
+ box-shadow: var(--all-wrappers-menu-boxshadow-random__image);
 }
 
-.app.road .modal__data {
- color:  var(--release-color-road);
+.app.random__image .modal__data {
+ color:  var(--release-color-random__image);
 }
 
-.app.road .modal__btn {
- box-shadow: var(--all-wrappers-menu-boxshadow-road);
+.app.random__image .modal__btn {
+ box-shadow: var(--all-wrappers-menu-boxshadow-random__image);
 }
 
-.app.road .modal__btn:hover {
- box-shadow: var(--modal-btn-boxshadow-hover-road);
+.app.random__image .modal__btn:hover {
+ box-shadow: var(--modal-btn-boxshadow-hover-random__image);
 }
 
-.app.road .modal__btn:active {
- box-shadow: var(--modal-btn-boxshadow-active-road);
+.app.random__image .modal__btn:active {
+ box-shadow: var(--modal-btn-boxshadow-active-random__image);
 }
 
-.app.road .overlay {
- background: var(--overlay-background-color-road);
+.app.random__image .overlay {
+ background: var(--overlay-background-color-random__image);
 }
 
 /* +++++++++++++++++++++++++++++++++++++tables menu wrapper+++++++++++++++++++++++++++++++++++ */
 
-.app.road .tables__menu__wrapper.open {
- box-shadow: var(--all-wrappers-menu-boxshadow-road);
-	background: var(--all-wrappers-background-color-road);
+.app.random__image .tables__menu__wrapper.open {
+ box-shadow: var(--all-wrappers-menu-boxshadow-random__image);
+	background: var(--all-wrappers-background-color-random__image);
 }
 
-.app.road .tables__total.open {
- box-shadow: var(--all-wrappers-menu-boxshadow-road);
-	background: var(--all-wrappers-background-color-road);
+.app.random__image .tables__total.open {
+ box-shadow: var(--all-wrappers-menu-boxshadow-random__image);
+	background: var(--all-wrappers-background-color-random__image);
 }
 
 /* +++++++++++++++++++++++++++++++++++++Themes Wrapper+++++++++++++++++++++++++++++++++++ */
 
-.app.road .themes__wrapper {
- color: var(--all-text-color-road);
- box-shadow: var(--all-wrappers-menu-boxshadow-road);
- background: var(--all-wrappers-background-color-road);
+.app.random__image .themes__wrapper {
+ color: var(--all-text-color-random__image);
+ box-shadow: var(--all-wrappers-menu-boxshadow-random__image);
+ background: var(--all-wrappers-background-color-random__image);
 }
 
-.app.road .themes__title {
+.app.random__image .themes__title {
  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
- color: var(--all-text-color-road);
+ color: var(--all-text-color-random__image);
 }
 
-.app.road .menu__item > a {
- color: var(--all-text-color-road);
-	box-shadow: var(--menu-item-boxshadow-road);
+.app.random__image .menu__item > a {
+ color: var(--all-text-color-random__image);
+	box-shadow: var(--menu-item-boxshadow-random__image);
 }
