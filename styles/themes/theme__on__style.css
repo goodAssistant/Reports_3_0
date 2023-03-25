@@ -2,303 +2,328 @@
 
 /* +++++++++++++++++++++++++++++++++++++index++++++++++++++++++++++++++++++++++++++ */
 :root {
- --page-background-color-on__style: url(../../assets/images/kub-geometriya-annotaciya.jpg) no-repeat center center / cover;
+  --page-background-color-on__style: url(../../assets/images/kub-geometriya-annotaciya.jpg)
+    no-repeat center center / cover;
 
- --title-color-on__style: rgba(144, 240, 229, 0.8);
+  --title-color-on__style: rgba(144, 240, 229, 0.8);
 
- --all-text-color-on__style: white;
+  --all-text-color-on__style: white;
 
- --all-wrappers-background-color-on__style: linear-gradient(21deg, rgba(163, 162, 159, 0.8) 30%, rgba(110, 112, 143, 0.8) 71%);
- --all-wrappers-menu-boxshadow-on__style: 0px 0px 2px 1px rgb(103, 156, 134), 0 0 10px 1px rgb(199, 232, 236)inset;
+  --all-wrappers-background-color-on__style: linear-gradient(
+    21deg,
+    rgba(163, 162, 159, 0.8) 30%,
+    rgba(110, 112, 143, 0.8) 71%
+  );
+  --all-wrappers-menu-boxshadow-on__style: 0px 0px 2px 1px rgb(103, 156, 134),
+    0 0 10px 1px rgb(199, 232, 236) inset;
 
- --td-th-color-on__style: white;
- --td-th-background-on__style: transparent;
- --td-th-box-shadow-on__style: 4px 4px 1px -1px rgba(0, 0, 0, 0.5), 0 0 8px 2px rgba(120, 124, 124, 0.767)inset;
+  --td-th-color-on__style: white;
+  --td-th-background-on__style: transparent;
+  --td-th-box-shadow-on__style: 4px 4px 1px -1px rgba(0, 0, 0, 0.5),
+    0 0 8px 2px rgba(120, 124, 124, 0.767) inset;
 
+  --td-focus-outline-on__style: 2px solid rgb(77, 74, 73);
+  --td-after-focus-color-on__style: white;
 
- --td-focus-outline-on__style: 2px solid rgb(77, 74, 73);
- --td-after-focus-color-on__style: white;
+  --after-td-text-color-on__style: white;
 
- --after-td-text-color-on__style: white;
+  --days-today-background-on__style: var(--color-JW-label);
+  --days-today-color-on__style: #fff;
 
- --days-today-background-on__style: var(--color-JW-label);
- --days-today-color-on__style: #fff;
- 
- --delete_btn-background-color-icon1-on__style: rgba(93, 126, 40, 0.6);
- --delete_btn-boxshadow-icon1-on__style: 0px 0px 20px 5px rgba(255, 238, 0, 0.6);
+  --delete_btn-background-color-icon1-on__style: rgba(93, 126, 40, 0.6);
+  --delete_btn-boxshadow-icon1-on__style: 0px 0px 20px 5px
+    rgba(255, 238, 0, 0.6);
 
- --delete_btn-background-color-icon2-on__style: rgb(183 183 70 / 70%);
- --delete_btn-boxshadow-icon2-on__style: 0px 0px 10px rgb(251 141 7 / 80%), 0px 0px 10px 5px rgb(251 181 7 / 80%)inset;
+  --delete_btn-background-color-icon2-on__style: rgb(183 183 70 / 70%);
+  --delete_btn-boxshadow-icon2-on__style: 0px 0px 10px rgb(251 141 7 / 80%),
+    0px 0px 10px 5px rgb(251 181 7 / 80%) inset;
 
- --after-delete-btn-color-on__style: #00ffff;
- --after-wrappers-btn-switch-color-hover-on__style: #ffffffad;
- --wrappers-btn-switch-background-color-on__style: rgba(255, 255, 255, 0.4);
- --triangle-color-on__style: #626464;
+  --after-delete-btn-color-on__style: #00ffff;
+  --after-wrappers-btn-switch-color-hover-on__style: #ffffffad;
+  --wrappers-btn-switch-background-color-on__style: rgba(255, 255, 255, 0.4);
+  --triangle-color-on__style: #626464;
 
- --burger-menu-color-on__style: linear-gradient(21deg, #55e9d5 30%, #2432c4 71%);
+  --burger-menu-color-on__style: linear-gradient(
+    21deg,
+    #55e9d5 30%,
+    #2432c4 71%
+  );
 
- --release-color-on__style: rgb(5, 40, 70);
+  --release-color-on__style: rgb(5, 40, 70);
 
- --back-to-top-background-color-on__style: rgb(172, 105, 18);
- --back-to-top-background-color-hover-on__style: var(--release-color);
+  --back-to-top-background-color-on__style: rgb(172, 105, 18);
+  --back-to-top-background-color-hover-on__style: var(--release-color);
 
- --modal-btn-boxshadow-hover-on__style: 3px 3px 10px 2px #0a0907, 0px 0px 10px 3px #ffffff9c inset;
- --modal-btn-boxshadow-active-on__style: 0px 0px 10px 3px #595448 inset;
+  --modal-btn-boxshadow-hover-on__style: 3px 3px 10px 2px #0a0907,
+    0px 0px 10px 3px #ffffff9c inset;
+  --modal-btn-boxshadow-active-on__style: 0px 0px 10px 3px #595448 inset;
 
- --overlay-background-color-on__style: rgba(255, 255, 255, 0.164);
+  --overlay-background-color-on__style: rgba(255, 255, 255, 0.164);
 
- --menu-item-boxshadow-on__style: 5px 6px 10px 0px rgb(0, 0, 0, 0.7);
+  --menu-item-boxshadow-on__style: 5px 6px 10px 0px rgb(0, 0, 0, 0.7);
 
- --mustardseed-counter-text-color-on__style: var(--after-td-text-color-on__style);
+  --mustardseed-counter-text-color-on__style: var(
+    --after-td-text-color-on__style
+  );
 }
 
 .app.on__style {
- background: var(--page-background-color-on__style);
+  background: var(--page-background-color-on__style);
+}
+
+.sticky {
+  background: #5d687c;
 }
 
 .app.on__style .wrapper-table_title {
- color: var(--title-color-on__style);
- font-family: 'Natasha';
+  color: var(--title-color-on__style);
+  font-family: 'Natasha';
 }
 
 .app.on__style td {
- color: var(--td-th-color-on__style);
- background: var(--td-th-background-on__style);
- box-shadow: var(--td-th-box-shadow-on__style);
- border-radius: 0px;
+  color: var(--td-th-color-on__style);
+  background: var(--td-th-background-on__style);
+  box-shadow: var(--td-th-box-shadow-on__style);
+  border-radius: 0px;
 }
 
 .app.on__style th {
- color: var(--td-th-color-on__style);
- background: var(--td-th-background-on__style);
- box-shadow: var(--td-th-box-shadow-on__style);
- border-radius: 0px;
+  color: var(--td-th-color-on__style);
+  background: var(--td-th-background-on__style);
+  box-shadow: var(--td-th-box-shadow-on__style);
+  border-radius: 0px;
 }
 
 .app.on__style td:focus {
- outline: var(--td-focus-outline-on__style);
- color: var(--td-after-focus-color-on__style);
+  outline: var(--td-focus-outline-on__style);
+  color: var(--td-after-focus-color-on__style);
 }
 
 .app.on__style .publ:after {
- color: var(--after-td-text-color-on__style);
- font-family: 'Arturo Black outline';
+  color: var(--after-td-text-color-on__style);
+  font-family: 'Arturo Black outline';
 }
 
 .app.on__style .video:after {
- color: var(--after-td-text-color-on__style);
- font-family: 'Arturo Black outline';
+  color: var(--after-td-text-color-on__style);
+  font-family: 'Arturo Black outline';
 }
 
 .app.on__style .pp:after {
- color: var(--after-td-text-color-on__style);
- font-family: 'Arturo Black outline';
+  color: var(--after-td-text-color-on__style);
+  font-family: 'Arturo Black outline';
 }
 
 .app.on__style .hours:after {
- color: var(--after-td-text-color-on__style);
- font-family: 'Arturo Black outline';
+  color: var(--after-td-text-color-on__style);
+  font-family: 'Arturo Black outline';
 }
 
 .app.on__style .iz:after {
- color: var(--after-td-text-color-on__style);
- font-family: 'Arturo Black outline';
+  color: var(--after-td-text-color-on__style);
+  font-family: 'Arturo Black outline';
 }
 
 .app.on__style .days.days_today {
- background: var(--days-today-background-on__style) ;
- color: var(--days-today-color-on__style);
- font-family: 'Natasha';
+  background: var(--days-today-background-on__style);
+  color: var(--days-today-color-on__style);
+  font-family: 'Natasha';
 }
 
 .app.on__style .btn_delete_values {
- background: var(--td-th-background-on__style) url(../../assets/images/emptyGarbage.png) no-repeat center center / contain;
- box-shadow: var(--td-th-box-shadow-on__style);
+  background: var(--td-th-background-on__style)
+    url(../../assets/images/emptyGarbage.png) no-repeat center center / contain;
+  box-shadow: var(--td-th-box-shadow-on__style);
 }
 
 .app.on__style .btn_delete_values.active {
- background: var(--td-th-background-on__style) url(../../assets/images/smile_ok.png)no-repeat center center / contain;
+  background: var(--td-th-background-on__style)
+    url(../../assets/images/smile_ok.png) no-repeat center center / contain;
 }
 
 .app.on__style .btn_delete_values.mustardSeed__icon1 {
-	background: var(--delete_btn-background-color-icon1-on__style)  url(../../assets/images/lamp.png)no-repeat center center / contain;
-	box-shadow: var(--delete_btn-boxshadow-icon1-on__style);
+  background: var(--delete_btn-background-color-icon1-on__style)
+    url(../../assets/images/lamp.png) no-repeat center center / contain;
+  box-shadow: var(--delete_btn-boxshadow-icon1-on__style);
 }
 
 .app.on__style .btn_delete_values.mustardSeed__icon1.active {
- background: var(--td-th-background-on__style) url(../../assets/images/smile_ok.png)no-repeat center center / contain;
- box-shadow: var(--td-th-box-shadow-on__style);
+  background: var(--td-th-background-on__style)
+    url(../../assets/images/smile_ok.png) no-repeat center center / contain;
+  box-shadow: var(--td-th-box-shadow-on__style);
 }
 
 .app.on__style .btn_delete_values.mustardSeed__icon2 {
-	background: var(--delete_btn-background-color-icon2-on__style) url(../../assets/images/лампо_ка.png)no-repeat center center / contain;
- box-shadow: var(--delete_btn-boxshadow-icon2-on__style);
+  background: var(--delete_btn-background-color-icon2-on__style)
+    url(../../assets/images/лампо_ка.png) no-repeat center center / contain;
+  box-shadow: var(--delete_btn-boxshadow-icon2-on__style);
 }
 
 .app.on__style .btn_delete_values.mustardSeed__icon2.active {
- background: var(--td-th-background-on__style) url(../../assets/images/smile_ok.png)no-repeat center center / contain;
- box-shadow: var(--td-th-box-shadow-on__style);
+  background: var(--td-th-background-on__style)
+    url(../../assets/images/smile_ok.png) no-repeat center center / contain;
+  box-shadow: var(--td-th-box-shadow-on__style);
 }
 
 .app.on__style .btn_delete_values::after {
- background: var(--after-delete-btn-color-on__style);
+  background: var(--after-delete-btn-color-on__style);
 }
 
 .app.on__style .wrapper_previous {
- background: var(--wrappers-btn-switch-background-color-on__style);
+  background: var(--wrappers-btn-switch-background-color-on__style);
 }
 
 .app.on__style .wrapper_next {
- background: var(--wrappers-btn-switch-background-color-on__style);
+  background: var(--wrappers-btn-switch-background-color-on__style);
 }
 
 .app.on__style .wrapper_previous:hover:after {
- background: var(--after-wrappers-btn-switch-color-hover-on__style);
- width: 100%;
+  background: var(--after-wrappers-btn-switch-color-hover-on__style);
+  width: 100%;
 }
 
 .app.on__style .wrapper_next:hover:after {
- background: var(--after-wrappers-btn-switch-color-hover-on__style);
- width: 100%;
+  background: var(--after-wrappers-btn-switch-color-hover-on__style);
+  width: 100%;
 }
 
 .app.on__style .button_previous {
- border-right: 30px solid var(--triangle-color-on__style);
+  border-right: 30px solid var(--triangle-color-on__style);
 }
 
 .app.on__style .button_next {
- border-left: 30px solid var(--triangle-color-on__style);
+  border-left: 30px solid var(--triangle-color-on__style);
 }
 
 .app.on__style .mustardSeed__counter1 {
-	color: var(--mustardseed-counter-text-color-on__style);
+  color: var(--mustardseed-counter-text-color-on__style);
 }
 
 .app.on__style .mustardSeed__counter2 {
-	color: var(--mustardseed-counter-text-color-on__style);
+  color: var(--mustardseed-counter-text-color-on__style);
 }
 
 /* +++++++++++++++++++++++++++++++++++++menu burger++++++++++++++++++++++++++++++++++++++ */
 
 .app.on__style .menu__burger__header > span {
- background: var(--burger-menu-color-on__style);
+  background: var(--burger-menu-color-on__style);
 }
 
 .app.on__style .menu__burger__header:after {
- background: var(--burger-menu-color-on__style);
+  background: var(--burger-menu-color-on__style);
 }
 
 .app.on__style .menu__burger__header:before {
- background: var(--burger-menu-color-on__style);
+  background: var(--burger-menu-color-on__style);
 }
 
 .app.on__style .mouse__over {
- color: rgb(60, 222, 228);
- font-family: 'Natasha';
+  color: rgb(60, 222, 228);
+  font-family: 'Natasha';
 }
 
 .app.on__style .nav {
- box-shadow: var(--all-wrappers-menu-boxshadow-on__style);
- background: var(--all-wrappers-background-color-on__style);
+  box-shadow: var(--all-wrappers-menu-boxshadow-on__style);
+  background: var(--all-wrappers-background-color-on__style);
 }
 
 .app.on__style .nav > a {
- font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
- color: var(--all-text-color-on__style);
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: var(--all-text-color-on__style);
 }
 
 .app.on__style .menu__item:after {
- background: var(--all-text-color-on__style);
+  background: var(--all-text-color-on__style);
 }
 
 .app.on__style .release {
- color: var(--release-color-on__style);
+  color: var(--release-color-on__style);
 }
 
 .app.on__style .back_to_top {
- background: var(--back-to-top-background-color-on__style);
+  background: var(--back-to-top-background-color-on__style);
 }
 
 .app.on__style .back_to_top:hover {
- background: var(--back-to-top-background-color-hover-on__style);
+  background: var(--back-to-top-background-color-hover-on__style);
 }
 
 /* +++++++++++++++++++++++++++++++++++++instructions++++++++++++++++++++++++++++++++++++++ */
 
 .app.on__style .instr__wrapper {
- font-family: 'Choco cooky';
- background: var(--all-wrappers-background-color-on__style);
- box-shadow: var(--all-wrappers-menu-boxshadow-on__style);
- color: var(--all-text-color-on__style);
+  font-family: 'Choco cooky';
+  background: var(--all-wrappers-background-color-on__style);
+  box-shadow: var(--all-wrappers-menu-boxshadow-on__style);
+  color: var(--all-text-color-on__style);
 }
 
 .app.on__style .instr__wrapper::after {
- background: var(--release-color-on__style);
- box-shadow: var(--all-wrappers-menu-boxshadow-on__style);
+  background: var(--release-color-on__style);
+  box-shadow: var(--all-wrappers-menu-boxshadow-on__style);
 }
 
 /* +++++++++++++++++++++++++++++++++++++modal window++++++++++++++++++++++++++++++++++++++ */
 
 .app.on__style .modal__window {
- background: var(--all-wrappers-background-color-on__style);
- box-shadow: var(--all-wrappers-menu-boxshadow-on__style);
+  background: var(--all-wrappers-background-color-on__style);
+  box-shadow: var(--all-wrappers-menu-boxshadow-on__style);
 }
 
 .app.on__style .modal__text {
-color: var(--all-text-color-on__style);
+  color: var(--all-text-color-on__style);
 }
 
 .app.on__style .modal__window:after {
- background: var(--release-color-on__style);
- box-shadow: var(--all-wrappers-menu-boxshadow-on__style);
+  background: var(--release-color-on__style);
+  box-shadow: var(--all-wrappers-menu-boxshadow-on__style);
 }
 
 .app.on__style .modal__data {
- color:  var(--release-color-on__style);
+  color: var(--release-color-on__style);
 }
 
 .app.on__style .modal__btn {
- box-shadow: var(--all-wrappers-menu-boxshadow-on__style);
+  box-shadow: var(--all-wrappers-menu-boxshadow-on__style);
 }
 
 .app.on__style .modal__btn:hover {
- box-shadow: var(--modal-btn-boxshadow-hover-on__style);
+  box-shadow: var(--modal-btn-boxshadow-hover-on__style);
 }
 
 .app.on__style .modal__btn:active {
- box-shadow: var(--modal-btn-boxshadow-active-on__style);
+  box-shadow: var(--modal-btn-boxshadow-active-on__style);
 }
 
 .app.on__style .overlay {
- background: var(--overlay-background-color-on__style);
+  background: var(--overlay-background-color-on__style);
 }
 
 /* +++++++++++++++++++++++++++++++++++++tables menu wrapper+++++++++++++++++++++++++++++++++++ */
 
 .app.on__style .tables__menu__wrapper.open {
- box-shadow: var(--all-wrappers-menu-boxshadow-on__style);
-	background: var(--all-wrappers-background-color-on__style);
+  box-shadow: var(--all-wrappers-menu-boxshadow-on__style);
+  background: var(--all-wrappers-background-color-on__style);
 }
 
 .app.on__style .tables__total.open {
- box-shadow: var(--all-wrappers-menu-boxshadow-on__style);
-	background: var(--all-wrappers-background-color-on__style);
+  box-shadow: var(--all-wrappers-menu-boxshadow-on__style);
+  background: var(--all-wrappers-background-color-on__style);
 }
 
 /* +++++++++++++++++++++++++++++++++++++Themes Wrapper+++++++++++++++++++++++++++++++++++ */
 
 .app.on__style .themes__wrapper {
- color: var(--all-text-color-on__style);
- box-shadow: var(--all-wrappers-menu-boxshadow-on__style);
- background: var(--all-wrappers-background-color-on__style);
+  color: var(--all-text-color-on__style);
+  box-shadow: var(--all-wrappers-menu-boxshadow-on__style);
+  background: var(--all-wrappers-background-color-on__style);
 }
 
 .app.on__style .themes__title {
- font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
- color: var(--all-text-color-on__style);
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: var(--all-text-color-on__style);
 }
 
 .app.on__style .menu__item > a {
- color: var(--all-text-color-on__style);
-	box-shadow: var(--menu-item-boxshadow-on__style);
+  color: var(--all-text-color-on__style);
+  box-shadow: var(--menu-item-boxshadow-on__style);
 }

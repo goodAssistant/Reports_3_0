@@ -2,301 +2,325 @@
 
 /* +++++++++++++++++++++++++++++++++++++index++++++++++++++++++++++++++++++++++++++ */
 :root {
- --page-background-color-street__ball: url(../../assets/images/basket431_604.jpg) no-repeat center center / contain;
+  --page-background-color-street__ball: url(../../assets/images/basket431_604.jpg)
+    no-repeat center center / contain;
 
- --title-color-street__ball: rgba(26, 123, 112, 0.8);
+  --title-color-street__ball: rgba(26, 123, 112, 0.8);
 
- --all-text-color-street__ball: rgb(192, 182, 67);
+  --all-text-color-street__ball: rgb(192, 182, 67);
 
- --all-wrappers-background-color-street__ball: linear-gradient(21deg, rgba(141, 131, 109, 0.8) 30%, rgba(41, 43, 66, 0.8) 71%);
- --all-wrappers-menu-boxshadow-street__ball: 0px 0px 2px 1px rgb(255, 238, 0), 0 0 10px 1px rgb(253, 137, 4)inset;
+  --all-wrappers-background-color-street__ball: linear-gradient(
+    21deg,
+    rgba(141, 131, 109, 0.8) 30%,
+    rgba(41, 43, 66, 0.8) 71%
+  );
+  --all-wrappers-menu-boxshadow-street__ball: 0px 0px 2px 1px rgb(255, 238, 0),
+    0 0 10px 1px rgb(253, 137, 4) inset;
 
- --td-th-color-street__ball: #6d3120;
- --td-th-background-street__ball: rgb(225 225 196 / 50%);
- --td-th-box-shadow-street__ball: 4px 4px 3px -1px rgba(0, 0, 0, 0.5), 0 0 8px 2px rgba(255, 166, 0, 0.767)inset;
+  --td-th-color-street__ball: #6d3120;
+  --td-th-background-street__ball: rgb(225 225 196 / 50%);
+  --td-th-box-shadow-street__ball: 4px 4px 3px -1px rgba(0, 0, 0, 0.5),
+    0 0 8px 2px rgba(255, 166, 0, 0.767) inset;
 
+  --td-focus-outline-street__ball: 2px solid rgb(244, 197, 175);
+  --td-after-focus-color-street__ball: var(--color-JW-label);
 
- --td-focus-outline-street__ball: 2px solid rgb(244, 197, 175);
- --td-after-focus-color-street__ball: var(--color-JW-label);
+  --after-td-text-color-street__ball: #6d3120;
 
- --after-td-text-color-street__ball: #6d3120;
+  --days-today-background-street__ball: var(--color-JW-label);
+  --days-today-color-street__ball: #fff;
 
- --days-today-background-street__ball: var(--color-JW-label);
- --days-today-color-street__ball: #fff;
- 
- --delete_btn-background-color-icon1-street__ball: rgba(93, 126, 40, 0.6);
- --delete_btn-boxshadow-icon1-street__ball: 0px 0px 20px 5px rgba(255, 238, 0, 0.6);
+  --delete_btn-background-color-icon1-street__ball: rgba(93, 126, 40, 0.6);
+  --delete_btn-boxshadow-icon1-street__ball: 0px 0px 20px 5px
+    rgba(255, 238, 0, 0.6);
 
- --delete_btn-background-color-icon2-street__ball: rgb(183 183 70 / 70%);
- --delete_btn-boxshadow-icon2-street__ball: 0px 0px 10px rgb(251 141 7 / 80%), 0px 0px 10px 5px rgb(251 181 7 / 80%)inset;
+  --delete_btn-background-color-icon2-street__ball: rgb(183 183 70 / 70%);
+  --delete_btn-boxshadow-icon2-street__ball: 0px 0px 10px rgb(251 141 7 / 80%),
+    0px 0px 10px 5px rgb(251 181 7 / 80%) inset;
 
- --after-delete-btn-color-street__ball: #6d3120;
- --after-wrappers-btn-switch-color-hover-street__ball: #ffffffad;
- --wrappers-btn-switch-background-color-street__ball: rgba(255, 255, 255, 0.4);
- --triangle-color-street__ball: #6d3120;
+  --after-delete-btn-color-street__ball: #6d3120;
+  --after-wrappers-btn-switch-color-hover-street__ball: #ffffffad;
+  --wrappers-btn-switch-background-color-street__ball: rgba(255, 255, 255, 0.4);
+  --triangle-color-street__ball: #6d3120;
 
- --burger-menu-color-street__ball: linear-gradient(21deg, #8d836d 30%, #292b42 71%);
+  --burger-menu-color-street__ball: linear-gradient(
+    21deg,
+    #8d836d 30%,
+    #292b42 71%
+  );
 
- --release-color-street__ball: rgb(183, 0, 255);
+  --release-color-street__ball: rgb(183, 0, 255);
 
- --back-to-top-background-color-street__ball: rgb(172, 105, 18);
- --back-to-top-background-color-hover-street__ball: var(--release-color);
+  --back-to-top-background-color-street__ball: rgb(172, 105, 18);
+  --back-to-top-background-color-hover-street__ball: var(--release-color);
 
- --modal-btn-boxshadow-hover-street__ball: 3px 3px 10px 2px #0a0907, 0px 0px 10px 3px #ffffff9c inset;
- --modal-btn-boxshadow-active-street__ball: 0px 0px 10px 3px #595448 inset;
+  --modal-btn-boxshadow-hover-street__ball: 3px 3px 10px 2px #0a0907,
+    0px 0px 10px 3px #ffffff9c inset;
+  --modal-btn-boxshadow-active-street__ball: 0px 0px 10px 3px #595448 inset;
 
- --overlay-background-color-street__ball: rgba(255, 255, 255, 0.164);
+  --overlay-background-color-street__ball: rgba(255, 255, 255, 0.164);
 
- --menu-item-boxshadow-street__ball: 5px 6px 10px 0px rgb(0, 0, 0, 0.7);
+  --menu-item-boxshadow-street__ball: 5px 6px 10px 0px rgb(0, 0, 0, 0.7);
 
- --mustardseed-counter-text-color-street__ball: var(--after-td-text-color-street__ball);
+  --mustardseed-counter-text-color-street__ball: var(
+    --after-td-text-color-street__ball
+  );
 }
 
 .app.street__ball {
- /*background: var(--page-background-color-street__ball);*/
+  /*background: var(--page-background-color-street__ball);*/
+}
+.sticky {
+  background: #fcd0a1;
 }
 
 .app.street__ball .wrapper-table_title {
- color: var(--title-color-street__ball);
- font-family: 'Natasha';
+  color: var(--title-color-street__ball);
+  font-family: 'Natasha';
 }
 
 .app.street__ball td {
- color: var(--td-th-color-street__ball);
- background: var(--td-th-background-street__ball);
- box-shadow: var(--td-th-box-shadow-street__ball);
+  color: var(--td-th-color-street__ball);
+  background: var(--td-th-background-street__ball);
+  box-shadow: var(--td-th-box-shadow-street__ball);
 }
 
 .app.street__ball th {
- color: var(--td-th-color-street__ball);
- background: var(--td-th-background-street__ball);
- box-shadow: var(--td-th-box-shadow-street__ball);
+  color: var(--td-th-color-street__ball);
+  background: var(--td-th-background-street__ball);
+  box-shadow: var(--td-th-box-shadow-street__ball);
 }
 
 .app.street__ball td:focus {
- outline: var(--td-focus-outline-street__ball);
- color: var(--td-after-focus-color-street__ball);
+  outline: var(--td-focus-outline-street__ball);
+  color: var(--td-after-focus-color-street__ball);
 }
 
 .app.street__ball .publ:after {
- color: var(--after-td-text-color-street__ball);
- font-family: 'Arturo Black outline';
+  color: var(--after-td-text-color-street__ball);
+  font-family: 'Arturo Black outline';
 }
 
 .app.street__ball .video:after {
- color: var(--after-td-text-color-street__ball);
- font-family: 'Arturo Black outline';
+  color: var(--after-td-text-color-street__ball);
+  font-family: 'Arturo Black outline';
 }
 
 .app.street__ball .pp:after {
- color: var(--after-td-text-color-street__ball);
- font-family: 'Arturo Black outline';
+  color: var(--after-td-text-color-street__ball);
+  font-family: 'Arturo Black outline';
 }
 
 .app.street__ball .hours:after {
- color: var(--after-td-text-color-street__ball);
- font-family: 'Arturo Black outline';
+  color: var(--after-td-text-color-street__ball);
+  font-family: 'Arturo Black outline';
 }
 
 .app.street__ball .iz:after {
- color: var(--after-td-text-color-street__ball);
- font-family: 'Arturo Black outline';
+  color: var(--after-td-text-color-street__ball);
+  font-family: 'Arturo Black outline';
 }
 
 .app.street__ball .days.days_today {
- background: var(--days-today-background-street__ball) ;
- color: var(--days-today-color-street__ball);
- font-family: 'Natasha';
+  background: var(--days-today-background-street__ball);
+  color: var(--days-today-color-street__ball);
+  font-family: 'Natasha';
 }
 
 .app.street__ball .btn_delete_values {
- background: var(--td-th-background-street__ball) url(../../assets/images/trash.png) no-repeat center center / contain;
- box-shadow: var(--td-th-box-shadow-street__ball);
+  background: var(--td-th-background-street__ball)
+    url(../../assets/images/trash.png) no-repeat center center / contain;
+  box-shadow: var(--td-th-box-shadow-street__ball);
 }
 
 .app.street__ball .btn_delete_values.active {
- background: var(--td-th-background-street__ball) url(../../assets/images/smile_ok.png)no-repeat center center / contain;
+  background: var(--td-th-background-street__ball)
+    url(../../assets/images/smile_ok.png) no-repeat center center / contain;
 }
 
 .app.street__ball .btn_delete_values.mustardSeed__icon1 {
-	background: var(--delete_btn-background-color-icon1-street__ball)  url(../../assets/images/lamp.png)no-repeat center center / contain;
-	box-shadow: var(--delete_btn-boxshadow-icon1-street__ball);
+  background: var(--delete_btn-background-color-icon1-street__ball)
+    url(../../assets/images/lamp.png) no-repeat center center / contain;
+  box-shadow: var(--delete_btn-boxshadow-icon1-street__ball);
 }
 
 .app.street__ball .btn_delete_values.mustardSeed__icon1.active {
- background: var(--td-th-background-street__ball) url(../../assets/images/smile_ok.png)no-repeat center center / contain;
- box-shadow: var(--td-th-box-shadow-street__ball);
+  background: var(--td-th-background-street__ball)
+    url(../../assets/images/smile_ok.png) no-repeat center center / contain;
+  box-shadow: var(--td-th-box-shadow-street__ball);
 }
 
 .app.street__ball .btn_delete_values.mustardSeed__icon2 {
-	background: var(--delete_btn-background-color-icon2-street__ball) url(../../assets/images/лампо_ка.png)no-repeat center center / contain;
- box-shadow: var(--delete_btn-boxshadow-icon2-street__ball);
+  background: var(--delete_btn-background-color-icon2-street__ball)
+    url(../../assets/images/лампо_ка.png) no-repeat center center / contain;
+  box-shadow: var(--delete_btn-boxshadow-icon2-street__ball);
 }
 
 .app.street__ball .btn_delete_values.mustardSeed__icon2.active {
- background: var(--td-th-background-street__ball) url(../../assets/images/smile_ok.png)no-repeat center center / contain;
- box-shadow: var(--td-th-box-shadow-street__ball);
+  background: var(--td-th-background-street__ball)
+    url(../../assets/images/smile_ok.png) no-repeat center center / contain;
+  box-shadow: var(--td-th-box-shadow-street__ball);
 }
 
 .app.street__ball .btn_delete_values::after {
- background: var(--after-delete-btn-color-street__ball);
+  background: var(--after-delete-btn-color-street__ball);
 }
 
 .app.street__ball .wrapper_previous {
- background: var(--wrappers-btn-switch-background-color-street__ball);
+  background: var(--wrappers-btn-switch-background-color-street__ball);
 }
 
 .app.street__ball .wrapper_next {
- background: var(--wrappers-btn-switch-background-color-street__ball);
+  background: var(--wrappers-btn-switch-background-color-street__ball);
 }
 
 .app.street__ball .wrapper_previous:hover:after {
- background: var(--after-wrappers-btn-switch-color-hover-street__ball);
- width: 100%;
+  background: var(--after-wrappers-btn-switch-color-hover-street__ball);
+  width: 100%;
 }
 
 .app.street__ball .wrapper_next:hover:after {
- background: var(--after-wrappers-btn-switch-color-hover-street__ball);
- width: 100%;
+  background: var(--after-wrappers-btn-switch-color-hover-street__ball);
+  width: 100%;
 }
 
 .app.street__ball .button_previous {
- border-right: 30px solid var(--triangle-color-street__ball);
+  border-right: 30px solid var(--triangle-color-street__ball);
 }
 
 .app.street__ball .button_next {
- border-left: 30px solid var(--triangle-color-street__ball);
+  border-left: 30px solid var(--triangle-color-street__ball);
 }
 
 .app.street__ball .mustardSeed__counter1 {
-	color: var(--mustardseed-counter-text-color-street__ball);
+  color: var(--mustardseed-counter-text-color-street__ball);
 }
 
 .app.street__ball .mustardSeed__counter2 {
-	color: var(--mustardseed-counter-text-color-street__ball);
+  color: var(--mustardseed-counter-text-color-street__ball);
 }
 
 /* +++++++++++++++++++++++++++++++++++++menu burger++++++++++++++++++++++++++++++++++++++ */
 
 .app.street__ball .menu__burger__header > span {
- background: var(--burger-menu-color-street__ball);
+  background: var(--burger-menu-color-street__ball);
 }
 
 .app.street__ball .menu__burger__header:after {
- background: var(--burger-menu-color-street__ball);
+  background: var(--burger-menu-color-street__ball);
 }
 
 .app.street__ball .menu__burger__header:before {
- background: var(--burger-menu-color-street__ball);
+  background: var(--burger-menu-color-street__ball);
 }
 
 .app.street__ball .mouse__over {
- color: rgb(229, 255, 0);
- font-family: 'Natasha';
+  color: rgb(229, 255, 0);
+  font-family: 'Natasha';
 }
 
 .app.street__ball .nav {
- box-shadow: var(--all-wrappers-menu-boxshadow-street__ball);
- background: var(--all-wrappers-background-color-street__ball);
+  box-shadow: var(--all-wrappers-menu-boxshadow-street__ball);
+  background: var(--all-wrappers-background-color-street__ball);
 }
 
 .app.street__ball .nav > a {
- font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
- color: var(--all-text-color-street__ball);
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: var(--all-text-color-street__ball);
 }
 
 .app.street__ball .menu__item:after {
- background: var(--all-text-color-street__ball);
+  background: var(--all-text-color-street__ball);
 }
 
 .app.street__ball .release {
- color: var(--release-color-street__ball);
+  color: var(--release-color-street__ball);
 }
 
 .app.street__ball .back_to_top {
- background: var(--back-to-top-background-color-street__ball);
+  background: var(--back-to-top-background-color-street__ball);
 }
 
 .app.street__ball .back_to_top:hover {
- background: var(--back-to-top-background-color-hover-street__ball);
+  background: var(--back-to-top-background-color-hover-street__ball);
 }
 
 /* +++++++++++++++++++++++++++++++++++++instructions++++++++++++++++++++++++++++++++++++++ */
 
 .app.street__ball .instr__wrapper {
- font-family: 'Choco cooky';
- background: var(--all-wrappers-background-color-street__ball);
- box-shadow: var(--all-wrappers-menu-boxshadow-street__ball);
- color: var(--all-text-color-street__ball);
+  font-family: 'Choco cooky';
+  background: var(--all-wrappers-background-color-street__ball);
+  box-shadow: var(--all-wrappers-menu-boxshadow-street__ball);
+  color: var(--all-text-color-street__ball);
 }
 
 .app.street__ball .instr__wrapper::after {
- background: var(--release-color-street__ball);
- box-shadow: var(--all-wrappers-menu-boxshadow-street__ball);
+  background: var(--release-color-street__ball);
+  box-shadow: var(--all-wrappers-menu-boxshadow-street__ball);
 }
 
 /* +++++++++++++++++++++++++++++++++++++modal window++++++++++++++++++++++++++++++++++++++ */
 
 .app.street__ball .modal__window {
- background: var(--all-wrappers-background-color-street__ball);
- box-shadow: var(--all-wrappers-menu-boxshadow-street__ball);
+  background: var(--all-wrappers-background-color-street__ball);
+  box-shadow: var(--all-wrappers-menu-boxshadow-street__ball);
 }
 
 .app.street__ball .modal__text {
-color: var(--all-text-color-street__ball);
+  color: var(--all-text-color-street__ball);
 }
 
 .app.street__ball .modal__window:after {
- background: var(--release-color-street__ball);
- box-shadow: var(--all-wrappers-menu-boxshadow-street__ball);
+  background: var(--release-color-street__ball);
+  box-shadow: var(--all-wrappers-menu-boxshadow-street__ball);
 }
 
 .app.street__ball .modal__data {
- color:  var(--release-color-street__ball);
+  color: var(--release-color-street__ball);
 }
 
 .app.street__ball .modal__btn {
- box-shadow: var(--all-wrappers-menu-boxshadow-street__ball);
+  box-shadow: var(--all-wrappers-menu-boxshadow-street__ball);
 }
 
 .app.street__ball .modal__btn:hover {
- box-shadow: var(--modal-btn-boxshadow-hover-street__ball);
+  box-shadow: var(--modal-btn-boxshadow-hover-street__ball);
 }
 
 .app.street__ball .modal__btn:active {
- box-shadow: var(--modal-btn-boxshadow-active-street__ball);
+  box-shadow: var(--modal-btn-boxshadow-active-street__ball);
 }
 
 .app.street__ball .overlay {
- background: var(--overlay-background-color-street__ball);
+  background: var(--overlay-background-color-street__ball);
 }
 
 /* +++++++++++++++++++++++++++++++++++++tables menu wrapper+++++++++++++++++++++++++++++++++++ */
 
 .app.street__ball .tables__menu__wrapper.open {
- box-shadow: var(--all-wrappers-menu-boxshadow-street__ball);
-	background: var(--all-wrappers-background-color-street__ball);
+  box-shadow: var(--all-wrappers-menu-boxshadow-street__ball);
+  background: var(--all-wrappers-background-color-street__ball);
 }
 
 .app.street__ball .tables__total.open {
- box-shadow: var(--all-wrappers-menu-boxshadow-street__ball);
-	background: var(--all-wrappers-background-color-street__ball);
+  box-shadow: var(--all-wrappers-menu-boxshadow-street__ball);
+  background: var(--all-wrappers-background-color-street__ball);
 }
 
 /* +++++++++++++++++++++++++++++++++++++Themes Wrapper+++++++++++++++++++++++++++++++++++ */
 
 .app.street__ball .themes__wrapper {
- color: var(--all-text-color-street__ball);
- box-shadow: var(--all-wrappers-menu-boxshadow-street__ball);
- background: var(--all-wrappers-background-color-street__ball);
+  color: var(--all-text-color-street__ball);
+  box-shadow: var(--all-wrappers-menu-boxshadow-street__ball);
+  background: var(--all-wrappers-background-color-street__ball);
 }
 
 .app.street__ball .themes__title {
- font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
- color: var(--all-text-color-street__ball);
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: var(--all-text-color-street__ball);
 }
 
 .app.street__ball .menu__item > a {
- color: var(--all-text-color-street__ball);
-	box-shadow: var(--menu-item-boxshadow-street__ball);
+  color: var(--all-text-color-street__ball);
+  box-shadow: var(--menu-item-boxshadow-street__ball);
 }

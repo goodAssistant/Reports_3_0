@@ -2,7 +2,7 @@
 }
 
 .slider {
- position: relative;
+  position: relative;
 }
 
 .slider-list {
@@ -12,308 +12,312 @@
 }
 
 .slide {
- position: absolute;
- transition: all 1.5s ease-in-out 0s;
- left: 0;
- top: 0;
+  position: absolute;
+  transition: all 1.5s ease-in-out 0s;
+  left: 0;
+  top: 0;
 }
 
 .slide.previous {
- left: -102%;
+  left: -102%;
 }
 
 .slide.next {
- left: 102%;
+  left: 102%;
 }
 
 .wrapper-table_title {
- font-family: 'Arturo Black outline';
- text-align: center;
- margin-bottom: 30px;
- line-height: 35px;
- font-size: 1.5em;
- transition: font-size 2s ease-out 0.5s;
+  font-family: 'Arturo Black outline';
+  text-align: center;
+  margin-bottom: 30px;
+  line-height: 35px;
+  font-size: 1.5em;
+  transition: font-size 2s ease-out 0.5s;
 }
 
 .wrapper-table_title.transitionFz {
- font-size: 1.5em;
+  font-size: 1.5em;
 }
 
 table {
- width: inherit;
- border-spacing: 5px;
- overflow-x: auto;
- display: block;
- scroll-behavior: smooth;
+  width: inherit;
+  border-spacing: 5px;
+  overflow-x: auto;
+  display: block;
+  scroll-behavior: smooth;
 }
 
 .table__total {
- width: fit-content;
- margin: 10px auto 0;
+  width: fit-content;
+  margin: 10px auto 0;
 }
 
 .month__name {
- font-family: 'Natasha';
+  font-family: 'Natasha';
 }
 
 .total__modal {
- padding: 10px 10px;
+  padding: 10px 10px;
 }
 
-td, th {
- position: relative;
- min-width: 60px;
- height: 41px;
- padding: 10px 2px;
- border-radius: 10px;
- font-family: 'Choco cooky';
- text-align: center;
- font-weight: bold;
+td,
+th {
+  position: relative;
+  min-width: 60px;
+  height: 41px;
+  padding: 10px 2px;
+  border-radius: 10px;
+  font-family: 'Choco cooky';
+  text-align: center;
+  font-weight: bold;
 }
 
 td {
- position: relative;
- font-size: 16px;
- transition: font-size 2s ease-out;
+  position: relative;
+  font-size: 16px;
+  transition: font-size 2s ease-out;
 }
 
 td.transitionFz {
- font-size: 16px;
+  font-size: 16px;
 }
 
 td:focus {
- transform: scale(1.2);
- transition: transform ease 1s, font-size 1s ease-out;
- outline-offset: -4px ;
+  transform: scale(1.2);
+  transition: transform ease 1s, font-size 1s ease-out;
+  outline-offset: -4px;
 }
 
 td.total__modal {
- width: 130px;
+  width: 130px;
 }
 
 .cell {
- padding: 4px 2px 16px;
+  padding: 4px 2px 16px;
 }
 
-.sum{
- padding: 10px 2px;
- font-size: 18px;
- min-width: 90px;
+.sum {
+  padding: 10px 2px;
+  font-size: 18px;
+  min-width: 90px;
 }
 
-.publ:after, .video:after, .pp:after, .hours:after, .iz:after {
- position: absolute;
- bottom: 2%;
- right: 7%;
- font-size: 9px;
- transition: font-size 1s ease-out 0.5s;
- letter-spacing: 1.5px;
+.days::after {
+  content: var(--days-after);
+  font-family: 'Arturo Black outline';
 }
 
-.publ.transitionFz:after, .video.transitionFz:after, .pp.transitionFz:after, .hours.transitionFz:after, .iz.transitionFz:after {
- font-size: 9px;
+.publ:after,
+.video:after,
+.pp:after,
+.hours:after,
+.iz:after,
+.days::after {
+  position: absolute;
+  bottom: 2%;
+  right: 7%;
+  font-size: 9px;
+  transition: font-size 1s ease-out 0.5s;
+  letter-spacing: 1.5px;
+}
+
+.publ.transitionFz:after,
+.video.transitionFz:after,
+.pp.transitionFz:after,
+.hours.transitionFz:after,
+.iz.transitionFz:after {
+  font-size: 9px;
 }
 
 .publ:after {
- content: 'Публ';
+  content: 'Публ';
 }
 
 .video:after {
- content: 'Видео';
+  content: 'Видео';
 }
 
 .pp:after {
- content: 'ПП';
+  content: 'ПП';
 }
 
 .hours:after {
- content: 'Часы';
+  content: 'Часы';
 }
 
 .iz:after {
- content: 'Из';
+  content: 'Из';
 }
 
 .days {
- transition: background 1s ease-out 1.5s;
+  transition: background 1s ease-out 1.5s;
 }
 
 .btn_delete_values {
- position: relative;
- cursor: pointer;
- transition: background 1s ease-out;
+  position: relative;
+  cursor: pointer;
+  transition: background 1s ease-out;
 }
 
 .btn_delete_values:hover {
- transform: scale(1.1);
- transition: transform 0.5s ease;
- transition: background 1s ease-out;
+  transform: scale(1.1);
+  transition: transform 0.5s ease;
+  transition: background 1s ease-out;
 }
 
 .btn_delete_values:hover:after {
- width: 90%;
+  width: 90%;
 }
 
 .btn_delete_values::after {
- position: absolute;
- content: '';
- height: 2px;
- width: 0%;
- bottom: 0;
- left: 5%;
- transition: width 0.5s ease;
+  position: absolute;
+  content: '';
+  height: 2px;
+  width: 0%;
+  bottom: 0;
+  left: 5%;
+  transition: width 0.5s ease;
 }
 
 .wrapper_buttons {
- display: flex;
- opacity: 1;
- transition: opacity 1s ease-out;
+  display: flex;
+  opacity: 1;
+  transition: opacity 1s ease-out;
 }
 
 .wrapper_buttons.hide {
- opacity: 0;
+  opacity: 0;
 }
 
-.wrapper_previous, .wrapper_next {
- position: absolute;
- top: 69px;
- width: 39px;
- height: -webkit-fill-available;
- border-radius: 5px;
- transition: all 0.3s ease-out;
+.wrapper_previous,
+.wrapper_next {
+  position: absolute;
+  top: 69px;
+  width: 39px;
+  height: -webkit-fill-available;
+  border-radius: 5px;
+  transition: all 0.3s ease-out;
 }
 
-.wrapper_previous:after, .wrapper_next:after {
- content: '';
- position: absolute;
- height: 100%;
- width: 0%;
- top: 0;
- transition: transform 0.1s ease-out, width 0.3s ease-out, left 0.2s ease-out;
- border-radius: 5px;
+.wrapper_previous:after,
+.wrapper_next:after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 0%;
+  top: 0;
+  transition: transform 0.1s ease-out, width 0.3s ease-out, left 0.2s ease-out;
+  border-radius: 5px;
 }
 
 .wrapper_previous:after {
- right: 0;
+  right: 0;
 }
 
 .wrapper_next:after {
- left: 0;
+  left: 0;
 }
 
 .wrapper_previous {
- left: -40px;
+  left: -40px;
 }
 
 .wrapper_next {
- right: -40px;
+  right: -40px;
 }
 
-.wrapper_previous:active, .wrapper_next:active {
- transform: scale(0.98);
+.wrapper_previous:active,
+.wrapper_next:active {
+  transform: scale(0.98);
 }
 
 .wrapper_previous:active {
- left: -43.5px;
+  left: -43.5px;
 }
 
 .wrapper_next:active {
- right: -43.5px;
+  right: -43.5px;
 }
 
-.wrapper_previous:hover, .wrapper_next:hover {
- cursor: pointer;
+.wrapper_previous:hover,
+.wrapper_next:hover {
+  cursor: pointer;
 }
 
 .wrapper_next:hover {
- cursor: pointer;
+  cursor: pointer;
 }
 
-.button_previous, .button_next {
- position: absolute;
- top:50%;
- transform: translateY(-50%);
- width: 20px;
- height: 20px;
- border-top: 20px solid transparent;
- border-bottom: 20px solid transparent;
- z-index: 2;
+.button_previous,
+.button_next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  z-index: 2;
 }
 
 .button_previous {
- left: 4px;
+  left: 4px;
 }
 
 .button_next {
- right: 4px;
+  right: 4px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 .hours__pioneer {
-	border-radius: 10px;
-	width: fit-content;
-	margin-left: auto;
-	opacity: 0;
-	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-	display: none;
+  border-radius: 10px;
+  width: fit-content;
+  margin-left: auto;
+  opacity: 0;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  display: none;
 }
 
 .hours__pioneer.open_menu {
-	display: block;
-	opacity: 1;
-	transition: display 0.5s ease-in;
-	transition: opacity 0.5s ease-in 0.5s;
+  display: block;
+  opacity: 1;
+  transition: display 0.5s ease-in;
+  transition: opacity 0.5s ease-in 0.5s;
 }
 
 .mustardSeed__wrapper {
-	position: absolute;
-	top: 35px;
-	display: flex;
+  position: absolute;
+  top: 35px;
+  display: flex;
 }
 
 .mustardSeed__wrapper > div:nth-child(2) {
-	margin-left: 10px;
+  margin-left: 10px;
 }
 
 .wrapper__counter {
-	align-items: center;
-	display: flex;
-	font-size: 15px;
+  align-items: center;
+  display: flex;
+  font-size: 15px;
 }
 
 .wrapper__counter.hide {
-	display: none;
+  display: none;
 }
 
 .mustardSeed1 {
-	background: url(../assets/images/lamp.png)no-repeat center center / contain;
-	width: 30px;
-	height: 30px;
+  background: url(../assets/images/lamp.png) no-repeat center center / contain;
+  width: 30px;
+  height: 30px;
 }
 
 .mustardSeed2 {
-	background: url(../assets/images/лампо_ка.png)no-repeat center center / contain;
-	width: 30px;
-	height: 30px;
+  background: url(../assets/images/лампо_ка.png) no-repeat center center /
+    contain;
+  width: 30px;
+  height: 30px;
 }
 
-.mustardSeed__counter1, .mustardSeed__counter2 {
- font-family: 'Arturo Black outline';
+.mustardSeed__counter1,
+.mustardSeed__counter2 {
+  font-family: 'Arturo Black outline';
 }

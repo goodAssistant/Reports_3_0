@@ -1,86 +1,97 @@
 :root {
- --color-titleAfter: blue;
- --shadow-titleAfter: none;
- --animation-titleAfter: none;
- --animation-titleBefore: none;
- --border-titleAfter: none;
- --border-titleBefore: none;
- --color-JW-label: #5b3c88;
- --color-Release: none;
+  --color-titleAfter: blue;
+  --shadow-titleAfter: none;
+  --animation-titleAfter: none;
+  --animation-titleBefore: none;
+  --border-titleAfter: none;
+  --border-titleBefore: none;
+  --color-JW-label: #5b3c88;
+  --color-Release: none;
+  --days-after: none;
 }
 
 * {
- margin: 0;
- padding: 0;
- box-sizing: border-box;
- transition: all 1s;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 1s;
 }
 
 .app {
- width: 100vw;
- height: 100vh;
- overflow: hidden;
- padding: 50px;
+  width: 100vw;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 50px;
 }
 
 .container {
- max-width: 1200px;
- width: 100%;
- margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .reports__title {
- font-family: 'Natasha';
- font-size: 20px;
- position: absolute;
- right: 5vw;
- top: 2%;
- z-index: 2000;
+  font-family: 'Natasha';
+  font-size: 20px;
+  position: absolute;
+  right: 5vw;
+  top: 2%;
+  z-index: 2000;
 }
 
-.reports__title:after, .reports__title:before {
- position: absolute;
- content: '';
- height: 5px;
- border-radius: 50px;
- background-color: var(--color-titleAfter);
- box-shadow: var(--shadow-titleAfter);
- bottom: -7px;
- width: 0;
+.reports__title:after,
+.reports__title:before {
+  position: absolute;
+  content: '';
+  height: 5px;
+  border-radius: 50px;
+  background-color: var(--color-titleAfter);
+  box-shadow: var(--shadow-titleAfter);
+  bottom: -7px;
+  width: 0;
 }
 
 .reports__title:after {
- border: var(--border-titleAfter);
- left: 0;
+  border: var(--border-titleAfter);
+  left: 0;
 }
 
 .reports__title:before {
- border: var(--border-titleBefore);
- right: 0;
+  border: var(--border-titleBefore);
+  right: 0;
 }
 
 .reports__title:after {
- animation: var(--animation-titleAfter);
+  animation: var(--animation-titleAfter);
 }
 
 .reports__title:before {
- animation: var(--animation-titleBefore);
+  animation: var(--animation-titleBefore);
 }
 
 @keyframes loadingStart {
- 0%{
-  width: 0;
- }
- 100%{
-  width: 100%;
- }
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
 }
 
 @keyframes loadingFinish {
- 0% {
-  width: 100%;
- }
- 100%{
-  width: 0%;
- }
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
+  }
+}
+
+.sticky {
+  position: absolute;
+  background: inherit;
+  height: 0;
+  width: 100vw;
+  top: 0;
+  transition: height 0.1s ease-out 0s;
 }
