@@ -106,10 +106,10 @@ function deleteValuesIsLocalStorage(cellsDay, key, target) {
   delete REPORTS[key].values[target.id];
   setToLocalStorage('reports', REPORTS);
   setTimeout(() => {
-    monthHTML.slide
+    document
       .querySelector(`[data-date="${target.id}"]`)
       .classList.remove('mustardSeed__icon1');
-    monthHTML.slide
+    document
       .querySelector(`[data-date="${target.id}"]`)
       .classList.remove('mustardSeed__icon2');
     pullValuesToTable(key.split('/')[0], key.split('/')[1]);
@@ -151,7 +151,7 @@ function getAndDeleteSlide(
     setCurrentScrollInsertValue(new Date().getDate());
     const bodyTable = newSlide.slide.querySelector('.body_table');
     bodyTable.addEventListener('click', (event) => {
-      getValuesForMonth(event);
+      getAndPushValuesForMonth(event);
       deleteValuesSpecificDay(
         event,
         document.querySelector('.container'),
@@ -393,10 +393,56 @@ function getTotalMonths(event) {
   else menuBurger.renderTotalMonth(target.id);
 }
 
+function getTotalYear(event) {
+  event.preventDefault();
+  const { target } = event;
+  menuBurger.getAndDeleteTablesMenu();
+  const targetYearSumValues = Object.values(REPORTS).reduce((acc, item) => {
+    if (item.year === +target.id) {
+      if (item.values.sum) acc.push(item.values.sum);
+    }
+    return acc;
+  }, []);
+  if (!targetYearSumValues.length)
+    imitationAlert('Я не нашёл данных за этот год.', monthHTML);
+  else menuBurger.renderTotalMonth(target.id);
+}
+
+function getYearSumValues(target) {
+  const targetYearSumValues = Object.values(REPORTS).reduce((acc, item) => {
+    if (item.year === +target) {
+      if (item.values.sum) acc.push(item.values.sum);
+    }
+    return acc;
+  }, []);
+  const result = {};
+  targetYearSumValues.forEach((obj) => {
+    Object.keys(obj).forEach((key) => {
+      if (!result[key]) result[key] = 0;
+      result[key] += obj[key];
+    });
+  });
+  return result;
+}
+
+function getAllYears(arr) {
+  res = arr.reduce((acc, item) => {
+    const el = item.split('/')[0];
+    if (acc.length) !acc.includes(el) && acc.push(el);
+    else acc.push(el);
+    return acc;
+  }, []);
+  return res.sort((a, b) => a - b);
+}
+
 function runItemTablesMenu(event) {
   if (menuBurger.tablesMenuWrapper.className.includes('getTotalMonths')) {
     getTotalMonths(event);
-  } else {
+  } else if (menuBurger.tablesMenuWrapper.className.includes('getTotalYear')) {
+    getTotalYear(event);
+  } else if (
+    menuBurger.tablesMenuWrapper.className.includes('getChangeTable')
+  ) {
     getChangeTable(event);
   }
 }
@@ -417,4 +463,18 @@ function getChangeThemes(event) {
   }
 }
 
-function drawDaysWeek() {}
+function drawDaysWeek(data) {
+  const daysMonth = Array.from(document.querySelectorAll('.days'))
+    .slice(1)
+    .slice(0, -1);
+  daysMonth.forEach((item) => {
+    item.style.setProperty('--days-after', getDayOfWeek(data, item.id));
+  });
+}
+
+function clearLocalStorage() {
+  localStorage.clear();
+  setTimeout(() => {
+    location.reload();
+  }, 500);
+}

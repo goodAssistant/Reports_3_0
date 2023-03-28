@@ -179,6 +179,17 @@ td.total__modal {
   transition: width 0.5s ease;
 }
 
+.btn_delete_values::before {
+  position: absolute;
+  content: '';
+  background: var(--after-delete-button);
+  bottom: 2%;
+  right: 7%;
+  width: 15px;
+  height: 15px;
+  transition: background 1s ease-out;
+}
+
 .wrapper_buttons {
   display: flex;
   opacity: 1;

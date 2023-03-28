@@ -95,7 +95,7 @@
 }
 
 .menu__item:not(:last-child) {
-  margin-bottom: 20px;
+  margin: 0 10px 20px 0;
 }
 
 .menu__item:hover {

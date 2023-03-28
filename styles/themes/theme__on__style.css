@@ -71,8 +71,8 @@
   background: var(--page-background-color-on__style);
 }
 
-.sticky {
-  background: #5d687c;
+.app.on__style .sticky {
+  background: #5d687cde;
 }
 
 .app.on__style .wrapper-table_title {

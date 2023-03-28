@@ -70,8 +70,8 @@
 .app.street__ball {
   /*background: var(--page-background-color-street__ball);*/
 }
-.sticky {
-  background: #fcd0a1;
+.app.street__ball .sticky {
+  background: #fcd0a1df;
 }
 
 .app.street__ball .wrapper-table_title {

@@ -108,12 +108,7 @@ class MonthHTML {
 
     this.body.className = `app ${this.data.theme}`;
 
-    const daysMonth = Array.from(document.querySelectorAll('.days'))
-      .slice(1)
-      .slice(0, -1);
-    daysMonth.forEach((item) => {
-      item.style.setProperty('--days-after', getDayOfWeek(data, item.id));
-    });
+    drawDaysWeek(data);
 
     if (Object.keys(this.data).length > 2) {
       setTimeout(() => {
@@ -211,6 +206,16 @@ class MonthHTML {
       setTimeout(() => {
         this.overlay.classList.add('open');
       }, 0);
+      this.overlay.addEventListener('click', () => {
+        document.querySelectorAll('.open').forEach((item) => {
+          setTimeout(() => {
+            if (!item.className.includes('menu__burger__header')) item.remove();
+          }, 1000);
+          setTimeout(() => {
+            item.classList.remove('open');
+          }, 0);
+        });
+      });
     }
   }
 }
@@ -377,7 +382,7 @@ let publValue = 0,
   tdClick,
   arrCells = [];
 
-function getValuesForMonth(event) {
+function getAndPushValuesForMonth(event) {
   const btnsDelete = monthHTML.container.querySelectorAll('.btn_delete_values');
   const tds = monthHTML.container.querySelectorAll('td');
   const { target } = event;
@@ -390,11 +395,19 @@ function getValuesForMonth(event) {
         btnDeleteChangeBackground = elem;
         elem.classList.add('active');
         elem.setAttribute('data-action', 'ok');
+        elem.style.setProperty(
+          '--after-delete-button',
+          'url(../assets/images/after_ok.png) no-repeat center center/contain'
+        );
         tds.forEach((elemTd) => {
           elemTd.onfocus = () => {
             if (target.id !== elemTd.id) {
               elem.classList.remove('active');
               elem.setAttribute('data-action', 'delete');
+              elem.style.setProperty(
+                '--after-delete-button',
+                'url(../assets/images/delete.png) no-repeat center center / contain'
+              );
               pullValuesToTable(currentYear, currentMonth);
             }
           };
@@ -472,12 +485,6 @@ document.addEventListener('click', (event) => {
       ?.contains(event.target)
   ) {
     return;
-  } else if (
-    menuBurgerHeader?.className.includes('open') &&
-    menuBurger?.wrapperBurger !== event.target.closest('.wrapper__burger')
-  ) {
-    monthHTML.getAndDeleteOverlay();
-    menuBurgerHeader.classList.remove('open');
   } else if (btnDeleteChangeBackground) {
     if (
       !monthHTML.container
@@ -488,6 +495,10 @@ document.addEventListener('click', (event) => {
       btnDeleteChangeBackground.classList.remove('active');
       setTimeout(() => {
         btnDeleteChangeBackground.setAttribute('data-action', 'delete');
+        btnDeleteChangeBackground.style.setProperty(
+          '--after-delete-button',
+          'url(../assets/images/delete.png) no-repeat center center / contain'
+        );
       }, 0);
       pullValuesToTable(currentYear, currentMonth);
     }
@@ -495,7 +506,7 @@ document.addEventListener('click', (event) => {
 });
 
 document.querySelector('.body_table').addEventListener('click', (event) => {
-  getValuesForMonth(event);
+  getAndPushValuesForMonth(event);
   deleteValuesSpecificDay(event, document.querySelector('.container'), months);
 });
 
@@ -561,7 +572,6 @@ const switchingBetweenTables = (event) => {
         },
         currentDayBackground
       );
-      drawDaysWeek(MonthHTML.container);
       break;
     case 'next':
       objDate = getAndCheckCurrentYearAndMonth(
@@ -586,7 +596,6 @@ const switchingBetweenTables = (event) => {
         },
         currentDayBackground
       );
-      drawDaysWeek(MonthHTML.container);
       break;
   }
 };

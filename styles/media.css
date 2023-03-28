@@ -2,89 +2,89 @@
 
 /*1200px..... */
 @media screen and (max-width: 100000px) {
- .app.street__ball {
-  background: url(../assets/images/basket730_1024.jpg)no-repeat center center / cover;
- }
- .container {
-  width: 98%;
- }
- .modal__window {
-  max-width: 490px;
- }
- .slide {
-  width: 100%;
- }
+  .app.street__ball {
+    background: url(../assets/images/basket730_1024.jpg) no-repeat center center /
+      cover;
+  }
+  .container {
+    width: 98%;
+  }
+  .modal__window {
+    max-width: 490px;
+  }
+  .slide {
+    width: 100%;
+  }
 }
 
 /* 992-1200px */
 @media screen and (max-width: 1200px) {
- .modal__window {
-  max-width: 490px;
- }
+  .modal__window {
+    max-width: 490px;
+  }
 }
 
 /* 768-992px */
 @media screen and (max-width: 992px) {
- .modal__window {
-  max-width: fit-content;
- }
- .instr__wrapper.active {
-  max-height: 700px;
- }
+  .modal__window {
+    max-width: fit-content;
+  }
+  .instr__wrapper.active {
+    max-height: 700px;
+  }
 }
 
 /* 576-768px */
 @media screen and (max-width: 768px) {
- .app {
-  padding: 50px 0;
- }
- .wrapper_previous, .wrapper_next {
-  top: auto;
-  width: 49%;
-  height: 50px;
- }
- .wrapper_previous {
-  left: 0;
- }
- .wrapper_next {
-  right: 0;
- }
- .button_previous {
-  left: 50%;
-  transform: translate(-50%, -50%);
- }
- .button_next {
-  right: 50%;
-  transform: translate(50%, -50%);
- }
- .wrapper_previous:active {
-  left: -1%;
- }
- .wrapper_next:active {
-  right: -1%;
- }
+  .wrapper_previous,
+  .wrapper_next {
+    top: auto;
+    width: 49%;
+    height: 50px;
+  }
+  .wrapper_previous {
+    left: 0;
+  }
+  .wrapper_next {
+    right: 0;
+  }
+  .button_previous {
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .button_next {
+    right: 50%;
+    transform: translate(50%, -50%);
+  }
+  .wrapper_previous:active {
+    left: -1%;
+  }
+  .wrapper_next:active {
+    right: -1%;
+  }
 }
 
 /* 320-658px  */
 @media screen and (max-width: 658px) {
- .app.street__ball {
-  background: url(../assets/images/basket431_604.jpg)no-repeat center center / cover;
- }
- .modal__window{
-  max-width: 330px;
- }
- .instr__wrapper.active {
-  max-height: 90vh;
- }
+  .app.street__ball {
+    background: url(../assets/images/basket431_604.jpg) no-repeat center center /
+      cover;
+  }
+  .modal__window {
+    max-width: 330px;
+  }
+  .instr__wrapper.active {
+    max-height: 90vh;
+  }
 }
 
 /* 320-576px  */
 @media screen and (max-width: 576px) {
- .btn__delete {
-  font-size: 12px;
-  letter-spacing: 4px;
- }
- .instr__wrapper {
-  width: 95%;
- }
+  .btn__delete {
+    font-size: 12px;
+    letter-spacing: 4px;
+  }
+  .instr__wrapper {
+    width: 95%;
+  }
 }

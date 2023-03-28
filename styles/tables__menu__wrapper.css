@@ -1,21 +1,24 @@
 .tables__menu__wrapper {
- max-height: 500px;
- height: fit-content;
- position: absolute;
- top: 42px;
- right: 20px;
- padding: 10px 10px 20px 10px;
- z-index: 1000;
- border-radius: 25px;
- transition: opacity 1s ease-in;
- opacity: 0;
- overflow-y: auto;
+  max-height: var(--tables-menu-wrapper);
+  height: fit-content;
+  position: absolute;
+  top: 42px;
+  right: 20px;
+  padding: 10px 10px 20px 10px;
+  z-index: 1000;
+  border-radius: 25px;
+  transition: opacity 1s ease-in;
+  opacity: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 135px;
 }
 
 .tables__menu__wrapper.open {
- opacity: 1;
+  opacity: 1;
 }
 
 .tables__menu__wrapper > .menu__link {
- margin: 0px 10px 10px 0;
+  margin: 0px 10px 10px 0;
 }
