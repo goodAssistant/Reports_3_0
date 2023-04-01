@@ -268,7 +268,7 @@ td.total__modal {
   height: 20px;
   border-top: 20px solid transparent;
   border-bottom: 20px solid transparent;
-  z-index: 2;
+  z-index: 1;
 }
 
 .button_previous {

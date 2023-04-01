@@ -172,7 +172,9 @@ class Menu {
           <td class="total__modal">
             ${
               idx === 3
-                ? convertMinutesToHours(totalValues[idx])
+                ? totalYear
+                  ? convertMinutesToHours(totalValues[idx])
+                  : convertMinutesToHours(totalValues[idx]).split(' ')[0] + ' ч'
                 : totalValues[idx]
             }
           </td>

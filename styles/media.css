@@ -7,7 +7,7 @@
       cover;
   }
   .container {
-    width: 98%;
+    width: 88%;
   }
   .modal__window {
     max-width: 490px;
@@ -36,6 +36,9 @@
 
 /* 576-768px */
 @media screen and (max-width: 768px) {
+  .container {
+    width: 98%;
+  }
   .wrapper_previous,
   .wrapper_next {
     top: auto;
