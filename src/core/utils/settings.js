@@ -31,7 +31,7 @@ const renderTableHTML = (matrixMonth, data, selector) => {
   } ${data.year}</h2>
   <table>
   ${
-    !tableVerticalOrientation
+    tableVerticalOrientation
       ? `<thead>
         <tr>
           ${thead
