@@ -301,4 +301,5 @@ th {
     transparent
   );
   border-radius: 10px;
+  scroll-behavior: smooth;
 }
