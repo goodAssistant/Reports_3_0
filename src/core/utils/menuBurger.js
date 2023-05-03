@@ -148,11 +148,11 @@ class Menu {
     }
   }
 
-  renderTotalMonth(rate) {
+  renderTotalMonth(rate, { repeat, totalYearInfo }) {
     let totalValues;
     const punctsTotal = [...puncts].splice(1, [...puncts].length - 2);
     let totalYear = !rate.includes('/');
-    if (totalYear) totalValues = Object.values(getYearSumValues(rate));
+    if (totalYear) totalValues = Object.values(getYearSumValues());
     else totalValues = Object.values(REPORTS[rate].values.sum);
     this.tablesTotalMonth.innerHTML = `
     <h4 class="month__name">${
@@ -185,7 +185,56 @@ class Menu {
       </tbody>
     </table>
     `;
-    imitationAlert(this.tablesTotalMonth.innerHTML, monthHTML);
+    if (totalYearInfo) {
+      imitationAlert(this.tablesTotalMonth.innerHTML, monthHTML);
+      return;
+    }
+    if (repeat) {
+      imitationAlert(this.tablesTotalMonth.innerHTML, monthHTML);
+      return;
+    }
+    if (REPORTS[rate]) {
+      const totalTime = convertMinutesToHours(
+        REPORTS[rate].values.sum.hoursSum
+      );
+      let arrTime = totalTime.replace(/\s+[а-я]/g, '').split(' ');
+      if (arrTime[1] < 10) arrTime = [arrTime[0], '0' + arrTime[1]];
+      const noValue = 0 + arrTime.join(':').slice(1);
+      const value = arrTime.length === 1 ? noValue + ':00' : noValue;
+
+      const totalHours = Number(totalTime.split(' ')[0]);
+      if (totalHours > 50) {
+        const template = `<form id=${rate} class="data_transfer_form" onsubmit="getDataTransfer(event)">
+            <label for="dataTransfer" class="item_dataTransfer form-label">
+              Ваше время составило: ${totalTime}
+            </label>
+            <div style="width:100%;     display: flex;
+            flex-direction: column;" class="item_dataTransfer">
+            <input
+              type="time"
+              class="dataTransfer_control"
+              id="dataTransfer"
+              aria-describedby="dataTransferHelp"
+              value=${value}
+              name="dataTransfer"
+            />
+              <button type="submit" class="dataTransfer_btn" name="dataTransfer">
+            Перенести
+          </button>
+          <button type="submit" class="dataTransfer_btn" name="dataTransferNo">
+          Не переносить
+        </button>
+          </div>
+            <div id="dataTransferHelp" class="item_dataTransfer form-text">
+              Чтобы перенести нужное вам количество часов или минут на следующий
+              месяц укажите их и нажмите кнопку "Перенести", если не хотите переносить, то нажмите кнопку "Не переносить", чтобы выйти нажмите на мою рожицу)))
+            </div>
+          </form>`;
+        imitationAlert(template, monthHTML);
+      } else {
+        imitationAlert(this.tablesTotalMonth.innerHTML, monthHTML);
+      }
+    }
   }
 }
 

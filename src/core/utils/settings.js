@@ -19,6 +19,7 @@ function getDayOfWeek(data, numDay) {
 }
 
 const renderTableHTML = (matrixMonth, data, selector) => {
+  const tableVerticalOrientation = window.innerWidth < 500;
   const wrapperTable = document.createElement('div');
   wrapperTable.className = selector;
   const thead = matrixMonth.splice(0, 1).join('').split(',');
@@ -29,13 +30,17 @@ const renderTableHTML = (matrixMonth, data, selector) => {
     data.monthName
   } ${data.year}</h2>
   <table>
-    <thead>
-    <tr>
-      ${thead
-        .map((th, thIdx) => `<th class="days" id=${thIdx}>${th}</th>`)
-        .join('')}
-    </tr>
-    </thead>
+  ${
+    !tableVerticalOrientation
+      ? `<thead>
+        <tr>
+          ${thead
+            .map((th, thIdx) => `<th class="days" id=${thIdx}>${th}</th>`)
+            .join('')}
+        </tr>
+      </thead>`
+      : ''
+  }
     <tbody class="body_table">
     ${matrixMonth
       .map(
@@ -43,17 +48,32 @@ const renderTableHTML = (matrixMonth, data, selector) => {
     <tr>
       ${row
         .map((td, tdIdx) => {
-          if (tdIdx === 0) {
-            return `<th class="action" data-action=${action[rowIdx]}>${td}</th>`;
-          } else if (tdIdx === row.length - 1) {
-            if (rowIdx === matrixMonth.length - 1) return `<th>${td}</th>`;
-            return `<th class="sum" data-action=${actionSum[rowIdx]}>${td}</th>`;
-          } else if (rowIdx === matrixMonth.length - 1) {
-            if (tdIdx > 0 && tdIdx < row.length - 1) {
-              return `<th class="btn_delete_values" id=${tdIdx} data-date="${tdIdx}" data-action="delete">${td}</th>`;
+          if (!tableVerticalOrientation) {
+            if (tdIdx === 0) {
+              return `<th class="action" data-action=${action[rowIdx]}>${td}</th>`;
+            } else if (tdIdx === row.length - 1) {
+              if (rowIdx === matrixMonth.length - 1) return `<th>${td}</th>`;
+              return `<th class="sum" data-action=${actionSum[rowIdx]}>${td}</th>`;
+            } else if (rowIdx === matrixMonth.length - 1) {
+              if (tdIdx > 0 && tdIdx < row.length - 1) {
+                return `<th class="btn_delete_values" id=${tdIdx} data-date="${tdIdx}" data-action="delete">${td}</th>`;
+              }
+            } else if (td === '') {
+              return `<td class="cell ${action[rowIdx]}" id=${tdIdx} data-action=${action[rowIdx]} contenteditable="true">${td}</td>`;
             }
-          } else if (td === '') {
-            return `<td class="cell ${action[rowIdx]}" id=${tdIdx} data-action=${action[rowIdx]} contenteditable="true">${td}</td>`;
+          } else {
+            if (tdIdx === 0) {
+              return `<th class="action" data-action=${action[rowIdx]}>${td}</th>`;
+            } else if (tdIdx === row.length - 1) {
+              if (rowIdx === matrixMonth.length - 1) return `<th>${td}</th>`;
+              return `<th class="sum" data-action=${actionSum[rowIdx]}>${td}</th>`;
+            } else if (rowIdx === matrixMonth.length - 1) {
+              if (tdIdx > 0 && tdIdx < row.length - 1) {
+                return `<th class="btn_delete_values" id=${tdIdx} data-date="${tdIdx}" data-action="delete">${td}</th>`;
+              }
+            } else if (td === '') {
+              return `<td class="cell ${action[rowIdx]}" id=${tdIdx} data-action=${action[rowIdx]} contenteditable="true">${td}</td>`;
+            }
           }
         })
         .join('')}
@@ -209,7 +229,7 @@ function moveModalWindow(obj, str = null, no_btn = false) {
     setTimeout(() => {
       overlay.classList.add('open');
       modalWindow.classList.add('open');
-    }, 0);
+    }, 20);
   }
 }
 
@@ -390,31 +410,42 @@ function getTotalMonths(event) {
   menuBurger.getAndDeleteTablesMenu();
   if (!Object.keys(REPORTS[target.id].values).length)
     imitationAlert('В этой таблице ещё нет данных)', monthHTML);
-  else menuBurger.renderTotalMonth(target.id);
+  else {
+    menuBurger.renderTotalMonth(target.id, {
+      repeat: false,
+      totalYearInfo: false,
+    });
+  }
 }
 
+let targetYearSumValues;
+
 function getTotalYear(event) {
+  console.log('getTotalYear:');
   event.preventDefault();
   const { target } = event;
   menuBurger.getAndDeleteTablesMenu();
-  const targetYearSumValues = Object.values(REPORTS).reduce((acc, item) => {
-    if (item.year === +target.id) {
+  REPORTS = getFromLocalStorage('reports');
+  console.log('REPORTS:', REPORTS);
+  targetYearSumValues = Object.values(REPORTS).reduce((acc, item) => {
+    if (+item.year === +target.id) {
       if (item.values.sum) acc.push(item.values.sum);
     }
     return acc;
   }, []);
+
+  console.log('targetYearSumValues:', targetYearSumValues);
+
   if (!targetYearSumValues.length)
     imitationAlert('Я не нашёл данных за этот год.', monthHTML);
-  else menuBurger.renderTotalMonth(target.id);
+  else
+    menuBurger.renderTotalMonth(target.id, {
+      repeat: false,
+      totalYearInfo: true,
+    });
 }
 
-function getYearSumValues(target) {
-  const targetYearSumValues = Object.values(REPORTS).reduce((acc, item) => {
-    if (item.year === +target) {
-      if (item.values.sum) acc.push(item.values.sum);
-    }
-    return acc;
-  }, []);
+function getYearSumValues() {
   const result = {};
   targetYearSumValues.forEach((obj) => {
     Object.keys(obj).forEach((key) => {
@@ -477,4 +508,57 @@ function clearLocalStorage() {
   setTimeout(() => {
     location.reload();
   }, 500);
+}
+
+function getDataTransfer(event) {
+  event.preventDefault();
+  let newId;
+  const { modalWindow } = monthHTML;
+  const { target, submitter } = event;
+  const value = target[0].value;
+  const hours = value.split(':')[0] + ' ч ' + value.split(':')[1] + ' мин';
+  const minutes = +convertHoursToMinutes(hours);
+  const currentYear = +target.id.split('/')[0];
+  const currentMonth = +target.id.split('/')[1];
+  function getAndDeleteData() {
+    modalWindow.classList.remove('open');
+    setTimeout(() => {
+      modalWindow.remove();
+      monthHTML.getAndDeleteOverlay();
+    }, 300);
+    setTimeout(() => {
+      menuBurger.renderTotalMonth(target.id, {
+        repeat: true,
+        totalYearInfo: false,
+      });
+    }, 811);
+  }
+  if (submitter.name === 'dataTransfer') {
+    if (currentMonth === 11) {
+      newId = [currentYear + 1, 0].join('/');
+    } else {
+      newId = [currentYear, currentMonth + 1].join('/');
+    }
+    if (!REPORTS[newId]) {
+      monthHTML.addDataReports(newId.split('/')[0], newId.split('/')[1]);
+      REPORTS = getFromLocalStorage('reports');
+    }
+
+    REPORTS[target.id].values.sum.hoursSum =
+      REPORTS[target.id].values.sum.hoursSum - minutes;
+    REPORTS[newId].values.sum.hoursSum =
+      +REPORTS[newId].values.sum.hoursSum + minutes;
+
+    getAndDeleteData();
+
+    addNextPrevButtonToHTML(document.querySelector('.wrapper-table'));
+    setTimeout(
+      () => document.querySelector('.wrapper_buttons').classList.remove('hide'),
+      0
+    );
+    setToLocalStorage('reports', REPORTS);
+    pullValuesToTable(currentYear, currentMonth);
+  } else if (submitter.name === 'dataTransferNo') {
+    getAndDeleteData();
+  }
 }

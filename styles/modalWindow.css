@@ -22,7 +22,7 @@
 
 .modal__window.open {
   left: 50%;
-  animation: animeModal 2s ease 1s 1 normal forwards;
+  animation: animeModal 1s ease 1s 1 normal forwards;
   z-index: 30;
   width: inherit;
   top: 10%;
@@ -105,15 +105,11 @@
     transform: translate(-50%);
   }
 
-  10%,
-  30%,
-  50%,
+  35%,
   70% {
     transform: translate(-60%);
   }
 
-  20%,
-  40%,
   60% {
     transform: translate(-40%);
   }

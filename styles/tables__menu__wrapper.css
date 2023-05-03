@@ -22,3 +22,24 @@
 .tables__menu__wrapper > .menu__link {
   margin: 0px 10px 10px 0;
 }
+
+.data_transfer_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item_dataTransfer {
+  margin-bottom: 10px;
+}
+
+.dataTransfer_control {
+  border-radius: 10px;
+  padding: 2px;
+}
+
+.dataTransfer_btn {
+  padding: 5px;
+  border-radius: 10px;
+  margin-top: 10px;
+}

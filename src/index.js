@@ -13,7 +13,7 @@ let currentYear = new Date().getFullYear();
 let currentMonth = new Date().getMonth();
 
 //currentYear = 2023;
-//currentMonth = 2;
+//currentMonth = 5;
 
 const puncts = ['Число', 'Публ', 'Видео', 'ПП', 'Часы', 'Из', 'Очистить»'];
 const months = [
@@ -57,6 +57,23 @@ function normalize(num, thead) {
   }, []);
 }
 
+//function normalizeVertical(num, thead) {
+//  console.log('thead:', thead);
+//  console.log('num:', num);
+//  console.log('Array(thead).fill(Итого):', Array(thead.at(-2)).fill('Итого'));
+
+//  return thead.reduce((acc, el, idx) => {
+//    if (idx === thead.length - 1)
+//      acc = [...acc, ...Array(thead.at(-2)).fill('Итого'), '«столбец'];
+//    else acc = [...acc, ...Array(num).fill(''), ''];
+//    return acc;
+//  }, []);
+//}
+
+//console.log(
+//  normalizeVertical(numDaysOfMonth(currentYear, currentMonth), range(6))
+//);
+
 class MonthHTML {
   constructor(body, data, selector) {
     this.body = body;
@@ -79,6 +96,7 @@ class MonthHTML {
     this.overlay.className = 'overlay';
 
     this.tableArr;
+    //this.tableArrVertical;
     this.slide;
   }
 
@@ -89,6 +107,7 @@ class MonthHTML {
     this.tableArr = chunk(this.tableArr, monthDays + 2);
     this.addDataReports(year, month);
     this.addToHTML(this.tableArr, this.data[`${year}/${month}`]);
+
     this.slide = this.body.querySelector('.' + this.selector.split(' ')[1]);
   }
 
@@ -130,7 +149,15 @@ class MonthHTML {
         year: year,
         monthName: months[month],
         month: month,
-        values: {},
+        values: {
+          sum: {
+            publSum: 0,
+            videoSum: 0,
+            ppSum: 0,
+            izSum: 0,
+            hoursSum: 0,
+          },
+        },
       };
       setToLocalStorage('reports', this.data);
     }
@@ -276,7 +303,7 @@ function setCurrentScrollInsertValue(value) {
     `${new Date().getFullYear()}/${new Date().getMonth()}`
   ) {
     currentDayBackground = days[value];
-    currentDayBackground.classList.add('days_today');
+    currentDayBackground?.classList.add('days_today');
   }
 }
 
@@ -305,7 +332,7 @@ class Values {
           publSum: this.publ,
           videoSum: this.video,
           ppSum: this.pp,
-          hoursSum: this.hours,
+          hoursSum: data.sum.hoursSum + this.hours,
           izSum: this.iz,
         },
       };
@@ -511,6 +538,9 @@ document.querySelector('.body_table').addEventListener('click', (event) => {
 });
 
 function pullValuesToTable(year, month) {
+  console.log('month:', month);
+  console.log('year:', year);
+
   const cells = monthHTML.container.querySelectorAll('.cell'),
     cellsSum = monthHTML.container.querySelectorAll('.sum'),
     data = REPORTS[`${year}/${month}`].values;
@@ -531,8 +561,6 @@ function pullValuesToTable(year, month) {
   }
 
   for (let cell of cellsSum) {
-    if (!Object.values(data).length) return;
-    if (cell.dataset.action === 'undefined') return;
     if (!data.sum[cell.dataset.action]) cell.textContent = '';
     else {
       if (cell.dataset.action === 'hoursSum') {
