@@ -538,9 +538,6 @@ document.querySelector('.body_table').addEventListener('click', (event) => {
 });
 
 function pullValuesToTable(year, month) {
-  console.log('month:', month);
-  console.log('year:', year);
-
   const cells = monthHTML.container.querySelectorAll('.cell'),
     cellsSum = monthHTML.container.querySelectorAll('.sum'),
     data = REPORTS[`${year}/${month}`].values;

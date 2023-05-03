@@ -327,3 +327,26 @@
   color: var(--all-text-color-on__style);
   box-shadow: var(--menu-item-boxshadow-on__style);
 }
+
+.app.on__style .table::-webkit-scrollbar {
+  width: 10px;
+}
+
+.app.on__style .table::-webkit-scrollbar-track {
+  -webkit-box-shadow: 5px 5px 5px -5px rgba(123, 129, 133, 0.2) inset;
+  background-color: #f9f9fd;
+  border-radius: 10px;
+}
+
+.app.on__style .table::-webkit-scrollbar-thumb {
+  background-color: #79838a;
+  border-radius: 10px;
+  background-image: -webkit-gradient(
+    linear,
+    0 0,
+    0 100%,
+    color-stop(0.5, rgba(62, 61, 61, 0.25)),
+    color-stop(0.5, transparent),
+    to(transparent)
+  );
+}

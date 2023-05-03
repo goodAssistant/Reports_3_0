@@ -29,18 +29,14 @@ const renderTableHTML = (matrixMonth, data, selector) => {
   <h2 class="wrapper-table_title" data-key=${data.year}/${data.month}>${
     data.monthName
   } ${data.year}</h2>
-  <table>
-  ${
-    tableVerticalOrientation
-      ? `<thead>
+  <table class="table">
+  ${`<thead>
         <tr>
           ${thead
             .map((th, thIdx) => `<th class="days" id=${thIdx}>${th}</th>`)
             .join('')}
         </tr>
-      </thead>`
-      : ''
-  }
+      </thead>`}
     <tbody class="body_table">
     ${matrixMonth
       .map(
@@ -518,8 +514,8 @@ function getDataTransfer(event) {
   const value = target[0].value;
   const hours = value.split(':')[0] + ' ч ' + value.split(':')[1] + ' мин';
   const minutes = +convertHoursToMinutes(hours);
-  const currentYear = +target.id.split('/')[0];
-  const currentMonth = +target.id.split('/')[1];
+  const year = +target.id.split('/')[0];
+  const month = +target.id.split('/')[1];
   function getAndDeleteData() {
     modalWindow.classList.remove('open');
     setTimeout(() => {
@@ -534,10 +530,10 @@ function getDataTransfer(event) {
     }, 811);
   }
   if (submitter.name === 'dataTransfer') {
-    if (currentMonth === 11) {
-      newId = [currentYear + 1, 0].join('/');
+    if (month === 11) {
+      newId = [year + 1, 0].join('/');
     } else {
-      newId = [currentYear, currentMonth + 1].join('/');
+      newId = [year, month + 1].join('/');
     }
     if (!REPORTS[newId]) {
       monthHTML.addDataReports(newId.split('/')[0], newId.split('/')[1]);
@@ -557,7 +553,13 @@ function getDataTransfer(event) {
       0
     );
     setToLocalStorage('reports', REPORTS);
-    pullValuesToTable(currentYear, currentMonth);
+    if (
+      +monthHTML.container
+        .querySelector('.wrapper-table_title')
+        .dataset.key.split('/')[1] === new Date().getMonth()
+    ) {
+      pullValuesToTable(year, month);
+    }
   } else if (submitter.name === 'dataTransferNo') {
     getAndDeleteData();
   }

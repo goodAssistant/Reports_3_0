@@ -1,256 +1,304 @@
 /* +++++++++++++++++++++++++++++++++++++index++++++++++++++++++++++++++++++++++++++ */
 :root {
- --page-background-color-black__purple: #000000;
+  --page-background-color-black__purple: #000000;
 
- --title-color-black__purple: purple;
+  --title-color-black__purple: purple;
 
- --all-text-color-black__purple: white;
+  --all-text-color-black__purple: white;
 
- --all-wrappers-background-color-black__purple: var(--color-JW-label);
- --all-wrappers-menu-boxshadow-black__purple: 0 0 2px white, 0 0 10px white;
+  --all-wrappers-background-color-black__purple: var(--color-JW-label);
+  --all-wrappers-menu-boxshadow-black__purple: 0 0 2px white, 0 0 10px white;
 
- --td-th-color-black__purple: rgb(94, 0, 183);
- --td-th-background-black__purple: rgb(226, 226, 210);
- --td-th-box-shadow-black__purple: 0 0 2px var(--color-JW-label)inset, 0 0 10px var(--color-JW-label)inset;
+  --td-th-color-black__purple: rgb(94, 0, 183);
+  --td-th-background-black__purple: rgb(226, 226, 210);
+  --td-th-box-shadow-black__purple: 0 0 2px var(--color-JW-label) inset,
+    0 0 10px var(--color-JW-label) inset;
 
- --td-focus-outline-black__purple: 2px solid rgb(100, 57, 139);
- --td-after-focus-color-black__purple: rgb(100, 57, 139);
+  --td-focus-outline-black__purple: 2px solid rgb(100, 57, 139);
+  --td-after-focus-color-black__purple: rgb(100, 57, 139);
 
- --after-td-text-color-black__purple: black;
+  --after-td-text-color-black__purple: black;
 
- --days-today-background-black__purple: var(--color-JW-label);
- --days-today-color-black__purple: #fff;
- 
- --delete_btn-background-color-icon1-black__purple: rgba(93, 126, 40, 0.6);
- --delete_btn-boxshadow-icon1-black__purple: 0px 0px 20px 5px rgba(255, 238, 0, 0.6);
+  --days-today-background-black__purple: var(--color-JW-label);
+  --days-today-color-black__purple: #fff;
 
- --delete_btn-background-color-icon2-black__purple: rgb(183 183 70 / 70%);
- --delete_btn-boxshadow-icon2-black__purple: 0px 0px 10px rgb(251 141 7 / 80%), 0px 0px 10px 5px rgb(251 181 7 / 80%)inset;
+  --delete_btn-background-color-icon1-black__purple: rgba(93, 126, 40, 0.6);
+  --delete_btn-boxshadow-icon1-black__purple: 0px 0px 20px 5px
+    rgba(255, 238, 0, 0.6);
 
- --after-delete-btn-color-black__purple: var(--color-JW-label);
- --after-wrappers-btn-switch-color-hover-black__purple: #ffffffad;
- --wrappers-btn-switch-background-color-black__purple: rgba(255, 255, 255, 0.4);
- --triangle-color-black__purple: var(--color-JW-label);
+  --delete_btn-background-color-icon2-black__purple: rgb(183 183 70 / 70%);
+  --delete_btn-boxshadow-icon2-black__purple: 0px 0px 10px rgb(251 141 7 / 80%),
+    0px 0px 10px 5px rgb(251 181 7 / 80%) inset;
 
- --burger-menu-color-black__purple: var(--color-JW-label);
+  --after-delete-btn-color-black__purple: var(--color-JW-label);
+  --after-wrappers-btn-switch-color-hover-black__purple: #ffffffad;
+  --wrappers-btn-switch-background-color-black__purple: rgba(
+    255,
+    255,
+    255,
+    0.4
+  );
+  --triangle-color-black__purple: var(--color-JW-label);
 
+  --burger-menu-color-black__purple: var(--color-JW-label);
 
- --release-color-black__purple: rgb(0 254 255);
+  --release-color-black__purple: rgb(0 254 255);
 
- --back-to-top-background-color-black__purple: var(--color-JW-label);
- --back-to-top-background-color-hover-black__purple: var(--release-color);
+  --back-to-top-background-color-black__purple: var(--color-JW-label);
+  --back-to-top-background-color-hover-black__purple: var(--release-color);
 
- --modal-btn-boxshadow-hover-black__purple: 3px 3px 10px 2px #0a0907, 0px 0px 10px 3px #ffffff9c inset;
- --modal-btn-boxshadow-active-black__purple: 0px 0px 10px 3px #595448 inset;
+  --modal-btn-boxshadow-hover-black__purple: 3px 3px 10px 2px #0a0907,
+    0px 0px 10px 3px #ffffff9c inset;
+  --modal-btn-boxshadow-active-black__purple: 0px 0px 10px 3px #595448 inset;
 
- --overlay-background-color-black__purple: rgba(255, 255, 255, 0.164);
+  --overlay-background-color-black__purple: rgba(255, 255, 255, 0.164);
 
- --menu-item-boxshadow-black__purple: 5px 6px 10px 0px rgb(0, 0, 0, 0.7);
+  --menu-item-boxshadow-black__purple: 5px 6px 10px 0px rgb(0, 0, 0, 0.7);
 
- --mustardseed-counter-text-color-black__purple: white;
+  --mustardseed-counter-text-color-black__purple: white;
 }
 
-
 .app.black__purple {
- background-color: var(--page-background-color-black__purple);
+  background-color: var(--page-background-color-black__purple);
 }
 
 .app.black__purple .wrapper-table_title {
- color: var(--title-color-black__purple);
+  color: var(--title-color-black__purple);
 }
 
-.app.black__purple td, th {
- color: var(--td-th-color-black__purple);
- background: var(--td-th-background-black__purple);
- box-shadow: var(--td-th-box-shadow-black__purple);
+.app.black__purple td,
+th {
+  color: var(--td-th-color-black__purple);
+  background: var(--td-th-background-black__purple);
+  box-shadow: var(--td-th-box-shadow-black__purple);
 }
 
 .app.black__purple td:focus {
- outline: var(--td-focus-outline-black__purple);
- color: var(--td-after-focus-color-black__purple);
+  outline: var(--td-focus-outline-black__purple);
+  color: var(--td-after-focus-color-black__purple);
 }
 
-.app.black__purple .publ:after, .video:after, .pp:after, .hours:after, .iz:after {
- color: var(--after-td-text-color-black__purple);
- font-family: 'Arturo Black outline';
+.app.black__purple .publ:after,
+.video:after,
+.pp:after,
+.hours:after,
+.iz:after {
+  color: var(--after-td-text-color-black__purple);
+  font-family: 'Arturo Black outline';
 }
 
 .app.black__purple .days.days_today {
- background: var(--days-today-background-black__purple) ;
- color: var(--days-today-color-black__purple);
- font-family: 'Natasha';
+  background: var(--days-today-background-black__purple);
+  color: var(--days-today-color-black__purple);
+  font-family: 'Natasha';
 }
 
 .app.black__purple .btn_delete_values {
- background: var(--td-th-background-black__purple) url(../../assets/images/emptyBox.png) no-repeat center center / contain;
- box-shadow: 0 0 2px var(--color-JW-label)inset, 0 0 10px var(--color-JW-label)inset;
+  background: var(--td-th-background-black__purple)
+    url(../../assets/images/emptyBox.png) no-repeat center center / contain;
+  box-shadow: 0 0 2px var(--color-JW-label) inset,
+    0 0 10px var(--color-JW-label) inset;
 }
 
 .app.black__purple .btn_delete_values.active {
- background: var(--td-th-background-black__purple) url(../../assets/images/smile_ok.png)no-repeat center center / contain;
+  background: var(--td-th-background-black__purple)
+    url(../../assets/images/smile_ok.png) no-repeat center center / contain;
 }
 
 .app.black__purple .btn_delete_values.mustardSeed__icon1 {
-	background: var(--delete_btn-background-color-icon1-black__purple)  url(../../assets/images/lamp.png)no-repeat center center / contain;
-	box-shadow: var(--delete_btn-boxshadow-icon1-black__purple);
+  background: var(--delete_btn-background-color-icon1-black__purple)
+    url(../../assets/images/lamp.png) no-repeat center center / contain;
+  box-shadow: var(--delete_btn-boxshadow-icon1-black__purple);
 }
 
 .app.black__purple .btn_delete_values.mustardSeed__icon1.active {
- background: var(--td-th-background-black__purple) url(../../assets/images/smile_ok.png)no-repeat center center / contain;
- box-shadow: var(--td-th-box-shadow-black__purple);
+  background: var(--td-th-background-black__purple)
+    url(../../assets/images/smile_ok.png) no-repeat center center / contain;
+  box-shadow: var(--td-th-box-shadow-black__purple);
 }
 
 .app.black__purple .btn_delete_values.mustardSeed__icon2 {
-	background: var(--delete_btn-background-color-icon2-black__purple) url(../../assets/images/лампо_ка.png)no-repeat center center / contain;
- box-shadow: var(--delete_btn-boxshadow-icon2-black__purple);
+  background: var(--delete_btn-background-color-icon2-black__purple)
+    url(../../assets/images/лампо_ка.png) no-repeat center center / contain;
+  box-shadow: var(--delete_btn-boxshadow-icon2-black__purple);
 }
 
 .app.black__purple .btn_delete_values.mustardSeed__icon2.active {
- background: var(--td-th-background-black__purple) url(../../assets/images/smile_ok.png)no-repeat center center / contain;
- box-shadow: var(--td-th-box-shadow-black__purple);
+  background: var(--td-th-background-black__purple)
+    url(../../assets/images/smile_ok.png) no-repeat center center / contain;
+  box-shadow: var(--td-th-box-shadow-black__purple);
 }
 
 .app.black__purple .btn_delete_values::after {
- background-color: var(--after-delete-btn-color-black__purple);
+  background-color: var(--after-delete-btn-color-black__purple);
 }
 
-.app.black__purple .wrapper_previous, .wrapper_next {
- background-color: var(--wrappers-btn-switch-background-color-black__purple);
+.app.black__purple .wrapper_previous,
+.wrapper_next {
+  background-color: var(--wrappers-btn-switch-background-color-black__purple);
 }
 
-.app.black__purple .wrapper_previous:hover:after, .wrapper_next:hover:after {
- background-color: var(--after-wrappers-btn-switch-color-hover-black__purple);
- width: 100%;
+.app.black__purple .wrapper_previous:hover:after,
+.wrapper_next:hover:after {
+  background-color: var(--after-wrappers-btn-switch-color-hover-black__purple);
+  width: 100%;
 }
 
 .app.black__purple .button_previous {
- border-right: 30px solid var(--triangle-color-black__purple);
+  border-right: 30px solid var(--triangle-color-black__purple);
 }
 
 .app.black__purple .button_next {
- border-left: 30px solid var(--triangle-color-black__purple);
+  border-left: 30px solid var(--triangle-color-black__purple);
 }
 
 .app.black__purple .mustardSeed__counter1 {
-	color: var(--mustardseed-counter-text-color-black__purple);
+  color: var(--mustardseed-counter-text-color-black__purple);
 }
 
 .app.black__purple .mustardSeed__counter2 {
-	color: var(--mustardseed-counter-text-color-black__purple);
+  color: var(--mustardseed-counter-text-color-black__purple);
 }
 
 /* +++++++++++++++++++++++++++++++++++++menu burger++++++++++++++++++++++++++++++++++++++ */
 
 .app.black__purple .menu__burger__header > span {
- background-color: var(--burger-menu-color-black__purple);
+  background-color: var(--burger-menu-color-black__purple);
 }
 
-.app.black__purple .menu__burger__header:after, .menu__burger__header:before {
- background-color: var(--burger-menu-color-black__purple);
+.app.black__purple .menu__burger__header:after,
+.menu__burger__header:before {
+  background-color: var(--burger-menu-color-black__purple);
 }
 
 .app.black__purple .mouse__over {
- color: var(--burger-menu-color-black__purple);
- font-family: 'Natasha';
+  color: var(--burger-menu-color-black__purple);
+  font-family: 'Natasha';
 }
 
 .app.black__purple .nav {
- box-shadow: var(--all-wrappers-menu-boxshadow-black__purple);
- background-color: var(--all-wrappers-background-color-black__purple);
+  box-shadow: var(--all-wrappers-menu-boxshadow-black__purple);
+  background-color: var(--all-wrappers-background-color-black__purple);
 }
 
 .app.black__purple .nav > a {
- font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
- color: var(--all-text-color-black__purple);
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: var(--all-text-color-black__purple);
 }
 
 .app.black__purple .menu__item:after {
- background-color: var(--all-text-color-black__purple);
+  background-color: var(--all-text-color-black__purple);
 }
 
 .app.black__purple .release {
- color: var(--release-color-black__purple);
+  color: var(--release-color-black__purple);
 }
 
 .app.black__purple .back_to_top {
- background: var(--back-to-top-background-color-black__purple);
+  background: var(--back-to-top-background-color-black__purple);
 }
 
 .app.black__purple .back_to_top:hover {
- background: var(--back-to-top-background-color-hover-black__purple);
+  background: var(--back-to-top-background-color-hover-black__purple);
 }
 
 /* +++++++++++++++++++++++++++++++++++++instructions++++++++++++++++++++++++++++++++++++++ */
 
 .app.black__purple .instr__wrapper {
- font-family: 'Choco cooky';
- background-color: var(--all-wrappers-background-color-black__purple);
- box-shadow: var(--all-wrappers-menu-boxshadow-black__purple);
- color: var(--all-text-color-black__purple);
+  font-family: 'Choco cooky';
+  background-color: var(--all-wrappers-background-color-black__purple);
+  box-shadow: var(--all-wrappers-menu-boxshadow-black__purple);
+  color: var(--all-text-color-black__purple);
 }
 
 .app.black__purple .instr__wrapper::after {
- background-color: var(--release-color-black__purple);
- box-shadow: var(--all-wrappers-menu-boxshadow-black__purple);
+  background-color: var(--release-color-black__purple);
+  box-shadow: var(--all-wrappers-menu-boxshadow-black__purple);
 }
 
 /* +++++++++++++++++++++++++++++++++++++modal window++++++++++++++++++++++++++++++++++++++ */
 
 .app.black__purple .modal__window {
- background-color: var(--all-wrappers-background-color-black__purple);
- box-shadow: var(--all-wrappers-menu-boxshadow-black__purple);
+  background-color: var(--all-wrappers-background-color-black__purple);
+  box-shadow: var(--all-wrappers-menu-boxshadow-black__purple);
 }
 
 .app.black__purple .modal__text {
-color: var(--all-text-color-black__purple);
+  color: var(--all-text-color-black__purple);
 }
 
 .app.black__purple .modal__window:after {
- background-color: var(--release-color-black__purple);
- box-shadow: var(--all-wrappers-menu-boxshadow-black__purple);
+  background-color: var(--release-color-black__purple);
+  box-shadow: var(--all-wrappers-menu-boxshadow-black__purple);
 }
 
 .app.black__purple .modal__data {
- color:  var(--release-color-black__purple);
+  color: var(--release-color-black__purple);
 }
 
 .app.black__purple .modal__btn {
- box-shadow: var(--all-wrappers-menu-boxshadow-black__purple);
+  box-shadow: var(--all-wrappers-menu-boxshadow-black__purple);
 }
 
 .app.black__purple .modal__btn:hover {
- box-shadow: var(--modal-btn-boxshadow-hover-black__purple);
+  box-shadow: var(--modal-btn-boxshadow-hover-black__purple);
 }
 
 .app.black__purple .modal__btn:active {
- box-shadow: var(--modal-btn-boxshadow-active-black__purple);
+  box-shadow: var(--modal-btn-boxshadow-active-black__purple);
 }
 
 .app.black__purple .overlay {
- background-color: var(--overlay-background-color-black__purple);
+  background-color: var(--overlay-background-color-black__purple);
 }
 
 /* +++++++++++++++++++++++++++++++++++++tables menu wrapper+++++++++++++++++++++++++++++++++++ */
 
-.app.black__purple .tables__menu__wrapper.open, .tables__total.open {
- box-shadow: var(--all-wrappers-menu-boxshadow-black__purple);
-	background: var(--all-wrappers-background-color-black__purple);
+.app.black__purple .tables__menu__wrapper.open,
+.tables__total.open {
+  box-shadow: var(--all-wrappers-menu-boxshadow-black__purple);
+  background: var(--all-wrappers-background-color-black__purple);
 }
 
 /* +++++++++++++++++++++++++++++++++++++Themes Wrapper+++++++++++++++++++++++++++++++++++ */
 
 .app.black__purple .themes__wrapper {
- color: var(--all-text-color-black__purple);
- box-shadow: var(--all-wrappers-menu-boxshadow-black__purple);
- background-color: var(--all-wrappers-background-color-black__purple);
+  color: var(--all-text-color-black__purple);
+  box-shadow: var(--all-wrappers-menu-boxshadow-black__purple);
+  background-color: var(--all-wrappers-background-color-black__purple);
 }
 
 .app.black__purple .themes__title {
- font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
- color: var(--all-text-color-black__purple);
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: var(--all-text-color-black__purple);
 }
 
 .app.black__purple .menu__item > a {
- color: var(--all-text-color-black__purple);
-	box-shadow: var(--menu-item-boxshadow-black__purple);
+  color: var(--all-text-color-black__purple);
+  box-shadow: var(--menu-item-boxshadow-black__purple);
+}
+
+.app.black__purple .table::-webkit-scrollbar {
+  width: 10px;
+}
+
+.app.black__purple .table::-webkit-scrollbar-track {
+  -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+  background-color: #f9f9fd;
+  border-radius: 10px;
+}
+
+.app.black__purple .table::-webkit-scrollbar-thumb {
+  background-color: #89089d;
+  background-image: -webkit-linear-gradient(
+    45deg,
+    rgba(178, 105, 186, 0.25) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 5, 188, 0.25) 50%,
+    rgba(78, 2, 42, 0.25) 75%,
+    transparent 75%,
+    transparent
+  );
+  border-radius: 10px;
 }
