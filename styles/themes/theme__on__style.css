@@ -27,7 +27,6 @@
 
   --after-td-text-color-on__style: white;
 
-  --days-today-background-on__style: var(--color-JW-label);
   --days-today-color-on__style: #fff;
 
   --delete_btn-background-color-icon1-on__style: rgba(93, 126, 40, 0.6);
@@ -125,7 +124,13 @@
 }
 
 .app.on__style .days.days_today {
-  background: var(--days-today-background-on__style);
+  background: var(--days-today-background);
+  color: var(--days-today-color-on__style);
+  font-family: 'Natasha';
+}
+
+.app.on__style .days_today {
+  background: var(--days-today-background);
   color: var(--days-today-color-on__style);
   font-family: 'Natasha';
 }

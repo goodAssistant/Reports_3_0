@@ -11,6 +11,10 @@
   --tables-menu-wrapper: 400px;
   --after-delete-button: url(../assets/images/delete.png) no-repeat center
     center / contain;
+  --beforeHoursSum: none;
+  --afterHoursSumTransferText: none;
+  --beforeTds: none;
+  --days-today-background: rgba(183, 0, 255, 0.195);
 }
 
 * {
@@ -24,6 +28,7 @@
   width: 100vw;
   height: 100vh;
   overflow-y: auto;
+  scroll-behavior: smooth;
 }
 
 .container {
@@ -40,6 +45,10 @@
   right: 5vw;
   top: 2%;
   z-index: 2000;
+}
+
+.days_today {
+  transition: all 1s ease-out 0s;
 }
 
 .reports__title:after,

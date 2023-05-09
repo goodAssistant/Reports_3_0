@@ -28,7 +28,6 @@
 
   --after-td-text-color-random__image: white;
 
-  --days-today-background-random__image: var(--color-JW-label);
   --days-today-color-random__image: #fff;
 
   --delete_btn-background-color-icon1-random__image: rgba(93, 126, 40, 0.6);
@@ -127,7 +126,13 @@
 }
 
 .app.random__image .days.days_today {
-  background: var(--days-today-background-random__image);
+  background: var(--days-today-background);
+  color: var(--days-today-color-random__image);
+  font-family: 'Natasha';
+}
+
+.app.random__image .days_today {
+  background: var(--days-today-background);
   color: var(--days-today-color-random__image);
   font-family: 'Natasha';
 }

@@ -1,3 +1,5 @@
+const tableVerticalOrientation = window.innerWidth < 500;
+
 const addNextPrevButtonToHTML = (body) => {
   const containerButtons = document.createElement('div');
   containerButtons.className = 'wrapper_buttons hide';
@@ -13,16 +15,17 @@ const addNextPrevButtonToHTML = (body) => {
 
 function getDayOfWeek(data, numDay) {
   const dayOfWeek = new Date(
-    `${data.year}-${data.month + 1}-${numDay}`
+    `${+data.year}-${+data.month + 1}-${numDay}`
   ).getDay();
   return ["'Вс'", "'Пн'", "'Вт'", "'Ср'", "'Чт'", "'Пт'", "'Сб'"][dayOfWeek];
 }
 
 const renderTableHTML = (matrixMonth, data, selector) => {
-  const tableVerticalOrientation = window.innerWidth < 500;
+  let thead;
   const wrapperTable = document.createElement('div');
   wrapperTable.className = selector;
-  const thead = matrixMonth.splice(0, 1).join('').split(',');
+  if (!tableVerticalOrientation)
+    thead = matrixMonth.splice(0, 1).join('').split(',');
   const action = ['publ', 'video', 'pp', 'hours', 'iz'];
   const actionSum = ['publSum', 'videoSum', 'ppSum', 'hoursSum', 'izSum'];
   wrapperTable.innerHTML = `
@@ -30,13 +33,17 @@ const renderTableHTML = (matrixMonth, data, selector) => {
     data.monthName
   } ${data.year}</h2>
   <table class="table">
-  ${`<thead>
+  ${
+    thead
+      ? `<thead>
         <tr>
           ${thead
             .map((th, thIdx) => `<th class="days" id=${thIdx}>${th}</th>`)
             .join('')}
         </tr>
-      </thead>`}
+      </thead>`
+      : ''
+  }
     <tbody class="body_table">
     ${matrixMonth
       .map(
@@ -58,17 +65,19 @@ const renderTableHTML = (matrixMonth, data, selector) => {
               return `<td class="cell ${action[rowIdx]}" id=${tdIdx} data-action=${action[rowIdx]} contenteditable="true">${td}</td>`;
             }
           } else {
-            if (tdIdx === 0) {
-              return `<th class="action" data-action=${action[rowIdx]}>${td}</th>`;
-            } else if (tdIdx === row.length - 1) {
-              if (rowIdx === matrixMonth.length - 1) return `<th>${td}</th>`;
-              return `<th class="sum" data-action=${actionSum[rowIdx]}>${td}</th>`;
-            } else if (rowIdx === matrixMonth.length - 1) {
-              if (tdIdx > 0 && tdIdx < row.length - 1) {
-                return `<th class="btn_delete_values" id=${tdIdx} data-date="${tdIdx}" data-action="delete">${td}</th>`;
+            if (rowIdx === matrixMonth.length - 1) {
+              if (tdIdx === row.length - 1) {
+                return `<th>${td}</th>`;
+              } else {
+                return `<th class="sum" data-action=${actionSum[tdIdx]}>${td}</th>`;
               }
-            } else if (td === '') {
-              return `<td class="cell ${action[rowIdx]}" id=${tdIdx} data-action=${action[rowIdx]} contenteditable="true">${td}</td>`;
+            } else if (
+              rowIdx !== matrixMonth.length - 1 &&
+              tdIdx === row.length - 1
+            ) {
+              return `<th class="btn_delete_values" id=${rowIdx} data-date="${rowIdx}" data-action="delete">${td}</th>`;
+            } else {
+              return `<td class="cell ${action[tdIdx]}" id=${rowIdx} data-action=${action[tdIdx]} contenteditable="true">${td}</td>`;
             }
           }
         })
@@ -106,7 +115,7 @@ const deleteValuesSpecificDay = (event, body, months) => {
 };
 
 function deleteValuesIsLocalStorage(cellsDay, key, target) {
-  const { publSum, videoSum, ppSum, hoursSum, izSum } =
+  const { publSum, videoSum, ppSum, hoursSum, izSum, hoursSumTotal } =
     REPORTS[key].values['sum'];
   const { publ, video, pp, hours, iz } = REPORTS[key].values[target.id];
   const reports = REPORTS;
@@ -117,6 +126,7 @@ function deleteValuesIsLocalStorage(cellsDay, key, target) {
     ppSum: ppSum - pp,
     hoursSum: hoursSum - hours,
     izSum: izSum - iz,
+    hoursSumTotal: hoursSumTotal - hours,
   };
 
   delete REPORTS[key].values[target.id];
@@ -136,8 +146,7 @@ function getAndDeleteSlide(
   module,
   body,
   data,
-  { year, month, selector, relay },
-  currentDay
+  { year, month, selector, relay }
 ) {
   let currentSlide,
     newSlide,
@@ -146,8 +155,6 @@ function getAndDeleteSlide(
   newSlide = new module(body, data, selector);
   currentSlide = monthHTML.container.querySelector('.wrapper-table');
   currentSlide.querySelector('.wrapper_buttons').style.opacity = 0;
-  currentDay.style.transition = 'all 1s ease-out 0s';
-  currentDay.classList.remove('days_today');
 
   setTimeout(() => {
     newSlide.render(year, month);
@@ -176,6 +183,7 @@ function getAndDeleteSlide(
     });
     newSlide.slide.querySelector('.wrapper_buttons').classList.remove('hide');
   }, 3100);
+  drawContentBeforeTds(data[`${year}/${month}`]);
 }
 
 function getAndCheckCurrentYearAndMonth(data, year, month, relay) {
@@ -378,24 +386,32 @@ function getChangeTable(event) {
       year: year,
       month: month,
     };
-  if (year === currentYear) {
+  console.log(year === currentYear);
+  console.log('currentYear:', currentYear);
+  if (year === +currentYear) {
+    console.log(1);
     if (month < currentMonth) {
+      console.log(1.1);
       objRelay.selector = 'slide wrapper-table_previous previous';
       objRelay.relay = 'previous';
     } else {
+      console.log(1.2);
       objRelay.selector = 'slide wrapper-table_next next';
       objRelay.relay = 'next';
     }
   } else if (year > currentYear) {
+    console.log(2);
     objRelay.selector = 'slide wrapper-table_next next';
     objRelay.relay = 'next';
   } else if (year < currentYear) {
+    console.log(3);
     objRelay.selector = 'slide wrapper-table_previous previous';
     objRelay.relay = 'previous';
   }
   currentYear = year;
   currentMonth = month;
-  getAndDeleteSlide(MonthHTML, app, REPORTS, objRelay, currentDayBackground);
+  getAndDeleteSlide(MonthHTML, app, REPORTS, objRelay);
+  console.log('objRelay:', objRelay);
   monthHTML.getAndDeleteOverlay();
   menuBurger.getAndDeleteTablesMenu();
 }
@@ -417,20 +433,16 @@ function getTotalMonths(event) {
 let targetYearSumValues;
 
 function getTotalYear(event) {
-  console.log('getTotalYear:');
   event.preventDefault();
   const { target } = event;
   menuBurger.getAndDeleteTablesMenu();
   REPORTS = getFromLocalStorage('reports');
-  console.log('REPORTS:', REPORTS);
   targetYearSumValues = Object.values(REPORTS).reduce((acc, item) => {
     if (+item.year === +target.id) {
       if (item.values.sum) acc.push(item.values.sum);
     }
     return acc;
   }, []);
-
-  console.log('targetYearSumValues:', targetYearSumValues);
 
   if (!targetYearSumValues.length)
     imitationAlert('Я не нашёл данных за этот год.', monthHTML);
@@ -516,6 +528,7 @@ function getDataTransfer(event) {
   const minutes = +convertHoursToMinutes(hours);
   const year = +target.id.split('/')[0];
   const month = +target.id.split('/')[1];
+
   function getAndDeleteData() {
     modalWindow.classList.remove('open');
     setTimeout(() => {
@@ -529,7 +542,10 @@ function getDataTransfer(event) {
       });
     }, 811);
   }
+
   if (submitter.name === 'dataTransfer') {
+    const getData = (selector) => REPORTS[selector].values.sum;
+
     if (month === 11) {
       newId = [year + 1, 0].join('/');
     } else {
@@ -538,29 +554,70 @@ function getDataTransfer(event) {
     if (!REPORTS[newId]) {
       monthHTML.addDataReports(newId.split('/')[0], newId.split('/')[1]);
       REPORTS = getFromLocalStorage('reports');
+      getData(newId).hoursSumTransfer = 0;
     }
 
-    REPORTS[target.id].values.sum.hoursSum =
-      REPORTS[target.id].values.sum.hoursSum - minutes;
-    REPORTS[newId].values.sum.hoursSum =
-      +REPORTS[newId].values.sum.hoursSum + minutes;
+    getData(target.id).hoursSumTotal =
+      getData(target.id).hoursSumTotal - minutes;
+
+    getData(newId).hoursSumTransfer = getData(newId).hoursSumTransfer + minutes;
+    getData(newId).hoursSumTotal = getData(newId).hoursSumTotal + minutes;
 
     getAndDeleteData();
 
-    addNextPrevButtonToHTML(document.querySelector('.wrapper-table'));
-    setTimeout(
-      () => document.querySelector('.wrapper_buttons').classList.remove('hide'),
-      0
-    );
-    setToLocalStorage('reports', REPORTS);
-    if (
-      +monthHTML.container
-        .querySelector('.wrapper-table_title')
-        .dataset.key.split('/')[1] === new Date().getMonth()
-    ) {
-      pullValuesToTable(year, month);
+    if (!monthHTML.container.querySelector('.wrapper_buttons')) {
+      addNextPrevButtonToHTML(document.querySelector('.wrapper-table'));
+      setTimeout(
+        () =>
+          document.querySelector('.wrapper_buttons').classList.remove('hide'),
+        0
+      );
     }
+
+    setToLocalStorage('reports', REPORTS);
+    const currentTable = monthHTML.container.querySelector(
+      '.wrapper-table_title'
+    );
+    const currentYear = currentTable.dataset.key.split('/')[0];
+    const currentMonth = currentTable.dataset.key.split('/')[1];
+    pullValuesToTable(currentYear, currentMonth);
   } else if (submitter.name === 'dataTransferNo') {
     getAndDeleteData();
   }
+}
+
+function getAndDeleteCurrentDay(action) {
+  let days;
+  const currentDay = new Date().getDate();
+  if (tableVerticalOrientation) {
+    days = Array.from(monthHTML.container.querySelectorAll('.cell'));
+    const targetCells = days.filter((item) => +item.id === currentDay - 1);
+    if (action === 'add') {
+      targetCells.forEach((cell) => {
+        cell.classList.add('days_today');
+      });
+    } else if (action === 'remove') {
+      targetCells.forEach((cell) => {
+        cell.classList.remove('days_today');
+      });
+    }
+  } else {
+    days = Array.from(monthHTML.container.querySelectorAll('.days'));
+    if (action === 'add') {
+      days[currentDay].classList.add('days_today');
+    } else if (action === 'remove') {
+      days[currentDay].classList.remove('days_today');
+    }
+  }
+}
+
+function drawContentBeforeTds(data) {
+  console.log('data:', data);
+  const days = Array.from(monthHTML.container.querySelectorAll('.cell'));
+  days.forEach((day) => {
+    day.style.setProperty(
+      '--beforeTds',
+      `${getDayOfWeek(data, +day.id + 1)}" ${+day.id + 1} число"`
+    );
+  });
 }

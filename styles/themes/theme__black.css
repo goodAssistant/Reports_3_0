@@ -19,7 +19,6 @@
 
   --after-td-text-color-black__purple: black;
 
-  --days-today-background-black__purple: var(--color-JW-label);
   --days-today-color-black__purple: #fff;
 
   --delete_btn-background-color-icon1-black__purple: rgba(93, 126, 40, 0.6);
@@ -88,7 +87,13 @@ th {
 }
 
 .app.black__purple .days.days_today {
-  background: var(--days-today-background-black__purple);
+  background: var(--days-today-background);
+  color: var(--days-today-color-black__purple);
+  font-family: 'Natasha';
+}
+
+.app.black__purple .days_today {
+  background: var(--days-today-background);
   color: var(--days-today-color-black__purple);
   font-family: 'Natasha';
 }

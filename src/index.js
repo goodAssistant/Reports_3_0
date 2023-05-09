@@ -15,7 +15,7 @@ let currentMonth = new Date().getMonth();
 //currentYear = 2023;
 //currentMonth = 5;
 
-const puncts = ['Число', 'Публ', 'Видео', 'ПП', 'Часы', 'Из', 'Очистить»'];
+const puncts = ['Число', 'Публ', 'Видео', 'ПП', 'Часы', 'Из', 'Очистить>>'];
 const months = [
   'Январь',
   'Февраль',
@@ -51,28 +51,21 @@ function normalize(num, thead) {
   return thead.reduce((acc, el, idx) => {
     if (idx === 0) acc = [...acc, el, ...range(num), 'Итого'];
     else if (idx === thead.length - 1)
-      acc = [...acc, el, ...Array(num).fill(''), '«столбец'];
+      acc = [...acc, el, ...Array(num).fill(''), '<<столбец'];
     else acc = [...acc, el, ...Array(num).fill(''), ''];
     return acc;
   }, []);
 }
 
-//function normalizeVertical(num, thead) {
-//  console.log('thead:', thead);
-//  console.log('num:', num);
-//  console.log('Array(thead).fill(Итого):', Array(thead.at(-2)).fill('Итого'));
-
-//  return thead.reduce((acc, el, idx) => {
-//    if (idx === thead.length - 1)
-//      acc = [...acc, ...Array(thead.at(-2)).fill('Итого'), '«столбец'];
-//    else acc = [...acc, ...Array(num).fill(''), ''];
-//    return acc;
-//  }, []);
-//}
-
-//console.log(
-//  normalizeVertical(numDaysOfMonth(currentYear, currentMonth), range(6))
-//);
+function normalizeVertical(num, thead) {
+  let res;
+  const theadSlice = thead
+    .slice(1)
+    .reduce((acc) => (acc = [...acc, ...Array(num).fill('')]), []);
+  res = theadSlice.slice(1);
+  res.push('<<Итого');
+  return res;
+}
 
 class MonthHTML {
   constructor(body, data, selector) {
@@ -96,15 +89,21 @@ class MonthHTML {
     this.overlay.className = 'overlay';
 
     this.tableArr;
-    //this.tableArrVertical;
     this.slide;
   }
 
   render(year, month) {
     const monthDays = numDaysOfMonth(year, month);
-    this.tableArr = normalize(monthDays, puncts);
-
-    this.tableArr = chunk(this.tableArr, monthDays + 2);
+    let matrixMonth;
+    let numCells;
+    if (tableVerticalOrientation) {
+      matrixMonth = normalizeVertical(monthDays, puncts);
+      numCells = 6;
+    } else {
+      matrixMonth = normalize(monthDays, puncts);
+      numCells = monthDays + 2;
+    }
+    this.tableArr = chunk(matrixMonth, numCells);
     this.addDataReports(year, month);
     this.addToHTML(this.tableArr, this.data[`${year}/${month}`]);
 
@@ -127,7 +126,11 @@ class MonthHTML {
 
     this.body.className = `app ${this.data.theme}`;
 
-    drawDaysWeek(data);
+    if (tableVerticalOrientation) {
+      drawContentBeforeTds(data);
+    } else {
+      drawDaysWeek(data);
+    }
 
     if (Object.keys(this.data).length > 2) {
       setTimeout(() => {
@@ -156,6 +159,7 @@ class MonthHTML {
             ppSum: 0,
             izSum: 0,
             hoursSum: 0,
+            hoursSumTotal: 0,
           },
         },
       };
@@ -249,8 +253,6 @@ class MonthHTML {
 
 const monthHTML = new MonthHTML(app, REPORTS, 'slide wrapper-table');
 
-let currentDayBackground;
-
 function getMusteredSeed(year, month) {
   const rate = `${year}/${month}`;
   if (!Object.keys(REPORTS[rate].values).length) return;
@@ -260,17 +262,17 @@ function getMusteredSeed(year, month) {
     if (values[day].hours >= 150) {
       monthHTML.container
         .querySelector(`[data-date="${day}"]`)
-        .classList.remove('mustardSeed__icon2');
+        ?.classList.remove('mustardSeed__icon2');
       monthHTML.container
         .querySelector(`[data-date="${day}"]`)
-        .classList.add('mustardSeed__icon1');
+        ?.classList.add('mustardSeed__icon1');
     } else if (Object.values(values[day]).some((elem) => elem > 0)) {
       monthHTML.container
         .querySelector(`[data-date="${day}"]`)
-        .classList.remove('mustardSeed__icon1');
+        ?.classList.remove('mustardSeed__icon1');
       monthHTML.container
         .querySelector(`[data-date="${day}"]`)
-        .classList.add('mustardSeed__icon2');
+        ?.classList.add('mustardSeed__icon2');
     }
   });
   monthHTML.getMustardSeed(getCounters());
@@ -295,15 +297,19 @@ getRandomColorRgba(monthHTML.title, alpha);
 
 function setCurrentScrollInsertValue(value) {
   const table = monthHTML.container.querySelector('table');
-  const days = Array.from(monthHTML.container.querySelectorAll('.days'));
-  table.scrollLeft = 60 * value;
+  if (tableVerticalOrientation) {
+    document.querySelector('.app').scrollTop = 27 * value;
+  } else {
+    table.scrollLeft = 60 * value;
+  }
+
+  getAndDeleteCurrentDay();
 
   if (
     table.previousElementSibling.dataset.key ===
     `${new Date().getFullYear()}/${new Date().getMonth()}`
   ) {
-    currentDayBackground = days[value];
-    currentDayBackground?.classList.add('days_today');
+    getAndDeleteCurrentDay('add');
   }
 }
 
@@ -320,7 +326,7 @@ class Values {
   getValues(reports) {
     const data = reports[`${currentYear}/${currentMonth}`].values;
     if (!Object.keys(data).length) {
-      reports[`${currentYear}/${currentMonth}`].values = {
+      data = {
         [this.day]: {
           publ: +this.publ,
           video: +this.video,
@@ -334,11 +340,12 @@ class Values {
           ppSum: this.pp,
           hoursSum: data.sum.hoursSum + this.hours,
           izSum: this.iz,
+          hoursSumTotal: data.sum.hoursSum + this.hours,
         },
       };
     } else {
       if (!data[this.day]) {
-        reports[`${currentYear}/${currentMonth}`].values[this.day] = {
+        data[this.day] = {
           publ: +this.publ,
           video: +this.video,
           pp: +this.pp,
@@ -354,12 +361,14 @@ class Values {
           iz: +data[this.day]['iz'] + +this.iz,
         };
       }
-      reports[`${currentYear}/${currentMonth}`].values.sum = {
+      data.sum = {
+        ...data.sum,
         publSum: +data.sum['publSum'] + +this.publ,
         videoSum: +data.sum['videoSum'] + +this.video,
         ppSum: +data.sum['ppSum'] + +this.pp,
         hoursSum: +data.sum['hoursSum'] + +this.hours,
         izSum: +data.sum['izSum'] + +this.iz,
+        hoursSumTotal: +data.sum['hoursSumTotal'] + +this.hours,
       };
     }
   }
@@ -561,7 +570,20 @@ function pullValuesToTable(year, month) {
     if (!data.sum[cell.dataset.action]) cell.textContent = '';
     else {
       if (cell.dataset.action === 'hoursSum') {
-        cell.textContent = convertMinutesToHours(data.sum[cell.dataset.action]);
+        const beforeValue = convertMinutesToHours(
+          data.sum[cell.dataset.action]
+        );
+        if (data.sum.hoursSumTransfer) {
+          const afterValue =
+            '+ ' + convertMinutesToHours(data.sum.hoursSumTransfer);
+
+          cell.style.setProperty(
+            '--afterHoursSumTransferText',
+            `"${afterValue}"`
+          );
+        }
+        cell.style.setProperty('--beforeHoursSum', `"${beforeValue}"`);
+        cell.textContent = convertMinutesToHours(data.sum['hoursSumTotal']);
       } else cell.textContent = data.sum[cell.dataset.action];
     }
   }
@@ -585,18 +607,12 @@ const switchingBetweenTables = (event) => {
       currentYear = objDate.currentYear;
       currentMonth = objDate.currentMonth;
 
-      getAndDeleteSlide(
-        MonthHTML,
-        app,
-        REPORTS,
-        {
-          year: currentYear,
-          month: currentMonth,
-          selector: 'slide wrapper-table_previous previous',
-          relay: 'previous',
-        },
-        currentDayBackground
-      );
+      getAndDeleteSlide(MonthHTML, app, REPORTS, {
+        year: currentYear,
+        month: currentMonth,
+        selector: 'slide wrapper-table_previous previous',
+        relay: 'previous',
+      });
       break;
     case 'next':
       objDate = getAndCheckCurrentYearAndMonth(
@@ -609,18 +625,12 @@ const switchingBetweenTables = (event) => {
       currentYear = objDate.currentYear;
       currentMonth = objDate.currentMonth;
 
-      getAndDeleteSlide(
-        MonthHTML,
-        app,
-        REPORTS,
-        {
-          year: currentYear,
-          month: currentMonth,
-          selector: 'slide wrapper-table_next next',
-          relay: 'next',
-        },
-        currentDayBackground
-      );
+      getAndDeleteSlide(MonthHTML, app, REPORTS, {
+        year: currentYear,
+        month: currentMonth,
+        selector: 'slide wrapper-table_next next',
+        relay: 'next',
+      });
       break;
   }
 };

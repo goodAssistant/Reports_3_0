@@ -22,7 +22,6 @@
 
   --after-td-text-color-milk: rgba(26, 123, 112, 1);
 
-  --days-today-background-milk: var(--color-JW-label);
   --days-today-color-milk: #fff;
 
   --delete_btn-background-color-icon1-milk: rgba(93, 126, 40, 0.6);
@@ -106,7 +105,13 @@
 }
 
 .app.milk .days.days_today {
-  background: var(--days-today-background-milk);
+  background: var(--days-today-background);
+  color: var(--days-today-color-milk);
+  font-family: 'Natasha';
+}
+
+.app.milk .days_today {
+  background: var(--days-today-background);
   color: var(--days-today-color-milk);
   font-family: 'Natasha';
 }

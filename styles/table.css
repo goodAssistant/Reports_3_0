@@ -93,13 +93,35 @@ td.total__modal {
 }
 
 .cell {
-  padding: 4px 2px 16px;
+  padding: 10px 2px;
 }
 
 .sum {
+  position: relative;
   padding: 10px 2px;
   font-size: 18px;
   min-width: 90px;
+}
+
+th[data-action='hoursSum']::after {
+  content: var(--afterHoursSumTransferText);
+}
+
+th[data-action='hoursSum']::before,
+td::before {
+  content: var(--beforeHoursSum);
+  position: absolute;
+  top: 5%;
+  left: 10%;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+}
+
+th[data-action='hoursSum']::before {
+  content: var(--beforeHoursSum);
+}
+td::before {
+  content: var(--beforeTds);
 }
 
 .days::after {
@@ -112,12 +134,12 @@ td.total__modal {
 .pp:after,
 .hours:after,
 .iz:after,
-.days::after {
+.days::after,
+th[data-action='hoursSum']::after {
   position: absolute;
   bottom: 2%;
   right: 7%;
   font-size: 9px;
-  transition: font-size 1s ease-out 0.5s;
   letter-spacing: 1.5px;
 }
 
