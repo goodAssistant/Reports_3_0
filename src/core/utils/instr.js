@@ -48,19 +48,5 @@ function setInstructions() {
       instrWrapper.remove();
     }, 1000);
   });
-  const goTopBtn = document.createElement('div');
-  goTopBtn.className = 'back_to_top';
-  goTopBtn.innerHTML = '&#9757';
-  instrWrapper.addEventListener('scroll', function () {
-    if (instrWrapper.scrollTop >= 50) {
-      monthHTML.container.append(goTopBtn);
-      goTopBtn.classList.add('show');
-      goTopBtn.addEventListener('click', () => {
-        instrWrapper.scrollBy(0, -instrWrapper.scrollTop);
-      });
-    } else {
-      goTopBtn.classList.remove('show');
-      goTopBtn.remove();
-    }
-  });
+  getAndDeleteGoTopBtn(monthHTML.container, instrWrapper);
 }

@@ -128,6 +128,7 @@ class MonthHTML {
 
     if (tableVerticalOrientation) {
       drawContentBeforeTds(data);
+      getAndDeleteGoTopBtn(this.container, this.container.closest('.app'));
     } else {
       drawDaysWeek(data);
     }
@@ -653,7 +654,7 @@ const switchingBetweenTables = (event) => {
 document.querySelector('.app').addEventListener('scroll', function () {
   const titleMonth = document.querySelector('.wrapper-table_title');
 
-  if (document.querySelector('.app').scrollTop >= 20) {
+  if (document.querySelector('.app').scrollTop >= 30) {
     if (!document.querySelector('.sticky')) {
       const titleMonthAfter = document.createElement('h2');
       titleMonthAfter.className = 'wrapper-table_title after';

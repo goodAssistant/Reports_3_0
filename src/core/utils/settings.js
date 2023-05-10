@@ -71,7 +71,7 @@ const renderTableHTML = (matrixMonth, data, selector) => {
           } else {
             if (rowIdx === matrixMonth.length - 1) {
               if (tdIdx === row.length - 1) {
-                return `<th>${td}</th>`;
+                return `<th style="font-size:12px">${td}</th>`;
               } else {
                 return `<th class="sum" data-action=${actionSum[tdIdx]} style="min-width:72px; max-width:72px;">${td}</th>`;
               }
@@ -79,7 +79,7 @@ const renderTableHTML = (matrixMonth, data, selector) => {
               rowIdx !== matrixMonth.length - 1 &&
               tdIdx === row.length - 1
             ) {
-              return `<th class="btn_delete_values" id=${rowIdx} data-date="${rowIdx}" data-action="delete" style="min-width:72px; max-width:72px;">${td}</th>`;
+              return `<th class="btn_delete_values" id=${rowIdx} data-date="${rowIdx}" data-action="delete" style="min-width:41px; max-width:41px;">${td}</th>`;
             } else {
               return `<td class="cell ${action[tdIdx]}" id=${rowIdx} data-action=${action[tdIdx]} contenteditable="true" style="min-width:72px; max-width:72px;">${td}</td>`;
             }
@@ -590,15 +590,14 @@ function getAndDeleteCurrentDay(action) {
   if (tableVerticalOrientation) {
     days = Array.from(monthHTML.container.querySelectorAll('.cell'));
     const targetCells = days.filter((item) => +item.id === currentDay - 1);
-    if (action === 'add') {
-      targetCells.forEach((cell) => {
+    targetCells.forEach((cell) => {
+      if (action === 'add') {
         cell.classList.add('days_today');
-      });
-    } else if (action === 'remove') {
-      targetCells.forEach((cell) => {
+      } else if (action === 'remove') {
         cell.classList.remove('days_today');
-      });
-    }
+      }
+      cell.style.fontSize = '12px';
+    });
   } else {
     days = Array.from(monthHTML.container.querySelectorAll('.days'));
     if (action === 'add') {
@@ -609,7 +608,7 @@ function getAndDeleteCurrentDay(action) {
   }
 }
 
-function drawContentBeforeTds(data, container) {
+function drawContentBeforeTds(data) {
   const month = data.month + 1;
   const days = Array.from(monthHTML.container.querySelectorAll('.cell'));
   days.forEach((day) => {
@@ -619,5 +618,23 @@ function drawContentBeforeTds(data, container) {
         month < 10 ? '0' + month : month
       }"`
     );
+  });
+}
+
+function getAndDeleteGoTopBtn(container, targetContainer) {
+  const goTopBtn = document.createElement('div');
+  goTopBtn.className = 'back_to_top';
+  goTopBtn.innerHTML = '&#9757';
+  targetContainer?.addEventListener('scroll', function () {
+    if (targetContainer.scrollTop >= 50) {
+      container.append(goTopBtn);
+      goTopBtn.classList.add('show');
+      goTopBtn.addEventListener('click', () => {
+        targetContainer.scrollBy(0, -targetContainer.scrollTop);
+      });
+    } else {
+      goTopBtn.classList.remove('show');
+      goTopBtn.remove();
+    }
   });
 }
