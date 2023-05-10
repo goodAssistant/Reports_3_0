@@ -18,8 +18,8 @@ class Menu {
   renderBurgerMenu() {
     const menu = {
       welcome: 'Good Assistant: "Познакомимся?',
-      change__table: 'Выбрать таблицу',
       change__theme: 'Сменить тему',
+      change__table: 'Выбрать таблицу',
       total__month: 'Итоги за месяц',
       total__year: 'Итоги за год',
       clear__data: 'Очистить все данные',
@@ -149,7 +149,6 @@ class Menu {
   }
 
   renderTotalMonth(rate, { repeat, totalYearInfo }) {
-    console.log('rate:', rate);
     let totalValues;
     const punctsTotal = {
       publSum: 'Публ',

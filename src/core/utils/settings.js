@@ -392,32 +392,24 @@ function getChangeTable(event) {
       year: year,
       month: month,
     };
-  console.log(year === currentYear);
-  console.log('currentYear:', currentYear);
   if (year === +currentYear) {
-    console.log(1);
     if (month < currentMonth) {
-      console.log(1.1);
       objRelay.selector = 'slide wrapper-table_previous previous';
       objRelay.relay = 'previous';
     } else {
-      console.log(1.2);
       objRelay.selector = 'slide wrapper-table_next next';
       objRelay.relay = 'next';
     }
   } else if (year > currentYear) {
-    console.log(2);
     objRelay.selector = 'slide wrapper-table_next next';
     objRelay.relay = 'next';
   } else if (year < currentYear) {
-    console.log(3);
     objRelay.selector = 'slide wrapper-table_previous previous';
     objRelay.relay = 'previous';
   }
   currentYear = year;
   currentMonth = month;
   getAndDeleteSlide(MonthHTML, app, REPORTS, objRelay);
-  console.log('objRelay:', objRelay);
   monthHTML.getAndDeleteOverlay();
   menuBurger.getAndDeleteTablesMenu();
 }
@@ -618,7 +610,6 @@ function getAndDeleteCurrentDay(action) {
 }
 
 function drawContentBeforeTds(data, container) {
-  console.log('data:', data);
   const month = data.month + 1;
   const days = Array.from(monthHTML.container.querySelectorAll('.cell'));
   days.forEach((day) => {
