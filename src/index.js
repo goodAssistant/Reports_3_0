@@ -429,21 +429,11 @@ function getAndPushValuesForMonth(event) {
     btnsDelete.forEach((elem) => {
       if (elem.id === target.id) {
         btnDeleteChangeBackground = elem;
-        elem.classList.add('active');
-        elem.setAttribute('data-action', 'ok');
-        elem.style.setProperty(
-          '--after-delete-button',
-          'url(../assets/images/after_ok.png) no-repeat center center/contain'
-        );
+        changeIconToDeleteButton(btnDeleteChangeBackground, 'ok');
         tds.forEach((elemTd) => {
           elemTd.onfocus = () => {
             if (target.id !== elemTd.id) {
-              elem.classList.remove('active');
-              elem.setAttribute('data-action', 'delete');
-              elem.style.setProperty(
-                '--after-delete-button',
-                'url(../assets/images/delete.png) no-repeat center center / contain'
-              );
+              changeIconToDeleteButton(btnDeleteChangeBackground, 'delete');
               pullValuesToTable(currentYear, currentMonth);
             }
           };
@@ -454,6 +444,16 @@ function getAndPushValuesForMonth(event) {
       cellsTextContent();
     };
   }
+
+  document.addEventListener('keydown', (event) => {
+    const { keyCode } = event;
+    if (keyCode === 13) {
+      event.preventDefault();
+      cellsTextContent();
+      changeIconToDeleteButton(btnDeleteChangeBackground, 'delete');
+      target.blur();
+    }
+  });
 
   function cellsTextContent() {
     let res = [];
@@ -528,18 +528,33 @@ document.addEventListener('click', (event) => {
         .contains(event.target) ||
       event.target === btnDeleteChangeBackground
     ) {
-      btnDeleteChangeBackground.classList.remove('active');
-      setTimeout(() => {
-        btnDeleteChangeBackground.setAttribute('data-action', 'delete');
-        btnDeleteChangeBackground.style.setProperty(
-          '--after-delete-button',
-          'url(../assets/images/delete.png) no-repeat center center / contain'
-        );
-      }, 0);
+      changeIconToDeleteButton(btnDeleteChangeBackground, 'delete');
       pullValuesToTable(currentYear, currentMonth);
     }
   }
 });
+
+function changeIconToDeleteButton(elem, dataAction) {
+  if (dataAction === 'delete') {
+    elem.classList.remove('active');
+    setTimeout(() => {
+      elem.setAttribute('data-action', dataAction);
+      elem.style.setProperty(
+        '--after-delete-button',
+        'url(../assets/images/delete.png) no-repeat center center / contain'
+      );
+    }, 0);
+  } else if (dataAction === 'ok') {
+    elem.classList.add('active');
+    setTimeout(() => {
+      elem.setAttribute('data-action', dataAction);
+      elem.style.setProperty(
+        '--after-delete-button',
+        'url(../assets/images/after_ok.png) no-repeat center center/contain'
+      );
+    }, 0);
+  }
+}
 
 document.querySelector('.body_table').addEventListener('click', (event) => {
   getAndPushValuesForMonth(event);
@@ -636,11 +651,18 @@ const switchingBetweenTables = (event) => {
 };
 
 document.querySelector('.app').addEventListener('scroll', function () {
-  if (document.querySelector('.app').scrollTop >= 10) {
+  const titleMonth = document.querySelector('.wrapper-table_title');
+
+  if (document.querySelector('.app').scrollTop >= 20) {
     if (!document.querySelector('.sticky')) {
+      const titleMonthAfter = document.createElement('h2');
+      titleMonthAfter.className = 'wrapper-table_title after';
+      titleMonthAfter.textContent = titleMonth.textContent;
+      titleMonthAfter.style.marginTop = '5px';
       const div = document.createElement('div');
       div.className = 'sticky';
       document.querySelector('.app').append(div);
+      div.append(titleMonthAfter);
       setTimeout(() => {
         div.style.height = '40px';
       }, 0);

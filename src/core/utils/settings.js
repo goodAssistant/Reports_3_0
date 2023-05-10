@@ -44,7 +44,11 @@ const renderTableHTML = (matrixMonth, data, selector) => {
       </thead>`
       : ''
   }
-    <tbody class="body_table">
+    <tbody class="body_table" style=${
+      tableVerticalOrientation
+        ? 'display:block;margin:auto;width:fit-content'
+        : ''
+    }>
     ${matrixMonth
       .map(
         (row, rowIdx) => `
@@ -56,7 +60,7 @@ const renderTableHTML = (matrixMonth, data, selector) => {
               return `<th class="action" data-action=${action[rowIdx]}>${td}</th>`;
             } else if (tdIdx === row.length - 1) {
               if (rowIdx === matrixMonth.length - 1) return `<th>${td}</th>`;
-              return `<th class="sum" data-action=${actionSum[rowIdx]}>${td}</th>`;
+              return `<th class="sum" style="min-width: 90px;" data-action=${actionSum[rowIdx]}>${td}</th>`;
             } else if (rowIdx === matrixMonth.length - 1) {
               if (tdIdx > 0 && tdIdx < row.length - 1) {
                 return `<th class="btn_delete_values" id=${tdIdx} data-date="${tdIdx}" data-action="delete">${td}</th>`;
@@ -69,15 +73,15 @@ const renderTableHTML = (matrixMonth, data, selector) => {
               if (tdIdx === row.length - 1) {
                 return `<th>${td}</th>`;
               } else {
-                return `<th class="sum" data-action=${actionSum[tdIdx]}>${td}</th>`;
+                return `<th class="sum" data-action=${actionSum[tdIdx]} style="min-width:72px; max-width:72px;">${td}</th>`;
               }
             } else if (
               rowIdx !== matrixMonth.length - 1 &&
               tdIdx === row.length - 1
             ) {
-              return `<th class="btn_delete_values" id=${rowIdx} data-date="${rowIdx}" data-action="delete">${td}</th>`;
+              return `<th class="btn_delete_values" id=${rowIdx} data-date="${rowIdx}" data-action="delete" style="min-width:72px; max-width:72px;">${td}</th>`;
             } else {
-              return `<td class="cell ${action[tdIdx]}" id=${rowIdx} data-action=${action[tdIdx]} contenteditable="true">${td}</td>`;
+              return `<td class="cell ${action[tdIdx]}" id=${rowIdx} data-action=${action[tdIdx]} contenteditable="true" style="min-width:72px; max-width:72px;">${td}</td>`;
             }
           }
         })
@@ -104,7 +108,9 @@ const deleteValuesSpecificDay = (event, body, months) => {
 
       imitationConfirm(
         monthHTML,
-        `Вы уверены, что желаете очистить все значения в столбце за <span class="modal__data">${target.id}-ое число </span> <span class="modal__data">месяца ${monthName}</span> <span class="modal__data">${yearMonth} года</span>?`,
+        `Вы уверены, что желаете очистить все значения в столбце за <span class="modal__data">${
+          +target.id + 1
+        }-ое число </span> <span class="modal__data">месяца ${monthName}</span> <span class="modal__data">${yearMonth} года</span>?`,
         deleteValuesIsLocalStorage,
         cellsDay,
         key,
@@ -611,13 +617,16 @@ function getAndDeleteCurrentDay(action) {
   }
 }
 
-function drawContentBeforeTds(data) {
+function drawContentBeforeTds(data, container) {
   console.log('data:', data);
+  const month = data.month + 1;
   const days = Array.from(monthHTML.container.querySelectorAll('.cell'));
   days.forEach((day) => {
     day.style.setProperty(
       '--beforeTds',
-      `${getDayOfWeek(data, +day.id + 1)}" ${+day.id + 1} число"`
+      `${getDayOfWeek(data, +day.id + 1)}" ${+day.id + 1}.${
+        month < 10 ? '0' + month : month
+      }"`
     );
   });
 }

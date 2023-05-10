@@ -40,11 +40,11 @@
 }
 
 table {
-  width: inherit;
   border-spacing: 5px;
   overflow-x: auto;
   display: block;
   scroll-behavior: smooth;
+  table-layout: fixed;
 }
 
 .table__total {
@@ -70,6 +70,7 @@ th {
   font-family: 'Choco cooky';
   text-align: center;
   font-weight: bold;
+  white-space: break-spaces;
 }
 
 td {
@@ -100,7 +101,6 @@ td.total__modal {
   position: relative;
   padding: 10px 2px;
   font-size: 18px;
-  min-width: 90px;
 }
 
 th[data-action='hoursSum']::after {
