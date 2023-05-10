@@ -656,14 +656,14 @@ document.querySelector('.app').addEventListener('scroll', function () {
 
   if (document.querySelector('.app').scrollTop >= 30) {
     if (!document.querySelector('.sticky')) {
-      const titleMonthAfter = document.createElement('h2');
-      titleMonthAfter.className = 'wrapper-table_title after';
-      titleMonthAfter.textContent = titleMonth.textContent;
-      titleMonthAfter.style.marginTop = '5px';
+      const titleMonthDoule = document.createElement('h2');
+      titleMonthDoule.className = 'wrapper-table_title double__title';
+      titleMonthDoule.textContent = titleMonth.textContent;
+      titleMonthDoule.style.marginTop = '5px';
       const div = document.createElement('div');
       div.className = 'sticky';
       document.querySelector('.app').append(div);
-      div.append(titleMonthAfter);
+      div.append(titleMonthDoule);
       setTimeout(() => {
         div.style.height = '40px';
       }, 0);
@@ -672,3 +672,5 @@ document.querySelector('.app').addEventListener('scroll', function () {
     document.querySelector('.sticky')?.remove();
   }
 });
+
+document.addEventListener('click', changeDoubleTitle);

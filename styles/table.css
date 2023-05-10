@@ -70,7 +70,6 @@ th {
   font-family: 'Choco cooky';
   text-align: center;
   font-weight: bold;
-  white-space: break-spaces;
 }
 
 td {
@@ -90,7 +89,8 @@ td:focus {
 }
 
 td.total__modal {
-  width: 130px;
+  width: fit-content;
+  min-width: 60px;
 }
 
 .cell {

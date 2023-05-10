@@ -29,9 +29,9 @@ const renderTableHTML = (matrixMonth, data, selector) => {
   const action = ['publ', 'video', 'pp', 'hours', 'iz'];
   const actionSum = ['publSum', 'videoSum', 'ppSum', 'hoursSum', 'izSum'];
   wrapperTable.innerHTML = `
-  <h2 class="wrapper-table_title" data-key=${data.year}/${data.month}>${
-    data.monthName
-  } ${data.year}</h2>
+  <h2 class="wrapper-table_title" data-key=${data.year}/${
+    data.month
+  } data-period="current">${data.monthName} ${data.year}</h2>
   <table class="table">
   ${
     thead
@@ -637,4 +637,22 @@ function getAndDeleteGoTopBtn(container, targetContainer) {
       goTopBtn.remove();
     }
   });
+}
+
+function changeDoubleTitle(e) {
+  const { target } = e;
+  if (
+    ['menu__link', 'buttons', 'wrapper'].some((item) =>
+      target.className.includes(item)
+    )
+  ) {
+    const doubleTitle = document.querySelector('.double__title');
+    if (doubleTitle) {
+      setTimeout(() => {
+        doubleTitle.textContent = document.querySelector(
+          '[data-period="current"]'
+        ).textContent;
+      }, 3500);
+    }
+  }
 }

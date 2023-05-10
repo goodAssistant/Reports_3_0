@@ -210,13 +210,22 @@ class Menu {
     if (REPORTS[rate]) {
       const totalMinutes = REPORTS[rate].values.sum.hoursSumTotal;
       const totalTime = convertMinutesToHours(totalMinutes);
+      console.log('totalTime:', totalTime);
 
       let arrTime = totalTime.replace(/\s+[а-я]/g, '').split(' ');
+      const conditionForMinutes = arrTime.length > 1;
+      console.log('arrTime:', arrTime);
       if (arrTime[1] < 10) arrTime = [arrTime[0], '0' + arrTime[1]];
       const noValue = 0 + arrTime.join(':').slice(1);
-      const value = arrTime.length === 1 ? noValue + ':00' : noValue;
+      console.log('noValue:', noValue.split(':')[1]);
+      const value =
+        arrTime.length === 1
+          ? noValue + ':00'
+          : totalMinutes > 3000
+          ? noValue
+          : '00:' + noValue.split(':')[1];
 
-      if (totalMinutes > 3000) {
+      if (totalMinutes > 3000 || conditionForMinutes) {
         const template = `<form id=${rate} class="data_transfer_form" onsubmit="getDataTransfer(event)">
             <label for="dataTransfer" class="item_dataTransfer form-label">
               Ваше время составило: ${totalTime}
