@@ -96,6 +96,7 @@ const renderTableHTML = (matrixMonth, data, selector) => {
 };
 
 const deleteValuesSpecificDay = (event, body, months) => {
+  event.stopPropagation();
   const key = body.querySelector('.wrapper-table_title').dataset.key,
     { target } = event;
   let monthName = months[key.split('/')[1]];
@@ -105,7 +106,6 @@ const deleteValuesSpecificDay = (event, body, months) => {
       const cellsDay = Array.from(body.querySelectorAll('td')).filter(
         (elem) => elem.id === target.id
       );
-
       imitationConfirm(
         monthHTML,
         `Вы уверены, что желаете очистить все значения в столбце за <span class="modal__data">${

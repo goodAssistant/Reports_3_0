@@ -420,6 +420,7 @@ let publValue = 0,
   arrCells = [];
 
 function getAndPushValuesForMonth(event) {
+  event.stopPropagation();
   const btnsDelete = monthHTML.container.querySelectorAll('.btn_delete_values');
   const tds = monthHTML.container.querySelectorAll('td');
   const { target } = event;
@@ -447,6 +448,7 @@ function getAndPushValuesForMonth(event) {
   }
 
   document.addEventListener('keydown', (event) => {
+    event.stopPropagation();
     const { keyCode } = event;
     if (keyCode === 13) {
       event.preventDefault();
@@ -516,6 +518,7 @@ function getAndPushValuesForMonth(event) {
 }
 
 document.addEventListener('click', (event) => {
+  event.stopPropagation();
   if (
     monthHTML.container
       .querySelector('.wrapper_buttons')
