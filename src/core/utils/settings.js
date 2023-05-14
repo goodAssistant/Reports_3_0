@@ -590,14 +590,21 @@ function getAndDeleteCurrentDay(action) {
   if (tableVerticalOrientation) {
     days = Array.from(monthHTML.container.querySelectorAll('.cell'));
     const targetCells = days.filter((item) => +item.id === currentDay - 1);
-    targetCells.forEach((cell) => {
-      if (action === 'add') {
+    if (action === 'add') {
+      targetCells.forEach((cell) => {
+        if (cell.className.includes('hours')) cell.focus();
+        for (const key in DAYS_COLORS) {
+          if (cell.className.includes(key))
+            cell.style.backgroundColor = DAYS_COLORS[key];
+        }
         cell.classList.add('days_today');
-      } else if (action === 'remove') {
+        cell.style.fontSize = '12px';
+      });
+    } else if (action === 'remove') {
+      targetCells.forEach((cell) => {
         cell.classList.remove('days_today');
-      }
-      cell.style.fontSize = '12px';
-    });
+      });
+    }
   } else {
     days = Array.from(monthHTML.container.querySelectorAll('.days'));
     if (action === 'add') {

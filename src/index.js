@@ -304,8 +304,6 @@ function setCurrentScrollInsertValue(value) {
     table.scrollLeft = 60 * value;
   }
 
-  getAndDeleteCurrentDay();
-
   if (
     table.previousElementSibling.dataset.key ===
     `${new Date().getFullYear()}/${new Date().getMonth()}`
