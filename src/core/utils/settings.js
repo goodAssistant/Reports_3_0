@@ -592,32 +592,12 @@ function getAndDeleteCurrentDay(action) {
     const targetCells = days.filter((item) => +item.id === currentDay - 1);
     if (action === 'add') {
       targetCells.forEach((cell) => {
-        if (cell.className.includes('hours')) {
-          const inputContainer = document.createElement('div');
-          const template =
-            '<input type="text" name="focus" inputmode="text" style="position:absolute;top: 0;z-index: 10000;left: 30%;" value="Где клава?" />';
-          inputContainer.innerHTML = template;
-
-          monthHTML.container.append(inputContainer);
-          const input = document.querySelector('[name="focus"]');
-
-          input.focus();
-          input.onfocus = function () {
-            input.blur();
-            //setTimeout(() => {
-            //  input.blur();
-            //  cell.focus();
-            //  inputContainer.remove();
-            //  cell.onfocus = function () {
-            //    cell.textContent = '';
-            //  };
-            //}, 0);
-          };
-          //cell.focus();
-          //cell.onfocus = function () {
-          //  cell.textContent = '';
-          //};
-        }
+        //if (cell.className.includes('hours')) {
+        //  cell.focus();
+        //  cell.onfocus = function () {
+        //    cell.textContent = '';
+        //  };
+        //}
         for (const key in DAYS_COLORS) {
           if (cell.className.includes(key))
             cell.style.backgroundColor = DAYS_COLORS[key];
@@ -688,3 +668,17 @@ function changeDoubleTitle(e) {
     }
   }
 }
+
+//function getFastEntry(event) {
+//  console.log('e:', event);
+//  const { target } = event;
+//  console.log('target.checked:', target.checked);
+//  if (target.checked) {
+//    target.checked = false;
+//    target.setAttribute('checked', 'checked');
+//  } else {
+//    target.checked = true;
+
+//    target.removeAttribute('checked');
+//  }
+//}

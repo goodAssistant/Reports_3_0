@@ -23,7 +23,10 @@ class Menu {
       total__month: 'Итоги за месяц',
       total__year: 'Итоги за год',
       clear__data: 'Очистить все данные',
+      //fast__entry: () =>
+      //  '<form class="menu__checkbox"><input type="checkbox" id="fast__entry" name="fast__entry" onclick="getFastEntry(event)"><label for="fast__entry">Вкл/выкл быстрый ввод часов</label></form>',
     };
+
     this.wrapperBurger.innerHTML = `
       <div class="menu__burger__header" onClick="openBurgerMenu(event)">
         <div class="mouse__over">
@@ -34,14 +37,10 @@ class Menu {
       <div class="nav" onClick="getClickMenuItems(event)">
         <div class="menu">
           ${Object.keys(menu)
-            .map(
-              (key) => `
-          <div class="menu__item">
-            <a data-action=${key} href="#">
-              ${menu[key]}
-            </a>
-          </div>
-          `
+            .map((key) =>
+              typeof menu[key] === 'function'
+                ? menu[key]()
+                : `<div class="menu__item"><a data-action=${key} href="#">${menu[key]}</a></div>`
             )
             .join('')}
           <div class="release">

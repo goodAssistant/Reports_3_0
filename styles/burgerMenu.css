@@ -94,6 +94,16 @@
   width: fit-content;
 }
 
+.menu__checkbox {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 10px;
+  padding: 2px 5px;
+}
+
 .menu__item:not(:last-child) {
   margin: 0 10px 20px 0;
 }
