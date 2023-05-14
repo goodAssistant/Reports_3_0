@@ -291,14 +291,18 @@ function getCounters() {
 monthHTML.render(currentYear, currentMonth);
 monthHTML.getReportsTitle();
 pullValuesToTable(currentYear, currentMonth);
-setCurrentScrollInsertValue(new Date().getDate());
-const tdsHTML = monthHTML.container.querySelectorAll('td');
 
 getRandomColorRgba(monthHTML.title, alpha);
+
+document.addEventListener('DOMContentLoaded', () => {
+  setCurrentScrollInsertValue(new Date().getDate());
+});
 
 function setCurrentScrollInsertValue(value) {
   const table = monthHTML.container.querySelector('table');
   if (tableVerticalOrientation) {
+    if (tableVerticalOrientation < table.firstElementChild.clientWidth)
+      table.scrollLeft = 60 * 3;
     document.querySelector('.app').scrollTop = 27 * value;
   } else {
     table.scrollLeft = 60 * value;

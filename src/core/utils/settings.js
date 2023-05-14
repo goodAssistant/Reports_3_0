@@ -594,16 +594,25 @@ function getAndDeleteCurrentDay(action) {
       targetCells.forEach((cell) => {
         if (cell.className.includes('hours')) {
           const inputContainer = document.createElement('div');
-          const input =
-            '<input type="text" name="focus" inputmode="text" style="position:absolute;top: 0;z-index: 10000;left: 30%; "></input>';
-          inputContainer.innerHTML = input;
+          const template =
+            '<input type="text" name="focus" inputmode="text" style="position:absolute;top: 0;z-index: 10000;left: 30%;" value="Где клава?" />';
+          inputContainer.innerHTML = template;
 
           monthHTML.container.append(inputContainer);
-          document.querySelector('[name="focus"]').focus();
-          console.log(
-            'document.querySelector([name="focus"]):',
-            document.querySelector('[name="focus"]')
-          );
+          const input = document.querySelector('[name="focus"]');
+
+          input.focus();
+          input.onfocus = function () {
+            input.blur();
+            //setTimeout(() => {
+            //  input.blur();
+            //  cell.focus();
+            //  inputContainer.remove();
+            //  cell.onfocus = function () {
+            //    cell.textContent = '';
+            //  };
+            //}, 0);
+          };
           //cell.focus();
           //cell.onfocus = function () {
           //  cell.textContent = '';
