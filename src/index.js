@@ -399,10 +399,12 @@ function convertMinutesToHours(mins) {
 function convertHoursToMinutes(time) {
   let arrTime = time.split(/\b/g);
   if (isNaN(time.split(/\b/g)[0]) || time.search(/[A-Z]+/gi) + 1) {
-    imitationAlert(
-      '<div style="display: flex; align-items: center"><div style="flex-shrink:200">Дорогой друг, вводи данные пожалуйста на русской раскладке клавиатуры и первым символом ввода должно быть число. Формат принимаемых данных можно посмотреть в первом пункте меню.</div> <span style="background: url(../assets/images/hmmm__smile.png)no-repeat center center / contain; width: 50px; height: 50px"></span></div>',
-      monthHTML
-    );
+    setTimeout(() => {
+      imitationAlert(
+        '<div style="display: flex; align-items: center"><div style="flex-shrink:200">Дорогой друг, вводи данные пожалуйста на русской раскладке клавиатуры и первым символом ввода должно быть число. Формат принимаемых данных можно посмотреть в первом пункте меню.</div> <span style="background: url(../assets/images/hmmm__smile.png)no-repeat center center / contain; width: 50px; height: 50px"></span></div>',
+        monthHTML
+      );
+    }, 1000);
     return;
   }
   if (time.indexOf('ч') > 0) {
