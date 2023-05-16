@@ -1,4 +1,5 @@
 const tableVerticalOrientation = window.innerWidth < 500;
+let promptInputValue;
 
 const addNextPrevButtonToHTML = (body) => {
   const containerButtons = document.createElement('div');
@@ -592,12 +593,6 @@ function getAndDeleteCurrentDay(action) {
     const targetCells = days.filter((item) => +item.id === currentDay - 1);
     if (action === 'add') {
       targetCells.forEach((cell) => {
-        //if (cell.className.includes('hours')) {
-        //  cell.focus();
-        //  cell.onfocus = function () {
-        //    cell.textContent = '';
-        //  };
-        //}
         for (const key in DAYS_COLORS) {
           if (cell.className.includes(key))
             cell.style.backgroundColor = DAYS_COLORS[key];
@@ -669,16 +664,52 @@ function changeDoubleTitle(e) {
   }
 }
 
-//function getFastEntry(event) {
-//  console.log('e:', event);
-//  const { target } = event;
-//  console.log('target.checked:', target.checked);
-//  if (target.checked) {
-//    target.checked = false;
-//    target.setAttribute('checked', 'checked');
-//  } else {
-//    target.checked = true;
+function getFastEntry(event) {
+  const relayFastEntry = menuBurger.wrapperBurger.querySelector(
+    '.fast__entry__switch'
+  );
+  let fastEntry = getFromLocalStorage('fast__entry');
+  const { target } = event;
+  if (!fastEntry) {
+    target.setAttribute('checked', 'checked');
+    fastEntry = true;
+    CHECKED.initStyles(relayFastEntry);
+  } else if (fastEntry) {
+    target.removeAttribute('checked');
+    fastEntry = false;
+    UNCHECKED.initStyles(relayFastEntry);
+  }
+  setToLocalStorage('fast__entry', fastEntry);
+}
 
-//    target.removeAttribute('checked');
-//  }
-//}
+function initFastEntry(relay) {
+  if (!JSON.parse(localStorage.getItem('fast__entry')))
+    setToLocalStorage('fast__entry', false);
+
+  if (getFromLocalStorage('fast__entry')) {
+    CHECKED.initStyles(relay);
+    imitationConfirm(
+      monthHTML,
+      `<form class="prompt__form">
+      <label class="title__prompt" for="hours_input">У вас активирован быстрый ввод пункта "Часы", введите их ниже:</label>
+      <input class="prompt__input" type=text name="hours" id="hours_input" inputmode="text">
+      </form>`,
+      promptFunc
+    );
+    monthHTML.container.querySelector('.prompt__input').focus();
+  } else {
+    UNCHECKED.initStyles(relay);
+  }
+}
+
+function getPromptInputValue(event) {
+  const { target } = event;
+  promptInputValue = target.value;
+}
+
+function promptFunc() {
+  const hours = convertHoursToMinutes(promptInputValue);
+  new Values(0, 0, 0, hours, 0, new Date().getDate()).getValues(REPORTS);
+  setToLocalStorage('reports', REPORTS);
+  pullValuesToTable(currentYear, currentMonth);
+}

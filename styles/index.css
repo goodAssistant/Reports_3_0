@@ -15,6 +15,12 @@
   --afterHoursSumTransferText: none;
   --beforeTds: none;
   --days-today-background: rgba(183, 0, 255, 0.195);
+  --color-checked: rgb(2, 74, 6);
+  --color-unchecked: transparent;
+  --backgroundColor-checked: rgb(7, 219, 243);
+  --backgroundColor-unchecked: transparent;
+  --borderColor-checked: 1px solid white;
+  --borderColor-unchecked: 1px solid #000;
 }
 
 * {

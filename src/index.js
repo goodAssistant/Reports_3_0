@@ -296,6 +296,13 @@ getRandomColorRgba(monthHTML.title, alpha);
 
 document.addEventListener('DOMContentLoaded', () => {
   setCurrentScrollInsertValue(new Date().getDate());
+  const relayFastEntry = menuBurger.wrapperBurger.querySelector(
+    '.fast__entry__switch'
+  );
+  initFastEntry(relayFastEntry);
+  monthHTML.modalWindow
+    .querySelector('.prompt__form')
+    ?.addEventListener('input', getPromptInputValue);
 });
 
 function setCurrentScrollInsertValue(value) {

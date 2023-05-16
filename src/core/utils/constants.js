@@ -5,3 +5,27 @@ const DAYS_COLORS = {
   hours: '#ff00ff80',
   iz: '#00800080',
 };
+
+const CHECKED = {
+  color: 'var(--color-checked)',
+  backgroundColor: 'var(--backgroundColor-checked)',
+  border: 'var(--borderColor-checked)',
+  borderRadius: '5px',
+  initStyles(container) {
+    for (const key in this) {
+      container.style[key] = this[key];
+    }
+  },
+};
+
+const UNCHECKED = {
+  color: 'var(--color-unchecked)',
+  backgroundColor: 'var(--backgroundColor-unchecked)',
+  border: 'var(--borderColor-unchecked)',
+  borderRadius: '5px',
+  initStyles(container) {
+    for (const key in this) {
+      container.style[key] = this[key];
+    }
+  },
+};
