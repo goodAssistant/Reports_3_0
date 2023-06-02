@@ -80,9 +80,15 @@ const renderTableHTML = (matrixMonth, data, selector) => {
               rowIdx !== matrixMonth.length - 1 &&
               tdIdx === row.length - 1
             ) {
-              return `<th class="btn_delete_values" id=${rowIdx} data-date="${rowIdx}" data-action="delete" style="min-width:41px; max-width:41px;">${td}</th>`;
+              return `<th class="btn_delete_values" id=${
+                rowIdx + 1
+              } data-date="${rowIdx}" data-action="delete" style="min-width:41px; max-width:41px;">${td}</th>`;
             } else {
-              return `<td class="cell ${action[tdIdx]}" id=${rowIdx} data-action=${action[tdIdx]} contenteditable="true" style="min-width:72px; max-width:72px;">${td}</td>`;
+              return `<td class="cell ${action[tdIdx]}" id=${
+                rowIdx + 1
+              } data-action=${
+                action[tdIdx]
+              } contenteditable="true" style="min-width:72px; max-width:72px;">${td}</td>`;
             }
           }
         })
@@ -590,7 +596,7 @@ function getAndDeleteCurrentDay(action) {
   const currentDay = new Date().getDate();
   if (tableVerticalOrientation) {
     days = Array.from(monthHTML.container.querySelectorAll('.cell'));
-    const targetCells = days.filter((item) => +item.id === currentDay - 1);
+    const targetCells = days.filter((item) => +item.id === currentDay);
     if (action === 'add') {
       targetCells.forEach((cell) => {
         for (const key in DAYS_COLORS) {
@@ -616,12 +622,12 @@ function getAndDeleteCurrentDay(action) {
 }
 
 function drawContentBeforeTds(data) {
-  const month = data.month + 1;
+  const month = +data.month + 1;
   const days = Array.from(monthHTML.container.querySelectorAll('.cell'));
   days.forEach((day) => {
     day.style.setProperty(
       '--beforeTds',
-      `${getDayOfWeek(data, +day.id + 1)}" ${+day.id + 1}.${
+      `${getDayOfWeek(data, +day.id)}" ${+day.id}.${
         month < 10 ? '0' + month : month
       }"`
     );
@@ -683,16 +689,17 @@ function getFastEntry(event) {
 }
 
 function initFastEntry(relay) {
-  if (!JSON.parse(localStorage.getItem('fast__entry')))
+  const fastEntry =
+    JSON.parse(localStorage.getItem('fast__entry')) ||
     setToLocalStorage('fast__entry', false);
 
-  if (getFromLocalStorage('fast__entry')) {
+  if (fastEntry) {
     CHECKED.initStyles(relay);
     imitationConfirm(
       monthHTML,
       `<form class="prompt__form">
       <label class="title__prompt" for="hours_input">У вас активирован быстрый ввод пункта "Часы", введите их ниже:</label>
-      <input class="prompt__input" type=text name="hours" id="hours_input" inputmode="text">
+      <input class="prompt__input" type=text name="hours" id="hours_input" inputmode="text" oninput="getPromptInputValue(event)">
       </form>`,
       promptFunc
     );

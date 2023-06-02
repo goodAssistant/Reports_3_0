@@ -61,7 +61,7 @@ function normalizeVertical(num, thead) {
   let res;
   const theadSlice = thead
     .slice(1)
-    .reduce((acc) => (acc = [...acc, ...Array(num).fill('')]), []);
+    .reduce((acc) => (acc = [...acc, ...Array(num + 1).fill('')]), []);
   res = theadSlice.slice(1);
   res.push('<<Итого');
   return res;
@@ -300,9 +300,6 @@ document.addEventListener('DOMContentLoaded', () => {
     '.fast__entry__switch'
   );
   initFastEntry(relayFastEntry);
-  monthHTML.modalWindow
-    .querySelector('.prompt__form')
-    ?.addEventListener('input', getPromptInputValue);
 });
 
 function setCurrentScrollInsertValue(value) {

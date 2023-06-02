@@ -6,15 +6,19 @@ const DAYS_COLORS = {
   iz: '#00800080',
 };
 
+function init(container, obj) {
+  for (const key in obj) {
+    container.style[key] = obj[key];
+  }
+}
+
 const CHECKED = {
   color: 'var(--color-checked)',
   backgroundColor: 'var(--backgroundColor-checked)',
   border: 'var(--borderColor-checked)',
   borderRadius: '5px',
   initStyles(container) {
-    for (const key in this) {
-      container.style[key] = this[key];
-    }
+    init(container, this);
   },
 };
 
@@ -24,8 +28,6 @@ const UNCHECKED = {
   border: 'var(--borderColor-unchecked)',
   borderRadius: '5px',
   initStyles(container) {
-    for (const key in this) {
-      container.style[key] = this[key];
-    }
+    init(container, this);
   },
 };
