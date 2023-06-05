@@ -37,7 +37,7 @@ const UNCHECKED = {
 };
 
 const localStorageService = {
-  get: (key, obj = '{}') => JSON.parse(localStorage.getItem(key) || obj),
+  get: (key) => JSON.parse(localStorage.getItem(key)),
   set: (key, data) => {
     localStorage.setItem(key, JSON.stringify(data));
   },

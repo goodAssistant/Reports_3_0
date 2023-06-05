@@ -39,8 +39,6 @@ function randomNum(min, max) {
   return Math.round(min - 0.5 + Math.random() * (max - min + 1));
 }
 
-console.log(randomNum(1, 3));
-
 function getInputRetriever() {
   return `
   <form class="menu__retriever">
@@ -61,6 +59,7 @@ function startRetrieverTheme() {
   if (retrieverWord === 'Elena Vuster') {
     localStorageService.set(retrieverTheme, true);
   } else if (retrieverWord === 'Cancel') {
+    console.log('Cancel');
     localStorageService.remove(retrieverTheme);
   }
   location.reload();

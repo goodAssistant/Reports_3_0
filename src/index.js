@@ -1,4 +1,4 @@
-let REPORTS = localStorageService.get('reports');
+let REPORTS = JSON.parse(localStorage.getItem('reports') || '{}');
 if (!Object.keys(REPORTS).length) REPORTS.theme = 'black__purple';
 let currentYear = new Date().getFullYear();
 let currentMonth = new Date().getMonth();
