@@ -1,3 +1,7 @@
+const app = document.querySelector('.app');
+
+const retrieverTheme = 'retriever_theme';
+
 const DAYS_COLORS = {
   publ: '#0000ff80',
   video: '#ffa5080',
@@ -29,5 +33,21 @@ const UNCHECKED = {
   borderRadius: '5px',
   initStyles(container) {
     init(container, this);
+  },
+};
+
+const localStorageService = {
+  get: (key, obj = '{}') => JSON.parse(localStorage.getItem(key) || obj),
+  set: (key, data) => {
+    localStorage.setItem(key, JSON.stringify(data));
+  },
+  remove: (key) => {
+    localStorage.removeItem(key);
+  },
+  clear: () => {
+    localStorage.clear();
+    setTimeout(() => {
+      location.reload();
+    }, 500);
   },
 };

@@ -82,7 +82,9 @@ const renderTableHTML = (matrixMonth, data, selector) => {
             ) {
               return `<th class="btn_delete_values" id=${
                 rowIdx + 1
-              } data-date="${rowIdx}" data-action="delete" style="min-width:41px; max-width:41px;">${td}</th>`;
+              } data-date="${
+                rowIdx + 1
+              }" data-action="delete" style="min-width:41px; max-width:41px;">${td}</th>`;
             } else {
               return `<td class="cell ${action[tdIdx]}" id=${
                 rowIdx + 1
@@ -143,7 +145,7 @@ function deleteValuesIsLocalStorage(cellsDay, key, target) {
   };
 
   delete REPORTS[key].values[target.id];
-  setToLocalStorage('reports', REPORTS);
+  localStorageService.set('reports', REPORTS);
   setTimeout(() => {
     document
       .querySelector(`[data-date="${target.id}"]`)
@@ -441,7 +443,7 @@ function getTotalYear(event) {
   event.preventDefault();
   const { target } = event;
   menuBurger.getAndDeleteTablesMenu();
-  REPORTS = getFromLocalStorage('reports');
+  REPORTS = localStorageService.get('reports');
   targetYearSumValues = Object.values(REPORTS).reduce((acc, item) => {
     if (+item.year === +target.id) {
       if (item.values.sum) acc.push(item.values.sum);
@@ -497,7 +499,7 @@ function getChangeThemes(event) {
   if (target.dataset.theme) {
     monthHTML.getAndDeleteOverlay();
     REPORTS.theme = target.dataset.theme;
-    setToLocalStorage('reports', REPORTS);
+    localStorageService.set('reports', REPORTS);
     setTimeout(() => {
       monthHTML.container.closest(
         '.app'
@@ -514,13 +516,6 @@ function drawDaysWeek(data) {
   daysMonth.forEach((item) => {
     item.style.setProperty('--days-after', getDayOfWeek(data, item.id));
   });
-}
-
-function clearLocalStorage() {
-  localStorage.clear();
-  setTimeout(() => {
-    location.reload();
-  }, 500);
 }
 
 function getDataTransfer(event) {
@@ -558,7 +553,7 @@ function getDataTransfer(event) {
     }
     if (!REPORTS[newId]) {
       monthHTML.addDataReports(newId.split('/')[0], newId.split('/')[1]);
-      REPORTS = getFromLocalStorage('reports');
+      REPORTS = localStorageService.get('reports');
       getData(newId).hoursSumTransfer = 0;
     }
 
@@ -579,7 +574,7 @@ function getDataTransfer(event) {
       );
     }
 
-    setToLocalStorage('reports', REPORTS);
+    localStorageService.set('reports', REPORTS);
     const currentTable = monthHTML.container.querySelector(
       '.wrapper-table_title'
     );
@@ -674,7 +669,7 @@ function getFastEntry(event) {
   const relayFastEntry = menuBurger.wrapperBurger.querySelector(
     '.fast__entry__switch'
   );
-  let fastEntry = getFromLocalStorage('fast__entry');
+  let fastEntry = localStorageService.get('fast__entry');
   const { target } = event;
   if (!fastEntry) {
     target.setAttribute('checked', 'checked');
@@ -685,13 +680,13 @@ function getFastEntry(event) {
     fastEntry = false;
     UNCHECKED.initStyles(relayFastEntry);
   }
-  setToLocalStorage('fast__entry', fastEntry);
+  localStorageService.set('fast__entry', fastEntry);
 }
 
 function initFastEntry(relay) {
   const fastEntry =
     JSON.parse(localStorage.getItem('fast__entry')) ||
-    setToLocalStorage('fast__entry', false);
+    localStorageService.set('fast__entry', false);
 
   if (fastEntry) {
     CHECKED.initStyles(relay);
@@ -717,6 +712,6 @@ function getPromptInputValue(event) {
 function promptFunc() {
   const hours = convertHoursToMinutes(promptInputValue);
   new Values(0, 0, 0, hours, 0, new Date().getDate()).getValues(REPORTS);
-  setToLocalStorage('reports', REPORTS);
+  localStorageService.set('reports', REPORTS);
   pullValuesToTable(currentYear, currentMonth);
 }

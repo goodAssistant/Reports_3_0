@@ -1,13 +1,4 @@
-const app = document.querySelector('.app');
-
-const getFromLocalStorage = (key, obj = '{}') =>
-  JSON.parse(localStorage.getItem(key) || obj);
-
-const setToLocalStorage = (key, data) => {
-  localStorage.setItem(key, JSON.stringify(data));
-};
-
-let REPORTS = getFromLocalStorage('reports');
+let REPORTS = localStorageService.get('reports');
 if (!Object.keys(REPORTS).length) REPORTS.theme = 'black__purple';
 let currentYear = new Date().getFullYear();
 let currentMonth = new Date().getMonth();
@@ -124,7 +115,14 @@ class MonthHTML {
         .append(renderTableHTML(matrixMonth, data, this.selector));
     }
 
-    this.body.className = `app ${this.data.theme}`;
+    if (localStorageService.get(retrieverTheme)) {
+      this.body.className = `app on__style`;
+      this.body.style.background = `url(${
+        LIST_RETRIEVERS[randomNum(1, 32) - 1]
+      }) no-repeat center center / cover`;
+    } else {
+      this.body.className = `app ${this.data.theme}`;
+    }
 
     if (tableVerticalOrientation) {
       drawContentBeforeTds(data);
@@ -164,7 +162,7 @@ class MonthHTML {
           },
         },
       };
-      setToLocalStorage('reports', this.data);
+      localStorageService.set('reports', this.data);
     }
   }
 
@@ -511,7 +509,7 @@ function getAndPushValuesForMonth(event) {
             izValue,
             day
           ).getValues(REPORTS);
-          setToLocalStorage('reports', REPORTS);
+          localStorageService.set('reports', REPORTS);
           arrCells = [];
           publValue = 0;
           videoValue = 0;

@@ -22,6 +22,7 @@ class Menu {
       change__table: 'Выбрать таблицу',
       total__month: 'Итоги за месяц',
       total__year: 'Итоги за год',
+      golden__retriever: 'Открыть тему...',
       clear__data: 'Очистить все данные',
       fast__entry: () => `
         <form class="menu__checkbox">
@@ -343,11 +344,15 @@ function getClickMenuItems(event) {
       menuBurger.getAndDeleteTablesMenu('getTotalYear', allYears);
       menuBurgerHeader.classList.remove('open');
       break;
+    case 'golden__retriever':
+      imitationConfirm(monthHTML, getInputRetriever(), startRetrieverTheme);
+      menuBurgerHeader.classList.remove('open');
+      break;
     case 'clear__data':
       imitationConfirm(
         monthHTML,
         '<div style="display: flex; align-items: center"><div style="flex-shrink:200">Ты уверен, что желаешь очистить все данные без возможности восстановления?</div><span style="background: url(../assets/images/hmmm__smile.png)no-repeat center center / contain; width: 50px; height: 50px"></span></div>',
-        clearLocalStorage
+        localStorageService.clear
       );
       menuBurgerHeader.classList.remove('open');
       break;
