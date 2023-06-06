@@ -169,7 +169,10 @@ function getAndDeleteSlide(
   numOfDays = numDaysOfMonth(year, month);
   newSlide = new module(body, data, selector);
   currentSlide = monthHTML.container.querySelector('.wrapper-table');
-  currentSlide.querySelector('.wrapper_buttons').style.opacity = 0;
+  const getWrapperButtons = (body) => body.querySelector('.wrapper_buttons');
+  switchButtonsBetweenTables =
+    monthHTML.container.querySelector('.wrapper_buttons');
+  if (switchButtonsBetweenTables) switchButtonsBetweenTables.style.opacity = 0;
 
   setTimeout(() => {
     newSlide.render(year, month);
@@ -196,7 +199,9 @@ function getAndDeleteSlide(
         months
       );
     });
-    newSlide.slide.querySelector('.wrapper_buttons').classList.remove('hide');
+    switchButtonsBetweenTables = getWrapperButtons(newSlide.slide);
+    if (switchButtonsBetweenTables)
+      switchButtonsBetweenTables.classList.remove('hide');
   }, 3100);
   drawContentBeforeTds(data[`${year}/${month}`]);
 }
@@ -523,10 +528,15 @@ function getDataTransfer(event) {
   let newId;
   const { modalWindow } = monthHTML;
   const { target, submitter } = event;
+
   const value = target[0].value;
+
   const hours = value.split(':')[0] + ' ч ' + value.split(':')[1] + ' мин';
+
   const minutes = +convertHoursToMinutes(hours);
+
   const year = +target.id.split('/')[0];
+
   const month = +target.id.split('/')[1];
 
   function getAndDeleteData() {
@@ -545,22 +555,23 @@ function getDataTransfer(event) {
 
   if (submitter.name === 'dataTransfer') {
     const getData = (selector) => REPORTS[selector].values.sum;
+    const hoursSumTotal = getData(target.id).hoursSumTotal;
 
     if (month === 11) {
       newId = [year + 1, 0].join('/');
     } else {
       newId = [year, month + 1].join('/');
     }
+
     if (!REPORTS[newId]) {
-      monthHTML.addDataReports(newId.split('/')[0], newId.split('/')[1]);
-      REPORTS = localStorageService.get('reports');
+      monthHTML.addDataReports(+newId.split('/')[0], +newId.split('/')[1]);
       getData(newId).hoursSumTransfer = 0;
     }
 
-    getData(target.id).hoursSumTotal =
-      getData(target.id).hoursSumTotal - minutes;
+    getData(target.id).hoursSumTotal = hoursSumTotal - minutes;
 
     getData(newId).hoursSumTransfer = getData(newId).hoursSumTransfer + minutes;
+
     getData(newId).hoursSumTotal = getData(newId).hoursSumTotal + minutes;
 
     getAndDeleteData();

@@ -1,6 +1,10 @@
+let REPORTS;
+
 const app = document.querySelector('.app');
 
 const retrieverTheme = 'retriever_theme';
+
+let switchButtonsBetweenTables;
 
 const DAYS_COLORS = {
   publ: '#0000ff80',
