@@ -382,12 +382,15 @@ class Values {
 function convertMinutesToHours(mins) {
   let hours = Math.trunc(mins / 60);
   let minutes = mins % 60;
+  function addZero() {
+    return minutes < 10 ? '0' + minutes : minutes;
+  }
   if (mins < 60) {
-    return minutes + ' м';
+    return minutes + ' мин';
   } else if (mins % 60 === 0) {
     return hours + ' ч';
   } else {
-    return hours + ' ч ' + minutes + ' м';
+    return hours + ' ч ' + addZero() + ' м';
   }
 }
 
