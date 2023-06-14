@@ -32,7 +32,9 @@ const renderTableHTML = (matrixMonth, data, selector) => {
   wrapperTable.innerHTML = `
   <h2 class="wrapper-table_title" data-key=${data.year}/${
     data.month
-  } data-period="current">${data.monthName} ${data.year}</h2>
+  } data-period="current">${data.monthName} ${data.year} ${
+    window.innerWidth
+  }</h2>
   <table class="table">
   ${
     thead
