@@ -1,4 +1,4 @@
-const tableVerticalOrientation = window.innerWidth < 500;
+const tableVerticalOrientation = window.innerWidth < 600;
 let promptInputValue;
 
 const addNextPrevButtonToHTML = (body) => {
@@ -32,9 +32,7 @@ const renderTableHTML = (matrixMonth, data, selector) => {
   wrapperTable.innerHTML = `
   <h2 class="wrapper-table_title" data-key=${data.year}/${
     data.month
-  } data-period="current">${data.monthName} ${data.year} ${
-    window.innerWidth
-  }</h2>
+  } data-period="current">${data.monthName} ${data.year}</h2>
   <table class="table">
   ${
     thead
@@ -119,9 +117,7 @@ const deleteValuesSpecificDay = (event, body, months) => {
       );
       imitationConfirm(
         monthHTML,
-        `Вы уверены, что желаете очистить все значения в столбце за <span class="modal__data">${
-          +target.id + 1
-        }-ое число </span> <span class="modal__data">месяца ${monthName}</span> <span class="modal__data">${yearMonth} года</span>?`,
+        `Вы уверены, что желаете очистить все значения в столбце за <span class="modal__data">${target.id}-ое число </span> <span class="modal__data">месяца ${monthName}</span> <span class="modal__data">${yearMonth} года</span>?`,
         deleteValuesIsLocalStorage,
         cellsDay,
         key,
