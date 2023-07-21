@@ -229,20 +229,20 @@ class MonthHTML {
         this.overlay.remove();
       }, 300);
       setTimeout(() => {
-        this.overlay.classList.remove('open');
+        this.overlay.classList.remove('active');
       }, 0);
     } else {
       this.container.append(this.overlay);
       setTimeout(() => {
-        this.overlay.classList.add('open');
+        this.overlay.classList.add('active');
       }, 0);
       this.overlay.addEventListener('click', () => {
-        document.querySelectorAll('.open').forEach((item) => {
+        document.querySelectorAll('.active').forEach((item) => {
           setTimeout(() => {
             if (!item.className.includes('menu__burger__header')) item.remove();
           }, 1000);
           setTimeout(() => {
-            item.classList.remove('open');
+            item.classList.remove('active');
           }, 0);
         });
       });
@@ -332,13 +332,16 @@ class Values {
     const data = reports[`${currentYear}/${currentMonth}`].values;
     if (!Object.keys(data).length) {
       data = {
-        [this.day]: {
-          publ: +this.publ,
-          video: +this.video,
-          pp: +this.pp,
-          hours: +this.hours,
-          iz: +this.iz,
-        },
+        [this.day]: [
+          {
+            timestep: Date.now(),
+            publ: +this.publ,
+            video: +this.video,
+            pp: +this.pp,
+            hours: +this.hours,
+            iz: +this.iz,
+          },
+        ],
         sum: {
           publSum: this.publ,
           videoSum: this.video,
@@ -350,21 +353,45 @@ class Values {
       };
     } else {
       if (!data[this.day]) {
-        data[this.day] = {
+        data[this.day] = [
+          {
+            timestep: Date.now(),
+            publ: +this.publ,
+            video: +this.video,
+            pp: +this.pp,
+            hours: +this.hours,
+            iz: +this.iz,
+          },
+        ];
+      } else {
+        data[this.day].push({
+          timestep: Date.now(),
           publ: +this.publ,
           video: +this.video,
           pp: +this.pp,
           hours: +this.hours,
           iz: +this.iz,
-        };
-      } else {
-        data[this.day] = {
-          publ: +data[this.day]['publ'] + +this.publ,
-          video: +data[this.day]['video'] + +this.video,
-          pp: +data[this.day]['pp'] + +this.pp,
-          hours: +data[this.day]['hours'] + +this.hours,
-          iz: +data[this.day]['iz'] + +this.iz,
-        };
+        });
+        if (!data[this.day][0].name) {
+          const sumObj = {
+            name: 'daySum',
+            publ: +this.publ + data[this.day][0].publ,
+            video: +this.video + data[this.day][0].video,
+            pp: +this.pp + data[this.day][0].pp,
+            hours: +this.hours + data[this.day][0].hours,
+            iz: +this.iz + data[this.day][0].iz,
+          };
+          data[this.day].unshift(sumObj);
+        } else {
+          data[this.day][0] = {
+            name: 'daySum',
+            publ: data[this.day][0].publ + +this.publ,
+            video: data[this.day][0].video + +this.video,
+            pp: data[this.day][0].pp + +this.pp,
+            hours: data[this.day][0].hours + +this.hours,
+            iz: data[this.day][0].iz + +this.iz,
+          };
+        }
       }
       data.sum = {
         ...data.sum,
@@ -549,7 +576,6 @@ document.addEventListener('click', (event) => {
 
 function changeIconToDeleteButton(elem, dataAction) {
   if (dataAction === 'delete') {
-    elem.classList.remove('active');
     setTimeout(() => {
       elem.setAttribute('data-action', dataAction);
       elem.style.setProperty(
@@ -558,7 +584,6 @@ function changeIconToDeleteButton(elem, dataAction) {
       );
     }, 0);
   } else if (dataAction === 'ok') {
-    elem.classList.add('active');
     setTimeout(() => {
       elem.setAttribute('data-action', dataAction);
       elem.style.setProperty(
@@ -577,40 +602,62 @@ document.querySelector('.body_table').addEventListener('click', (event) => {
 function pullValuesToTable(year, month) {
   const cells = monthHTML.container.querySelectorAll('.cell'),
     cellsSum = monthHTML.container.querySelectorAll('.sum'),
-    data = REPORTS[`${year}/${month}`].values;
+    data = localStorageService.get('reports')[`${year}/${month}`].values;
 
   for (let cell of cells) {
     if (data[cell.id]) {
-      if (!data[cell.id][cell.dataset.action]) cell.textContent = '';
+      if (!data[cell.id][0][cell.dataset.action]) cell.textContent = '';
       else {
         if (cell.dataset.action === 'hours') {
           cell.textContent = convertMinutesToHours(
-            data[cell.id][cell.dataset.action]
+            data[cell.id][0][cell.dataset.action]
           );
-        } else cell.textContent = data[cell.id][cell.dataset.action];
+        } else cell.textContent = data[cell.id][0][cell.dataset.action];
       }
     } else {
       cell.textContent = '';
     }
   }
 
-  for (let cell of cellsSum) {
-    if (!data.sum[cell.dataset.action]) cell.textContent = '';
-    else {
-      if (cell.dataset.action === 'hoursSum') {
-        const beforeValue = convertMinutesToHours(
-          data.sum[cell.dataset.action]
-        );
-        if (data.sum.hoursSumTransfer) {
-          const afterValue =
-            '+ ' + convertMinutesToHours(data.sum.hoursSumTransfer);
+  const getPsevdoValueAndDraw = (selector, value, cell, transfer) => {
+    const val = transfer
+      ? '+ ' + convertMinutesToHours(value)
+      : convertMinutesToHours(value);
+    cell.style.setProperty(selector, `"${val}"`);
+  };
 
-          cell.style.setProperty(
+  for (let cell of cellsSum) {
+    if (!data.sum[cell.dataset.action]) {
+      if (cell.dataset.action === 'hoursSum') {
+        if (data.sum.hoursSumTotal) {
+          cell.textContent = convertMinutesToHours(data.sum['hoursSumTotal']);
+        }
+        if (data.sum.hoursSumTransfer) {
+          getPsevdoValueAndDraw(
             '--afterHoursSumTransferText',
-            `"${afterValue}"`
+            data.sum.hoursSumTransfer,
+            cell,
+            true
           );
         }
-        cell.style.setProperty('--beforeHoursSum', `"${beforeValue}"`);
+      } else {
+        cell.textContent = '';
+      }
+    } else {
+      if (cell.dataset.action === 'hoursSum') {
+        if (data.sum.hoursSumTransfer) {
+          getPsevdoValueAndDraw(
+            '--afterHoursSumTransferText',
+            data.sum.hoursSumTransfer,
+            cell,
+            true
+          );
+        }
+        getPsevdoValueAndDraw(
+          '--beforeHoursSum',
+          data.sum[cell.dataset.action],
+          cell
+        );
         cell.textContent = convertMinutesToHours(data.sum['hoursSumTotal']);
       } else cell.textContent = data.sum[cell.dataset.action];
     }

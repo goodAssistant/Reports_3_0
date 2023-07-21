@@ -67,7 +67,7 @@ const renderTableHTML = (matrixMonth, data, selector) => {
                 return `<th class="btn_delete_values" id=${tdIdx} data-date="${tdIdx}" data-action="delete">${td}</th>`;
               }
             } else if (td === '') {
-              return `<td class="cell ${action[rowIdx]}" id=${tdIdx} data-action=${action[rowIdx]} contenteditable="true">${td}</td>`;
+              return `<td class="cell ${action[rowIdx]}" id=${tdIdx} data-action=${action[rowIdx]} data-key=${data.year}/${data.month} contenteditable="true" ondblclick="getDropDownMenu(event)">${td}</td>`;
             }
           } else {
             if (rowIdx === matrixMonth.length - 1) {
@@ -86,11 +86,13 @@ const renderTableHTML = (matrixMonth, data, selector) => {
                 rowIdx + 1
               }" data-action="delete" style="min-width:41px; max-width:41px;">${td}</th>`;
             } else {
-              return `<td class="cell ${action[tdIdx]}" id=${
-                rowIdx + 1
-              } data-action=${
+              return `<td ondblclick="getDropDownMenu(event)" class="cell ${
                 action[tdIdx]
-              } contenteditable="true" style="min-width:72px; max-width:72px;">${td}</td>`;
+              }" id=${rowIdx + 1} data-action=${action[tdIdx]} data-key=${
+                data.year
+              }/${
+                data.month
+              } contenteditable="true" style="min-width:72px; max-width:72px;" >${td}</td>`;
             }
           }
         })
@@ -240,17 +242,17 @@ function moveModalWindow(obj, str = null, no_btn = false) {
   }
   const modalText = modalWindow.querySelector('.modal__text');
   modalText.innerHTML = str;
-  if (modalWindow.classList.contains('open')) {
+  if (modalWindow.classList.contains('active')) {
     setTimeout(() => {
-      modalWindow.classList.remove('open');
+      modalWindow.classList.remove('active');
     }, 0);
     setTimeout(() => {
       modalWindow.remove();
     }, 810);
   } else {
     setTimeout(() => {
-      overlay.classList.add('open');
-      modalWindow.classList.add('open');
+      overlay.classList.add('active');
+      modalWindow.classList.add('active');
     }, 20);
   }
 }
@@ -538,7 +540,7 @@ function getDataTransfer(event) {
   const month = +target.id.split('/')[1];
 
   function getAndDeleteData() {
-    modalWindow.classList.remove('open');
+    modalWindow.classList.remove('active');
     setTimeout(() => {
       modalWindow.remove();
       monthHTML.getAndDeleteOverlay();
@@ -723,4 +725,66 @@ function promptFunc() {
   new Values(0, 0, 0, hours, 0, new Date().getDate()).getValues(REPORTS);
   localStorageService.set('reports', REPORTS);
   pullValuesToTable(currentYear, currentMonth);
+}
+
+function getDropDownMenu(event) {
+  const { target } = event;
+  const key = target.dataset.key;
+  const action = target.dataset.action;
+  const data = REPORTS[key].values;
+  const month =
+    +key.split('/')[1] + 1 < 10
+      ? '0' + (+key.split('/')[1] + 1)
+      : +key.split('/')[1] + 1;
+  if (!data[target.id] || data[target.id].length === 1) return;
+
+  const thead = ['№:', 'Когда:', 'Значение:'];
+  const dropMenuTemplate = `
+  <div class='wrapper_table-drop-down'>
+  <h3 class='title_table-drop-down' style='text-align:center'>Введённые за ${
+    target.id
+  }.${month} "${
+    punctsTotal[action + (action === 'hours' ? 'SumTotal' : 'Sum')]
+  }":</h3>
+  <table class='table-drop-down table'>
+  <thead>
+  <tr>
+  ${thead.map((tr) => `<th>${tr}</th>`).join('')}
+  </tr>
+  </thead>
+  <tbody>
+  ${data[target.id]
+    .map((row, idx) => {
+      if (idx !== 0 && row[action] > 0) {
+        return `<tr>
+    <td>${idx}</td>
+    <td>${displayDate(row['timestep'])}</td>
+    <td class='tds__drop-menu' data-timestep=${row['timestep']}>${
+          action === 'hours' ? convertMinutesToHours(row[action]) : row[action]
+        }</td>
+  </tr>`;
+      }
+    })
+    .join('')}
+  </tbody>
+  </table>
+  </div>
+  `;
+  const dropMenu = document.createElement('div');
+  dropMenu.className = 'drop__menu-wrapper';
+  dropMenu.innerHTML = dropMenuTemplate;
+  app.append(dropMenu);
+  const dropMenuHTML = dropMenu.querySelector('.wrapper_table-drop-down');
+  setTimeout(() => {
+    dropMenuHTML.classList.add('active');
+  }, 0);
+
+  monthHTML.getAndDeleteOverlay(dropMenuHTML);
+  const deleteDropMenu = new DeleteButton(dropMenuHTML, 'delete__button');
+  deleteDropMenu.deleteBody(monthHTML, '.drop__menu-wrapper');
+  const tdHours = dropMenuHTML.querySelectorAll('.tds__drop-menu');
+  tdHours.forEach((td) => {
+    const deleteButton = new DeleteButton(td, 'delete__button');
+    deleteButton.deleteDataHours(key, target.id, action, monthHTML);
+  });
 }

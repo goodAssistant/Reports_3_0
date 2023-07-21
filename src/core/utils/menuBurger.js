@@ -56,7 +56,7 @@ class Menu {
             )
             .join('')}
           <div class="release">
-            Release 3.0 
+            ${RELEASE}
           </div>
         </div>
       </div>
@@ -98,12 +98,12 @@ class Menu {
         this.themesWrapper.remove();
       }, 800);
       setTimeout(() => {
-        this.themesWrapper.classList.remove('open');
+        this.themesWrapper.classList.remove('active');
       }, 0);
     } else {
       menuBurger.renderThemesMenu();
       setTimeout(() => {
-        this.themesWrapper.classList.add('open');
+        this.themesWrapper.classList.add('active');
       }, 0);
     }
   }
@@ -149,25 +149,19 @@ class Menu {
         this.tablesMenuWrapper.remove();
       }, 1000);
       setTimeout(() => {
-        this.tablesMenuWrapper.classList.remove('open');
+        this.tablesMenuWrapper.classList.remove('active');
       }, 0);
     } else {
       menuBurger.renderTablesMenu(selector, arr);
       setTimeout(() => {
-        this.tablesMenuWrapper.classList.add('open');
+        this.tablesMenuWrapper.classList.add('active');
       }, 0);
     }
   }
 
   renderTotalMonth(rate, { repeat, totalYearInfo }) {
     let totalValues;
-    const punctsTotal = {
-      publSum: 'Публ',
-      videoSum: 'Видео',
-      ppSum: 'ПП',
-      izSum: 'Из',
-      hoursSumTotal: 'Часы',
-    };
+
     const orderedArray = [
       'publSum',
       'videoSum',
@@ -178,7 +172,6 @@ class Menu {
     const totalYear = !rate.includes('/');
     if (totalYear) totalValues = getYearSumValues();
     else totalValues = REPORTS[rate].values.sum;
-    console.log('totalValues:', totalValues);
     this.tablesTotalMonth.innerHTML = `
     <h4 class="month__name">${
       totalYear
@@ -273,10 +266,10 @@ menuBurger.renderBurgerMenu();
 let menuBurgerHeader;
 
 function openBurgerMenu({ target }) {
-  if (monthHTML.container.querySelector('.open')) return;
+  if (monthHTML.container.querySelector('.active')) return;
   if ((menuBurgerHeader = target.closest('.menu__burger__header'))) {
     monthHTML.getAndDeleteOverlay();
-    menuBurgerHeader.classList.toggle('open');
+    menuBurgerHeader.classList.toggle('active');
   }
 }
 
@@ -286,7 +279,7 @@ function getClickMenuItems(event) {
   switch (target.dataset.action) {
     case 'welcome':
       setInstructions();
-      menuBurgerHeader.classList.remove('open');
+      menuBurgerHeader.classList.remove('active');
       break;
     case 'change__table':
       if (Object.keys(REPORTS).length === 1) {
@@ -297,18 +290,18 @@ function getClickMenuItems(event) {
           Object.values(REPORTS).slice(1)
         );
       }
-      menuBurgerHeader.classList.remove('open');
+      menuBurgerHeader.classList.remove('active');
       break;
     case 'change__theme':
       menuBurger.getAndDeleteThemesMenu();
-      menuBurgerHeader.classList.remove('open');
+      menuBurgerHeader.classList.remove('active');
       break;
     case 'total__month':
       menuBurger.getAndDeleteTablesMenu(
         'getTotalMonths',
         Object.values(REPORTS).slice(1)
       );
-      menuBurgerHeader.classList.remove('open');
+      menuBurgerHeader.classList.remove('active');
       break;
     case 'total__year':
       //const allYears = getAllYears([
@@ -338,11 +331,11 @@ function getClickMenuItems(event) {
       //]);
       const allYears = getAllYears(Object.keys(REPORTS).slice(1));
       menuBurger.getAndDeleteTablesMenu('getTotalYear', allYears);
-      menuBurgerHeader.classList.remove('open');
+      menuBurgerHeader.classList.remove('active');
       break;
     case 'golden__retriever':
       imitationConfirm(monthHTML, getInputRetriever(), startRetrieverTheme);
-      menuBurgerHeader.classList.remove('open');
+      menuBurgerHeader.classList.remove('active');
       break;
     case 'clear__data':
       imitationConfirm(
@@ -350,7 +343,7 @@ function getClickMenuItems(event) {
         '<div style="display: flex; align-items: center"><div style="flex-shrink:200">Ты уверен, что желаешь очистить все данные без возможности восстановления?</div><span style="background: url(../assets/images/hmmm__smile.png)no-repeat center center / contain; width: 50px; height: 50px"></span></div>',
         localStorageService.clear
       );
-      menuBurgerHeader.classList.remove('open');
+      menuBurgerHeader.classList.remove('active');
       break;
   }
 }

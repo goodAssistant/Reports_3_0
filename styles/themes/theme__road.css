@@ -143,7 +143,7 @@
   box-shadow: var(--td-th-box-shadow-random__image);
 }
 
-.app.random__image .btn_delete_values.active {
+.app.random__image .btn_delete_values[data-action='ok'] {
   background: var(--td-th-background-random__image)
     url(../../assets/images/smile_ok.png) no-repeat center center / contain;
 }
@@ -307,12 +307,12 @@
 
 /* +++++++++++++++++++++++++++++++++++++tables menu wrapper+++++++++++++++++++++++++++++++++++ */
 
-.app.random__image .tables__menu__wrapper.open {
+.app.random__image .tables__menu__wrapper.active {
   box-shadow: var(--all-wrappers-menu-boxshadow-random__image);
   background: var(--all-wrappers-background-color-random__image);
 }
 
-.app.random__image .tables__total.open {
+.app.random__image .tables__total.active {
   box-shadow: var(--all-wrappers-menu-boxshadow-random__image);
   background: var(--all-wrappers-background-color-random__image);
 }
@@ -346,6 +346,21 @@
 }
 
 .app.random__image .table::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: linear-gradient(180deg, #334f56, #021c45);
+}
+
+.app.random__image .instr__wrapper::-webkit-scrollbar {
+  width: 10px;
+}
+
+.app.random__image .instr__wrapper::-webkit-scrollbar-track {
+  -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+  background-color: #f9f9fd;
+  border-radius: 10px;
+}
+
+.app.random__image .instr__wrapper::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background: linear-gradient(180deg, #334f56, #021c45);
 }

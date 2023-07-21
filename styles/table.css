@@ -181,6 +181,16 @@ th[data-action='hoursSum']::after {
   transition: background 1s ease-out;
 }
 
+.btn_delete_values[data-action='ok']:active {
+  transform: scale(0.9);
+  transition: transform 0.5s ease;
+}
+
+.btn_delete_values[data-action='delete']:active {
+  transform: scale(0.9);
+  transition: transform 0.5s ease;
+}
+
 .btn_delete_values:hover {
   transform: scale(1.1);
   transition: transform 0.5s ease;
@@ -310,7 +320,7 @@ th[data-action='hoursSum']::after {
   display: none;
 }
 
-.hours__pioneer.open_menu {
+.hours__pioneer.active_menu {
   display: block;
   opacity: 1;
   transition: display 0.5s ease-in;
@@ -353,4 +363,37 @@ th[data-action='hoursSum']::after {
 .mustardSeed__counter1,
 .mustardSeed__counter2 {
   font-family: 'Arturo Black outline';
+}
+
+/* 
+Стили для dropMenu
+*/
+.wrapper_table-drop-down {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1s ease-in-out 0s;
+  top: 7%;
+  left: 10%;
+  background-color: rgba(246, 202, 149, 0.706);
+  color: rgb(89, 76, 76);
+  border-radius: 10%;
+  box-shadow: 0px 0px 10px rgb(251 141 7 / 80%),
+    0px 0px 10px 5px rgb(251 181 7 / 80%) inset;
+  padding: 10px;
+  z-index: 2;
+}
+
+.wrapper_table-drop-down.active {
+  opacity: 1;
+  transition: opacity 1s ease-in-out 0s;
+}
+
+.table-drop-down {
+  height: fit-content;
+  max-height: 300px;
+}
+
+.table-drop-down td,
+th {
+  padding: 5px;
 }

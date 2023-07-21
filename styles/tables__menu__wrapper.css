@@ -15,7 +15,7 @@
   max-width: 135px;
 }
 
-.tables__menu__wrapper.open {
+.tables__menu__wrapper.active {
   opacity: 1;
 }
 

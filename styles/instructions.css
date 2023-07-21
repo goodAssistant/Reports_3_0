@@ -1,152 +1,164 @@
 .instr__wrapper {
- position: absolute;
- top: 7vh;
- left: -300%;
- width: 90%;
- z-index: 2000;
- border-radius: 20px;
- padding: 30px 15px 20px;
- transition: left 1.5s ease-out, transform 1.5s ease-out;
+  position: absolute;
+  top: 7vh;
+  left: -300%;
+  width: 90%;
+  z-index: 2000;
+  border-radius: 20px;
+  padding: 30px 15px 20px;
+  transition: left 1.5s ease-out, transform 1.5s ease-out;
 }
 
 .instr__wrapper::after {
- position: absolute;
- content: '';
- top: 23px;
- left: 5%;
- height: 3px;
- width: 90%;
- border-radius: 10px;
+  position: absolute;
+  content: '';
+  top: 23px;
+  left: 5%;
+  height: 3px;
+  width: 90%;
+  border-radius: 10px;
 }
 
 .instr__wrapper.active {
- left: 50%;
- transform: translate(-50%);
- height: fit-content;
- scroll-behavior: smooth;
- overflow-y: auto;
+  left: 50%;
+  transform: translate(-50%);
+  height: fit-content;
+  scroll-behavior: smooth;
+  overflow-y: auto;
 }
 
-.delete__instr {
- position: absolute;
- top: 1.2%;
- right: 2%;
- z-index: 3000;
- width: 15px;
- height: 15px;
- background: url(../assets/images/delete.png)no-repeat center center / contain;
- cursor: pointer;
- animation: myout 1s ease 0s 0.515 normal forwards;
+.delete__button {
+  position: absolute;
+  top: 1.2%;
+  right: 2%;
+  z-index: 3000;
+  width: 15px;
+  height: 15px;
+  background: url(../assets/images/delete.png) no-repeat center center / contain;
+  cursor: pointer;
+  animation: myout 1s ease 0s 0.515 normal forwards;
+  border: none;
 }
 
-.delete__instr:hover {
- animation: my 1s ease 0s 1 normal forwards;
+.delete__button:hover {
+  animation: my 1s ease 0s 1 normal forwards;
+}
+
+.delete__button:active {
+  animation: my 1s ease 0s 1 normal reverse;
 }
 
 @keyframes my {
- 0% {
-  transform: rotate(0);
- }
+  0% {
+    transform: rotate(0);
+  }
 
- 100% {
-  transform: rotate(360deg);
- }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes myout {
- 0% {
-  transform: rotate(360deg);
- }
+  0% {
+    transform: rotate(360deg);
+  }
 
- 100% {
-  transform: rotate(-80deg);
- }
+  100% {
+    transform: rotate(-80deg);
+  }
 }
 
 .instr__item {
- position: relative;
- line-height: 15px;
- text-align: revert;
+  position: relative;
+  line-height: 15px;
+  text-align: revert;
 }
 
 .instr__item:not(:last-child) {
- margin-bottom: 25px;
+  margin-bottom: 25px;
 }
 
 .instr__text1::after {
- position: absolute;
- content: '';
- bottom: -30px;
- right: 0;
- background: url(../assets/images/heart_smile.png) no-repeat center center / contain;
- width: 40px;
- height: 40px;
+  position: absolute;
+  content: '';
+  bottom: -30px;
+  right: 0;
+  background: url(../assets/images/heart_smile.png) no-repeat center center /
+    contain;
+  width: 40px;
+  height: 40px;
 }
 
 .instr__text2::after {
- position: absolute;
- content: '';
- bottom: -36px;
- right: 0;
- background: url(../assets/images/imperturbable_smile.png) no-repeat center center / contain;
- width: 40px;
- height: 40px;
+  position: absolute;
+  content: '';
+  bottom: -36px;
+  right: 0;
+  background: url(../assets/images/imperturbable_smile.png) no-repeat center
+    center / contain;
+  width: 40px;
+  height: 40px;
 }
 
 .instr__text3::after {
- position: absolute;
- content: '';
- bottom: -38px;
- right: 0;
- background: url(../assets/images/usualy_smile.png) no-repeat center center / contain;
- width: 40px;
- height: 40px;
+  position: absolute;
+  content: '';
+  bottom: -38px;
+  right: 0;
+  background: url(../assets/images/usualy_smile.png) no-repeat center center /
+    contain;
+  width: 40px;
+  height: 40px;
 }
 
 .instr__text4::after {
- position: absolute;
- content: '';
- bottom: -32px;
- right: 0;
- background: url(../assets/images/wink_smile.png) no-repeat center center / contain;
- width: 40px;
- height: 40px;
+  position: absolute;
+  content: '';
+  bottom: -32px;
+  right: 0;
+  background: url(../assets/images/wink_smile.png) no-repeat center center /
+    contain;
+  width: 40px;
+  height: 40px;
 }
 
 .instr__text5::after {
- position: absolute;
- content: '';
- bottom: -35px;
- right: 0;
- background: url(../assets/images/wide__smile.png) no-repeat center center / contain;
- width: 40px;
- height: 40px;
+  position: absolute;
+  content: '';
+  bottom: -35px;
+  right: 0;
+  background: url(../assets/images/wide__smile.png) no-repeat center center /
+    contain;
+  width: 40px;
+  height: 40px;
 }
 
 .instr__text7::after {
- position: absolute;
- content: '';
- bottom: -35px;
- right: 0;
- background: url(../assets/images/smile__rose.png) no-repeat center center / contain;
- width: 40px;
- height: 40px;
+  position: absolute;
+  content: '';
+  bottom: -35px;
+  right: 0;
+  background: url(../assets/images/smile__rose.png) no-repeat center center /
+    contain;
+  width: 40px;
+  height: 40px;
 }
 
 .instr__bye {
- position: relative;
+  position: relative;
 }
 
 .instr__bye::after {
- position: absolute;
- content: '';
- bottom: -40px;
- left: 0;
- background: url(../assets/images/input_info.png) no-repeat center center / contain;
- width: 40px;
- height: 40px;
+  position: absolute;
+  content: '';
+  bottom: -40px;
+  left: 0;
+  background: url(../assets/images/input_info.png) no-repeat center center /
+    contain;
+  width: 40px;
+  height: 40px;
 }
 
 .prava {
- margin-top: 10px;
+  margin-top: 10px;
 }

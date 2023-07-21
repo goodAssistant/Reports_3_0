@@ -105,7 +105,7 @@ th {
     0 0 10px var(--color-JW-label) inset;
 }
 
-.app.black__purple .btn_delete_values.active {
+.app.black__purple .btn_delete_values[data-action='ok'] {
   background: var(--td-th-background-black__purple)
     url(../../assets/images/smile_ok.png) no-repeat center center / contain;
 }
@@ -259,8 +259,8 @@ th {
 
 /* +++++++++++++++++++++++++++++++++++++tables menu wrapper+++++++++++++++++++++++++++++++++++ */
 
-.app.black__purple .tables__menu__wrapper.open,
-.tables__total.open {
+.app.black__purple .tables__menu__wrapper.active,
+.tables__total.active {
   box-shadow: var(--all-wrappers-menu-boxshadow-black__purple);
   background: var(--all-wrappers-background-color-black__purple);
 }
@@ -294,6 +294,32 @@ th {
 }
 
 .app.black__purple .table::-webkit-scrollbar-thumb {
+  background-color: #89089d;
+  background-image: -webkit-linear-gradient(
+    45deg,
+    rgba(178, 105, 186, 0.25) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 5, 188, 0.25) 50%,
+    rgba(78, 2, 42, 0.25) 75%,
+    transparent 75%,
+    transparent
+  );
+  border-radius: 10px;
+  scroll-behavior: smooth;
+}
+
+.app.black__purple .instr__wrapper::-webkit-scrollbar {
+  width: 10px;
+}
+
+.app.black__purple .instr__wrapper::-webkit-scrollbar-track {
+  -webkit-box-shadow: 5px 5px 5px -5px rgba(34, 60, 80, 0.2) inset;
+  background-color: #f9f9fd;
+  border-radius: 10px;
+}
+
+.app.black__purple .instr__wrapper::-webkit-scrollbar-thumb {
   background-color: #89089d;
   background-image: -webkit-linear-gradient(
     45deg,

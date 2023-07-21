@@ -59,7 +59,6 @@ function startRetrieverTheme() {
   if (retrieverWord === 'Elena Vuster') {
     localStorageService.set(retrieverTheme, true);
   } else if (retrieverWord === 'Cancel') {
-    console.log('Cancel');
     localStorageService.remove(retrieverTheme);
   }
   location.reload();

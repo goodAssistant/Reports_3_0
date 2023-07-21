@@ -18,7 +18,7 @@
   margin-bottom: 20px;
 }
 
-.themes__wrapper.open {
+.themes__wrapper.active {
   left: 95%;
   top: 95%;
   transform: translate(-100%, -100%);
