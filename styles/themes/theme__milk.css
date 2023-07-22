@@ -133,7 +133,7 @@
   box-shadow: var(--delete_btn-boxshadow-icon1-milk);
 }
 
-.app.milk .btn_delete_values.mustardSeed__icon1.active {
+.app.milk .btn_delete_values.mustardSeed__icon1[data-action='ok'] {
   background: var(--td-th-background-milk) url(../../assets/images/smile_ok.png)
     no-repeat center center / contain;
   box-shadow: var(--td-th-box-shadow-milk);
@@ -145,7 +145,7 @@
   box-shadow: var(--delete_btn-boxshadow-icon2-milk);
 }
 
-.app.milk .btn_delete_values.mustardSeed__icon2.active {
+.app.milk .btn_delete_values.mustardSeed__icon2[data-action='ok'] {
   background: var(--td-th-background-milk) url(../../assets/images/smile_ok.png)
     no-repeat center center / contain;
   box-shadow: var(--td-th-box-shadow-milk);

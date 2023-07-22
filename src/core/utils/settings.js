@@ -728,7 +728,7 @@ function promptFunc() {
 }
 
 function getDropDownMenu(event) {
-  const { target } = event;
+  const { target, pageX, pageY } = event;
   const key = target.dataset.key;
   const action = target.dataset.action;
   const data = REPORTS[key].values;
@@ -775,6 +775,7 @@ function getDropDownMenu(event) {
   dropMenu.innerHTML = dropMenuTemplate;
   app.append(dropMenu);
   const dropMenuHTML = dropMenu.querySelector('.wrapper_table-drop-down');
+  getCoordinates(dropMenuHTML, { x: pageX, y: pageY });
   setTimeout(() => {
     dropMenuHTML.classList.add('active');
   }, 0);
@@ -787,4 +788,26 @@ function getDropDownMenu(event) {
     const deleteButton = new DeleteButton(td, 'delete__button');
     deleteButton.deleteDataHours(key, target.id, action, monthHTML);
   });
+}
+
+function getCoordinates(elem, coordinates) {
+  const { width, height } = document.body.getBoundingClientRect();
+  if (!coordinates) {
+    coordinates = {
+      x: random(10, width - 10),
+      y: random(10, height - 10),
+    };
+  }
+
+  if (coordinates.x > width - elem.clientWidth)
+    elem.style.left = coordinates.x - elem.clientWidth + 13 + 'px';
+  else elem.style.left = coordinates.x + 'px';
+
+  if (coordinates.y > height - elem.clientHeight)
+    elem.style.top = coordinates.y - elem.clientHeight + 13 + 'px';
+  else elem.style.top = coordinates.y - elem.clientHeight - 25 + 'px';
+}
+
+function random(min, max) {
+  return Math.round(min - 0.5 + Math.random() * (max - min + 1));
 }

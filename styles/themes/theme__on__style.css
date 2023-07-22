@@ -152,7 +152,7 @@
   box-shadow: var(--delete_btn-boxshadow-icon1-on__style);
 }
 
-.app.on__style .btn_delete_values.mustardSeed__icon1.active {
+.app.on__style .btn_delete_values.mustardSeed__icon1[data-action='ok'] {
   background: var(--td-th-background-on__style)
     url(../../assets/images/smile_ok.png) no-repeat center center / contain;
   box-shadow: var(--td-th-box-shadow-on__style);
@@ -164,7 +164,7 @@
   box-shadow: var(--delete_btn-boxshadow-icon2-on__style);
 }
 
-.app.on__style .btn_delete_values.mustardSeed__icon2.active {
+.app.on__style .btn_delete_values.mustardSeed__icon2[data-action='ok'] {
   background: var(--td-th-background-on__style)
     url(../../assets/images/smile_ok.png) no-repeat center center / contain;
   box-shadow: var(--td-th-box-shadow-on__style);

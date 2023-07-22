@@ -154,7 +154,7 @@
   box-shadow: var(--delete_btn-boxshadow-icon1-random__image);
 }
 
-.app.random__image .btn_delete_values.mustardSeed__icon1.active {
+.app.random__image .btn_delete_values.mustardSeed__icon1[data-action='ok'] {
   background: var(--td-th-background-random__image)
     url(../../assets/images/smile_ok.png) no-repeat center center / contain;
   box-shadow: var(--td-th-box-shadow-random__image);
@@ -166,7 +166,7 @@
   box-shadow: var(--delete_btn-boxshadow-icon2-random__image);
 }
 
-.app.random__image .btn_delete_values.mustardSeed__icon2.active {
+.app.random__image .btn_delete_values.mustardSeed__icon2[data-action='ok'] {
   background: var(--td-th-background-random__image)
     url(../../assets/images/smile_ok.png) no-repeat center center / contain;
   box-shadow: var(--td-th-box-shadow-random__image);

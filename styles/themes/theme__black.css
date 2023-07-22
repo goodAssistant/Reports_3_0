@@ -116,7 +116,7 @@ th {
   box-shadow: var(--delete_btn-boxshadow-icon1-black__purple);
 }
 
-.app.black__purple .btn_delete_values.mustardSeed__icon1.active {
+.app.black__purple .btn_delete_values.mustardSeed__icon1[data-action='ok'] {
   background: var(--td-th-background-black__purple)
     url(../../assets/images/smile_ok.png) no-repeat center center / contain;
   box-shadow: var(--td-th-box-shadow-black__purple);
@@ -128,7 +128,7 @@ th {
   box-shadow: var(--delete_btn-boxshadow-icon2-black__purple);
 }
 
-.app.black__purple .btn_delete_values.mustardSeed__icon2.active {
+.app.black__purple .btn_delete_values.mustardSeed__icon2[data-action='ok'] {
   background: var(--td-th-background-black__purple)
     url(../../assets/images/smile_ok.png) no-repeat center center / contain;
   box-shadow: var(--td-th-box-shadow-black__purple);

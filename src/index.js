@@ -258,14 +258,16 @@ function getMusteredSeed(year, month) {
   const values = REPORTS[rate].values;
   const arrDates = Object.keys(values).splice(0, Object.keys(values).length);
   arrDates.slice(0, arrDates.length - 1).forEach((day) => {
-    if (values[day].hours >= 150) {
+    if (values[day][0].hours >= 150) {
       monthHTML.container
         .querySelector(`[data-date="${day}"]`)
         ?.classList.remove('mustardSeed__icon2');
       monthHTML.container
         .querySelector(`[data-date="${day}"]`)
         ?.classList.add('mustardSeed__icon1');
-    } else if (Object.values(values[day]).some((elem) => elem > 0)) {
+    } else if (
+      Object.values(values[day][0]).some((elem, idx) => idx > 0 && elem > 0)
+    ) {
       monthHTML.container
         .querySelector(`[data-date="${day}"]`)
         ?.classList.remove('mustardSeed__icon1');
