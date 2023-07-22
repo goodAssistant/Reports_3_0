@@ -775,6 +775,7 @@ function getDropDownMenu(event) {
   dropMenu.innerHTML = dropMenuTemplate;
   app.append(dropMenu);
   const dropMenuHTML = dropMenu.querySelector('.wrapper_table-drop-down');
+  dropMenuHTML.setAttribute('draggable', true);
   getCoordinates(dropMenuHTML, { x: pageX, y: pageY });
   setTimeout(() => {
     dropMenuHTML.classList.add('active');
@@ -788,6 +789,7 @@ function getDropDownMenu(event) {
     const deleteButton = new DeleteButton(td, 'delete__button');
     deleteButton.deleteDataHours(key, target.id, action, monthHTML);
   });
+  dragAndDrop(dropMenuHTML);
 }
 
 function getCoordinates(elem, coordinates) {
@@ -800,7 +802,7 @@ function getCoordinates(elem, coordinates) {
   }
 
   if (coordinates.x > width - elem.clientWidth)
-    elem.style.left = coordinates.x - elem.clientWidth + 13 + 'px';
+    elem.style.left = coordinates.x - elem.clientWidth + 20 + 'px';
   else elem.style.left = coordinates.x + 'px';
 
   if (coordinates.y > height - elem.clientHeight)
