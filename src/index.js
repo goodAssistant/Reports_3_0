@@ -606,13 +606,13 @@ function pullValuesToTable(year, month) {
 
   for (let cell of cells) {
     if (data[cell.id]) {
-      if (!data[cell.id][cell.dataset.action]) cell.textContent = '';
+      if (!data[cell.id][0][cell.dataset.action]) cell.textContent = '';
       else {
         if (cell.dataset.action === 'hours') {
           cell.textContent = convertMinutesToHours(
-            data[cell.id][cell.dataset.action]
+            data[cell.id][0][cell.dataset.action]
           );
-        } else cell.textContent = data[cell.id][cell.dataset.action];
+        } else cell.textContent = data[cell.id][0][cell.dataset.action];
       }
     } else {
       cell.textContent = '';
