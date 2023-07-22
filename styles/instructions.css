@@ -44,10 +44,6 @@
   animation: my 1s ease 0s 1 normal forwards;
 }
 
-.delete__button:active {
-  animation: my 1s ease 0s 1 normal reverse;
-}
-
 @keyframes my {
   0% {
     transform: rotate(0);
