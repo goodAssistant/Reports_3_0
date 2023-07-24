@@ -3,7 +3,7 @@ let xStart, xEnd, yStart, yEnd;
 const getStartValueItemXY = (direction, item) =>
   +item.style[direction].split(/[a-z]+/g)[0];
 
-function dragstart(event, item) {
+function dragstart(event) {
   const { target, screenX, screenY } = event;
   xStart = screenX;
   yStart = screenY;
@@ -35,27 +35,18 @@ function dragend(event, item) {
 }
 
 function touchMove(event, item) {
-  console.log('event:', event);
   if (event.targetTouches.length == 1) {
     const touch = event.targetTouches[0];
-    // Place element where the finger is
-    item.style.left = touch.pageX + 'px';
-    item.style.top = touch.pageY + 'px';
+    const { pageX, pageY, target } = touch;
+    if (target.className.includes('title_table-drop-down')) {
+      item.style.left = pageX - item.clientWidth / 2 + 'px';
+      item.style.top = pageY - 5 + 'px';
+    }
   }
 }
 
-function touchStart(event, item) {
-  console.log('event:', event);
-  if (event.targetTouches.length == 1) {
-    const touch = event.targetTouches[0];
-    item.style.left = touch.pageX + 'px';
-    item.style.top = touch.pageY + 'px';
-  }
-}
-
-const dragAndDrop = (item) => {
-  item.addEventListener('dragstart', (event) => dragstart(event, item)); //dragstart - событие начала перетаскивания элемента.
+const dragAndDrop = (item, startCoordinatesItem) => {
+  item.addEventListener('dragstart', (event) => dragstart(event)); //dragstart - событие начала перетаскивания элемента.
   item.addEventListener('dragend', (event) => dragend(event, item)); //dragend - событие завершения перетаскивания элемента, т.е. срабатывает когда отпускаем левую кнопку мыши.
-  //item.addEventListener('touchstart', (event) => touchStart(event, item));
   item.addEventListener('touchmove', (event) => touchMove(event, item));
 };

@@ -386,6 +386,7 @@ th[data-action='hoursSum']::after {
 .wrapper_table-drop-down.active {
   opacity: 1;
   transition: opacity 1s ease-in-out 0s;
+  cursor: grab;
 }
 
 .table-drop-down {
@@ -405,4 +406,5 @@ th {
   color: rgb(252, 250, 250);
   font-weight: bold;
   border: 2px solid rgb(0, 255, 251);
+  cursor: grabbing;
 }
