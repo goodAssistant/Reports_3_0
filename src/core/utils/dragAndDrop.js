@@ -39,14 +39,22 @@ function touchMove(event, item) {
     const touch = event.targetTouches[0];
     const { pageX, pageY, target } = touch;
     if (target.className.includes('title_table-drop-down')) {
+      app.style.overflow = 'hidden';
+      item.style.zIndex = '10000';
       item.style.left = pageX - item.clientWidth / 2 + 'px';
       item.style.top = pageY - 5 + 'px';
     }
   }
 }
 
-const dragAndDrop = (item, startCoordinatesItem) => {
+function touchEnd(event, item) {
+  app.style.overflow = 'auto';
+  item.style.zIndex = '2';
+}
+
+const dragAndDrop = (item) => {
   item.addEventListener('dragstart', (event) => dragstart(event)); //dragstart - событие начала перетаскивания элемента.
   item.addEventListener('dragend', (event) => dragend(event, item)); //dragend - событие завершения перетаскивания элемента, т.е. срабатывает когда отпускаем левую кнопку мыши.
   item.addEventListener('touchmove', (event) => touchMove(event, item));
+  item.addEventListener('touchend', (event) => touchEnd(event, item));
 };
