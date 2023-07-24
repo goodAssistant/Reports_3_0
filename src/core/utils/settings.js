@@ -801,13 +801,25 @@ function getCoordinates(elem, coordinates) {
     };
   }
 
-  if (coordinates.x > width - elem.clientWidth)
-    elem.style.left = coordinates.x - elem.clientWidth + 20 + 'px';
-  else elem.style.left = coordinates.x + 'px';
+  if (coordinates.x > width - elem.clientWidth) {
+    if (coordinates.x < elem.clientWidth) {
+      elem.style.left = '10px';
+    } else {
+      elem.style.left = coordinates.x - elem.clientWidth + 'px';
+    }
+  } else {
+    elem.style.left = coordinates.x + 'px';
+  }
 
-  if (coordinates.y > height - elem.clientHeight)
-    elem.style.top = coordinates.y - elem.clientHeight + 13 + 'px';
-  else elem.style.top = coordinates.y - elem.clientHeight - 25 + 'px';
+  if (coordinates.y > height - elem.clientHeight) {
+    elem.style.top = coordinates.y - elem.clientHeight + 'px';
+  } else {
+    if (coordinates.y < elem.clientHeight) {
+      elem.style.top = '60px';
+    } else {
+      elem.style.top = coordinates.y - elem.clientHeight - 30 + 'px';
+    }
+  }
 }
 
 function random(min, max) {
