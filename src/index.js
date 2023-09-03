@@ -633,6 +633,7 @@ function pullValuesToTable(year, month) {
       if (cell.dataset.action === 'hoursSum') {
         if (data.sum.hoursSumTotal) {
           cell.textContent = convertMinutesToHours(data.sum['hoursSumTotal']);
+          console.log('data.sum[hoursSumTotal]:', data.sum);
         }
         if (data.sum.hoursSumTransfer) {
           getPsevdoValueAndDraw(

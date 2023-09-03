@@ -129,11 +129,11 @@ td::before {
   font-family: 'Arturo Black outline';
 }
 
-.publ:after,
-.video:after,
-.pp:after,
-.hours:after,
-.iz:after,
+.publ::after,
+.video::after,
+.pp::after,
+.hours::after,
+.iz::after,
 .days::after,
 th[data-action='hoursSum']::after {
   position: absolute;
@@ -141,6 +141,7 @@ th[data-action='hoursSum']::after {
   right: 7%;
   font-size: 9px;
   letter-spacing: 1.5px;
+  display: block;
 }
 
 .publ.transitionFz:after,
@@ -151,23 +152,23 @@ th[data-action='hoursSum']::after {
   font-size: 9px;
 }
 
-.publ:after {
+.publ::after {
   content: 'Публ';
 }
 
-.video:after {
+.video::after {
   content: 'Видео';
 }
 
-.pp:after {
+.pp::after {
   content: 'ПП';
 }
 
-.hours:after {
+.hours::after {
   content: 'Часы';
 }
 
-.iz:after {
+.iz::after {
   content: 'Из';
 }
 
