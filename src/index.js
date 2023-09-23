@@ -301,8 +301,6 @@ function getCounters() {
 monthHTML.render(currentYear, currentMonth);
 monthHTML.getReportsTitle();
 pullValuesToTable(currentYear, currentMonth);
-console.log(REPORTS);
-console.log('data:', Object.keys(REPORTS['2023/8'].values).length);
 
 getRandomColorRgba(monthHTML.title, alpha);
 

@@ -348,7 +348,3 @@ function getClickMenuItems(event) {
       break;
   }
 }
-menuBurger.getAndDeleteTablesMenu(
-        'getTotalMonths',
-        Object.values(REPORTS).slice(1)
-      );
