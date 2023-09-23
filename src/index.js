@@ -374,6 +374,7 @@ class Values {
         iz: data[this.day][0].iz + this.iz,
       }
     }
+
     data.sum = {
       ...data.sum,
       publSum: data.sum['publSum'] + this.publ,
@@ -612,10 +613,10 @@ function pullValuesToTable(year, month) {
         if (data.sum.hoursSumTotal) {
           cell.textContent = convertMinutesToHours(data.sum['hoursSumTotal']);
         }
-        if (data.sum.hoursSumTransfer) {
+        if (data.sum.hoursSumTransferPrevious) {
           getPsevdoValueAndDraw(
             '--afterHoursSumTransferText',
-            data.sum.hoursSumTransfer,
+            data.sum.hoursSumTransferPrevious,
             cell,
             true
           );
@@ -625,10 +626,10 @@ function pullValuesToTable(year, month) {
       }
     } else {
       if (cell.dataset.action === 'hoursSum') {
-        if (data.sum.hoursSumTransfer) {
+        if (data.sum.hoursSumTransferPrevious) {
           getPsevdoValueAndDraw(
             '--afterHoursSumTransferText',
-            data.sum.hoursSumTransfer,
+            data.sum.hoursSumTransferPrevious,
             cell,
             true
           );
@@ -713,3 +714,5 @@ document.querySelector('.app').addEventListener('scroll', function () {
 });
 
 document.addEventListener('click', changeDoubleTitle);
+startRecalculate()
+

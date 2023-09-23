@@ -23,8 +23,9 @@ function startAdminPage() {
   } else if (adminPageWord === 'values') {
     localStorageService.set(adminActivateValues, true);
     initAdminPageValues()
-  } else if (adminPageWord === 'Cancel') {
+  } else if (adminPageWord === 'cancel') {
     localStorageService.remove(adminActivate);
+    localStorageService.remove(adminActivateValues);
   }
   location.reload();
 }
@@ -63,7 +64,6 @@ function initAdminPage() {
 function initAdminPageValues() {
   const keyMonth = app.querySelector('.wrapper-table_title').dataset.key
   const dataLocal = Object.entries(localStorageService.get('reports')[keyMonth].values)
-  console.log('dataLocal:', dataLocal)
   const str = `
   <h4 class="month__name">Данные из локалки</h4>
   <table class="table__total">
@@ -71,8 +71,6 @@ function initAdminPageValues() {
     ${dataLocal
       .map(
         (punct, idx) => {
-          console.log(punct.length)
-          console.log(punct[1])
           if(idx === dataLocal.length -1) {
             return`
             <tr>

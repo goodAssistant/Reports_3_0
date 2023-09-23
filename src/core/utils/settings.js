@@ -513,6 +513,34 @@ function getChangeThemes(event) {
     menuBurger.getAndDeleteThemesMenu();
   }
 }
+function startRecalculate() {
+  const rate = app.querySelector('.wrapper-table_title').dataset.key
+  data = {...REPORTS[rate].values}
+  const dataSum = data.sum
+  delete data.sum
+  data = Object.values(data).map(el=>el[0])
+
+  const getRecalculateValue = (separator) => data.reduce((acc, el)=> acc+el[separator], 0)
+
+  data.sum = {
+    ...dataSum,
+    publSum: getRecalculateValue('publ'),
+    videoSum: getRecalculateValue('video'),
+    ppSum: getRecalculateValue('pp'),
+    hoursSum: getRecalculateValue('hours'),
+    izSum: getRecalculateValue('iz'),
+    hoursSumTotal: getRecalculateValue('hours'),
+  };
+
+  if(data.sum.hoursSumTransferNext) {
+    data.sum.hoursSumTotal = getRecalculateValue('hours') - data.sum.hoursSumTransferNext
+  }
+  if(data.sum.hoursSumTransferPrevious) {
+    data.sum.hoursSumTotal = getRecalculateValue('hours') + data.sum.hoursSumTransferPrevious
+  }
+  REPORTS[rate].values.sum = data.sum
+  localStorageService.set('reports', REPORTS)
+}
 
 function drawDaysWeek(data) {
   const daysMonth = Array.from(document.querySelectorAll('.days'))
@@ -528,7 +556,6 @@ function getDataTransfer(event) {
   let newId;
   const { modalWindow } = monthHTML;
   const { target, submitter } = event;
-  console.log('target:', target)
 
   const value = target[0].value;
 
@@ -566,12 +593,15 @@ function getDataTransfer(event) {
 
     if (!REPORTS[newId]) {
       monthHTML.addDataReports(+newId.split('/')[0], +newId.split('/')[1]);
-      getData(newId).hoursSumTransfer = 0;
+      getData(newId).hoursSumTransferPrevious = 0;
+      getData(target.id).hoursSumTransferNext = 0;
     }
 
     getData(target.id).hoursSumTotal = hoursSumTotal - minutes;
 
-    getData(newId).hoursSumTransfer = getData(newId).hoursSumTransfer + minutes;
+    getData(newId).hoursSumTransferPrevious = getData(newId).hoursSumTransferPrevious + minutes;
+
+    getData(target.id).hoursSumTransferNext = getData(target.id).hoursSumTransferNext + minutes;
 
     getData(newId).hoursSumTotal = getData(newId).hoursSumTotal + minutes;
 

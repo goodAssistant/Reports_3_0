@@ -20,6 +20,7 @@ class Menu {
       total__month: 'Итоги за месяц',
       total__year: 'Итоги за год',
       golden__retriever: 'Открыть тему...',
+      recalculate: 'Пересчитать значения текущего месяца',
       admin_page: 'Страница администратора',
       clear__data: 'Очистить все данные',
       fast__entry: () => `
@@ -212,10 +213,8 @@ class Menu {
       const totalTime = convertMinutesToHours(totalMinutes);
 
       let arrTime = totalTime.replace(/\s+[а-я]/g, '').split(' ');
-      console.log('arrTime:', arrTime)
       const conditionForMinutes = arrTime.length > 1;
       const noValue = 0 + arrTime.join(':').slice(1);
-      console.log('noValue:', noValue)
 
       const value =
       totalMinutes > 3000
@@ -333,6 +332,11 @@ function getClickMenuItems(event) {
     case 'golden__retriever':
       imitationConfirm(monthHTML, getInputRetriever(), startRetrieverTheme);
       menuBurgerHeader.classList.remove('active');
+      break;
+    case 'recalculate':
+      startRecalculate()
+      menuBurgerHeader.classList.remove('active');
+      monthHTML.getAndDeleteOverlay();
       break;
     case 'admin_page':
       imitationConfirm(monthHTML, getInputAdminPage(), startAdminPage);
