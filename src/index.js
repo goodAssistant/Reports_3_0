@@ -304,6 +304,15 @@ pullValuesToTable(currentYear, currentMonth);
 
 getRandomColorRgba(monthHTML.title, alpha);
 
+//____Временное для исправления трансфера9
+if(REPORTS[currentYear+'/'+currentMonth].values.sum.hoursSumTransfer) {
+  const data = REPORTS[currentYear+'/'+currentMonth].values.sum.hoursSumTransfer
+  delete REPORTS[currentYear+'/'+currentMonth].values.sum.hoursSumTransfer
+  REPORTS[currentYear+'/'+currentMonth].values.sum.hoursSumTransferPrevious = data
+  localStorageService.set('reports', REPORTS)
+  pullValuesToTable(currentYear ,currentMonth)
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   setCurrentScrollInsertValue(new Date().getDate());
   const relayFastEntry = menuBurger.wrapperBurger.querySelector(
@@ -714,5 +723,3 @@ document.querySelector('.app').addEventListener('scroll', function () {
 });
 
 document.addEventListener('click', changeDoubleTitle);
-startRecalculate()
-

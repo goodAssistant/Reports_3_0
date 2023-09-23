@@ -540,6 +540,7 @@ function startRecalculate() {
   }
   REPORTS[rate].values.sum = data.sum
   localStorageService.set('reports', REPORTS)
+  pullValuesToTable(rate.split('/')[0], rate.split('/')[1])
 }
 
 function drawDaysWeek(data) {
