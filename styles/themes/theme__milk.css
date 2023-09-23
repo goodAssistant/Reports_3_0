@@ -60,6 +60,8 @@
 
 .app.milk .wrapper-table_title {
   color: var(--title-color-milk);
+  font-family: 'Natasha';
+
 }
 
 .app.milk td {

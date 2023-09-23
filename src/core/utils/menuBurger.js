@@ -10,9 +10,6 @@ class Menu {
 
     this.tablesMenuWrapper = document.createElement('div');
     this.tablesMenuWrapper.className = 'tables__menu__wrapper';
-
-    this.tablesTotalMonth = document.createElement('div');
-    this.tablesTotalMonth.className = 'tables__total__month';
   }
 
   renderBurgerMenu() {
@@ -23,6 +20,7 @@ class Menu {
       total__month: 'Итоги за месяц',
       total__year: 'Итоги за год',
       golden__retriever: 'Открыть тему...',
+      admin_page: 'Страница администратора',
       clear__data: 'Очистить все данные',
       fast__entry: () => `
         <form class="menu__checkbox">
@@ -172,7 +170,7 @@ class Menu {
     const totalYear = !rate.includes('/');
     if (totalYear) totalValues = getYearSumValues();
     else totalValues = REPORTS[rate].values.sum;
-    this.tablesTotalMonth.innerHTML = `
+    const tableStr = `
     <h4 class="month__name">${
       totalYear
         ? 'Итоги за ' + rate + ' год'
@@ -202,11 +200,11 @@ class Menu {
     </table>
     `;
     if (totalYearInfo) {
-      imitationAlert(this.tablesTotalMonth.innerHTML, monthHTML);
+      imitationAlert(tableStr, monthHTML);
       return;
     }
     if (repeat) {
-      imitationAlert(this.tablesTotalMonth.innerHTML, monthHTML);
+      imitationAlert(tableStr, monthHTML);
       return;
     }
     if (REPORTS[rate]) {
@@ -254,7 +252,7 @@ class Menu {
           </form>`;
         imitationAlert(template, monthHTML);
       } else {
-        imitationAlert(this.tablesTotalMonth.innerHTML, monthHTML);
+        imitationAlert(tableStr, monthHTML);
       }
     }
   }
@@ -335,6 +333,10 @@ function getClickMenuItems(event) {
       break;
     case 'golden__retriever':
       imitationConfirm(monthHTML, getInputRetriever(), startRetrieverTheme);
+      menuBurgerHeader.classList.remove('active');
+      break;
+    case 'admin_page':
+      imitationConfirm(monthHTML, getInputAdminPage(), startAdminPage);
       menuBurgerHeader.classList.remove('active');
       break;
     case 'clear__data':

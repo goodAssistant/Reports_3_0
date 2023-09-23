@@ -4,6 +4,8 @@ const app = document.querySelector('.app');
 
 const retrieverTheme = 'retriever_theme';
 
+const adminActivate = 'admin_activate';
+
 let switchButtonsBetweenTables;
 
 const RELEASE = 'Release 3.017';
@@ -65,6 +67,10 @@ const punctsTotal = {
   izSum: 'Из',
   hoursSumTotal: 'Часы',
 };
+
+function randomNum(min, max) {
+  return Math.round(min - 0.5 + Math.random() * (max - min + 1));
+}
 
 const quantityParagraphs = [
   'При первом запуске твоего нового помощника, счетовода драгоценного времени и бесценного труда, хочется с тобой поздороваться: "Привээээт, родненький(ая)!!!"',

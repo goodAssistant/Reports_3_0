@@ -63,6 +63,7 @@
 
 .app.black__purple .wrapper-table_title {
   color: var(--title-color-black__purple);
+  font-family: 'Natasha';
 }
 
 .app.black__purple td,

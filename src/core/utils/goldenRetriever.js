@@ -35,10 +35,6 @@ const LIST_RETRIEVERS = [
   'https://avatars.mds.yandex.net/i?id=ed4bf6e50bfbb3ed3adcc66826b4752a630939c2-7094423-images-thumbs&n=13',
 ];
 
-function randomNum(min, max) {
-  return Math.round(min - 0.5 + Math.random() * (max - min + 1));
-}
-
 function getInputRetriever() {
   return `
   <form class="menu__retriever">

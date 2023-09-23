@@ -124,6 +124,10 @@ class MonthHTML {
       this.body.className = `app ${this.data.theme}`;
     }
 
+    if (localStorageService.get(adminActivate)) {
+      initAdminPage()
+    }
+
     if (tableVerticalOrientation) {
       drawContentBeforeTds(data);
       getAndDeleteGoTopBtn(this.container, this.container.closest('.app'));
