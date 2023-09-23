@@ -212,17 +212,16 @@ class Menu {
       const totalTime = convertMinutesToHours(totalMinutes);
 
       let arrTime = totalTime.replace(/\s+[а-я]/g, '').split(' ');
+      console.log('arrTime:', arrTime)
       const conditionForMinutes = arrTime.length > 1;
-      if (arrTime[1] < 10) arrTime = [arrTime[0], '0' + arrTime[1]];
       const noValue = 0 + arrTime.join(':').slice(1);
+      console.log('noValue:', noValue)
 
       const value =
-        arrTime.length === 1
-          ? noValue + ':00'
-          : totalMinutes > 3000
+      totalMinutes > 3000
           ? noValue
           : '00:' + noValue.split(':')[1];
-
+          
       if (totalMinutes > 3000 || conditionForMinutes) {
         const template = `<form id=${rate} class="data_transfer_form" onsubmit="getDataTransfer(event)">
             <label for="dataTransfer" class="item_dataTransfer form-label">
@@ -349,3 +348,7 @@ function getClickMenuItems(event) {
       break;
   }
 }
+menuBurger.getAndDeleteTablesMenu(
+        'getTotalMonths',
+        Object.values(REPORTS).slice(1)
+      );

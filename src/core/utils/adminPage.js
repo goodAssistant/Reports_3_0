@@ -17,9 +17,12 @@ function getRetriever(event) {
 }
 
 function startAdminPage() {
-  if (adminPageWord === 'Admin is success') {
+  if (adminPageWord === 'sum') {
     localStorageService.set(adminActivate, true);
     initAdminPage()
+  } else if (adminPageWord === 'values') {
+    localStorageService.set(adminActivateValues, true);
+    initAdminPageValues()
   } else if (adminPageWord === 'Cancel') {
     localStorageService.remove(adminActivate);
   }
@@ -56,3 +59,39 @@ function initAdminPage() {
   `;
   imitationAlert(str, monthHTML)
 }
+
+function initAdminPageValues() {
+  const keyMonth = app.querySelector('.wrapper-table_title').dataset.key
+  // const dataLocal = Object.entries(localStorageService.get('reports')[keyMonth].values)
+  const dataLocal = localStorageService.get('reports')[keyMonth].values
+  const data = Object.keys(localStorageService.get('reports')[keyMonth].values)
+  console.log('data.length:', data.length)
+  console.log('dataLocal:', dataLocal)
+  // const str = `
+  // <h4 class="month__name">Данные из локалки</h4>
+  // <table class="table__total">
+  //   <tbody>
+  //   ${dataLocal
+  //     .map(
+  //       (punct, idx) => `
+  //     <tr>
+  //       <th class="total__modal">
+  //         ${punct[0]}:
+  //       </th>
+  //       <td class="total__modal">
+  //         ${
+  //           idx > 3
+  //             ? convertMinutesToHours(punct[1])
+  //             : punct[1]
+  //         }
+  //       </td>
+  //     </tr>
+  //     `
+  //     )
+  //     .join('')}
+  //   </tbody>
+  // </table>
+  // `;
+  // imitationAlert(str, monthHTML)
+}
+

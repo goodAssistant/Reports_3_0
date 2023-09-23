@@ -528,6 +528,7 @@ function getDataTransfer(event) {
   let newId;
   const { modalWindow } = monthHTML;
   const { target, submitter } = event;
+  console.log('target:', target)
 
   const value = target[0].value;
 

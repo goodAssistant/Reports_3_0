@@ -125,7 +125,11 @@ class MonthHTML {
     }
 
     if (localStorageService.get(adminActivate)) {
-      initAdminPage()
+      initAdminPage();
+    }
+
+    if (localStorageService.get(adminActivateValues)) {
+      initAdminPageValues();
     }
 
     if (tableVerticalOrientation) {
@@ -292,9 +296,13 @@ function getCounters() {
   };
 }
 
+// -----------------Первичный рендер таблицы-------------------------
+
 monthHTML.render(currentYear, currentMonth);
 monthHTML.getReportsTitle();
 pullValuesToTable(currentYear, currentMonth);
+console.log(REPORTS);
+console.log('data:', Object.keys(REPORTS['2023/8'].values).length);
 
 getRandomColorRgba(monthHTML.title, alpha);
 
@@ -326,89 +334,57 @@ function setCurrentScrollInsertValue(value) {
 
 class Values {
   constructor(publ, video, pp, hours, iz, day) {
-    this.publ = publ;
-    this.video = video;
-    this.pp = pp;
-    this.hours = hours;
-    this.iz = iz;
-    this.day = day;
+    this.publ = +publ;
+    this.video = +video;
+    this.pp = +pp;
+    this.hours = +hours;
+    this.iz = +iz;
+    this.day = +day;
   }
 
   getValues(reports) {
     const data = reports[`${currentYear}/${currentMonth}`].values;
-    if (!Object.keys(data).length) {
-      data = {
-        [this.day]: [
-          {
-            timestep: Date.now(),
-            publ: +this.publ,
-            video: +this.video,
-            pp: +this.pp,
-            hours: +this.hours,
-            iz: +this.iz,
-          },
-        ],
-        sum: {
-          publSum: this.publ,
-          videoSum: this.video,
-          ppSum: this.pp,
-          hoursSum: data.sum.hoursSum + this.hours,
-          izSum: this.iz,
-          hoursSumTotal: data.sum.hoursSum + this.hours,
-        },
-      };
-    } else {
-      if (!data[this.day]) {
-        data[this.day] = [
-          {
-            timestep: Date.now(),
-            publ: +this.publ,
-            video: +this.video,
-            pp: +this.pp,
-            hours: +this.hours,
-            iz: +this.iz,
-          },
-        ];
-      } else {
-        data[this.day].push({
-          timestep: Date.now(),
-          publ: +this.publ,
-          video: +this.video,
-          pp: +this.pp,
-          hours: +this.hours,
-          iz: +this.iz,
-        });
-        if (!data[this.day][0].name) {
-          const sumObj = {
-            name: 'daySum',
-            publ: +this.publ + data[this.day][0].publ,
-            video: +this.video + data[this.day][0].video,
-            pp: +this.pp + data[this.day][0].pp,
-            hours: +this.hours + data[this.day][0].hours,
-            iz: +this.iz + data[this.day][0].iz,
-          };
-          data[this.day].unshift(sumObj);
-        } else {
-          data[this.day][0] = {
-            name: 'daySum',
-            publ: data[this.day][0].publ + +this.publ,
-            video: data[this.day][0].video + +this.video,
-            pp: data[this.day][0].pp + +this.pp,
-            hours: data[this.day][0].hours + +this.hours,
-            iz: data[this.day][0].iz + +this.iz,
-          };
-        }
-      }
-      data.sum = {
-        ...data.sum,
-        publSum: +data.sum['publSum'] + +this.publ,
-        videoSum: +data.sum['videoSum'] + +this.video,
-        ppSum: +data.sum['ppSum'] + +this.pp,
-        hoursSum: +data.sum['hoursSum'] + +this.hours,
-        izSum: +data.sum['izSum'] + +this.iz,
-        hoursSumTotal: +data.sum['hoursSumTotal'] + +this.hours,
-      };
+    const initialDay = {
+      timestep: Date.now(),
+      publ: this.publ,
+      video: this.video,
+      pp: this.pp,
+      hours: this.hours,
+      iz: this.iz,
     }
+    
+    const sumObj = {
+      name: 'daySum',
+      ...initialDay
+    };
+    delete sumObj.timestep
+
+    if (!data[this.day]) {
+      data[this.day] = [
+        sumObj,
+        initialDay
+      ];
+    } else {
+      data[this.day].push(initialDay);
+  
+      data[this.day][0] = {
+        ...sumObj,
+        publ: data[this.day][0].publ + this.publ,
+        video: data[this.day][0].video + this.video,
+        pp: data[this.day][0].pp + this.pp,
+        hours: data[this.day][0].hours + this.hours,
+        iz: data[this.day][0].iz + this.iz,
+      }
+    }
+    data.sum = {
+      ...data.sum,
+      publSum: data.sum['publSum'] + this.publ,
+      videoSum: data.sum['videoSum'] + this.video,
+      ppSum: data.sum['ppSum'] + this.pp,
+      hoursSum: data.sum['hoursSum'] + this.hours,
+      izSum: data.sum['izSum'] + this.iz,
+      hoursSumTotal: data.sum['hoursSumTotal'] + this.hours,
+    };
   }
 }
 
@@ -637,7 +613,6 @@ function pullValuesToTable(year, month) {
       if (cell.dataset.action === 'hoursSum') {
         if (data.sum.hoursSumTotal) {
           cell.textContent = convertMinutesToHours(data.sum['hoursSumTotal']);
-          console.log('data.sum[hoursSumTotal]:', data.sum);
         }
         if (data.sum.hoursSumTransfer) {
           getPsevdoValueAndDraw(
@@ -722,14 +697,14 @@ document.querySelector('.app').addEventListener('scroll', function () {
 
   if (document.querySelector('.app').scrollTop >= 30) {
     if (!document.querySelector('.sticky')) {
-      const titleMonthDoule = document.createElement('h2');
-      titleMonthDoule.className = 'wrapper-table_title double__title';
-      titleMonthDoule.textContent = titleMonth.textContent;
-      titleMonthDoule.style.marginTop = '5px';
+      const titleMonthDouble = document.createElement('h2');
+      titleMonthDouble.className = 'wrapper-table_title double__title';
+      titleMonthDouble.textContent = titleMonth.textContent;
+      titleMonthDouble.style.marginTop = '5px';
       const div = document.createElement('div');
       div.className = 'sticky';
       document.querySelector('.app').append(div);
-      div.append(titleMonthDoule);
+      div.append(titleMonthDouble);
       setTimeout(() => {
         div.style.height = '40px';
       }, 0);

@@ -5,6 +5,7 @@ const app = document.querySelector('.app');
 const retrieverTheme = 'retriever_theme';
 
 const adminActivate = 'admin_activate';
+const adminActivateValues = 'admin_activate_values';
 
 let switchButtonsBetweenTables;
 
