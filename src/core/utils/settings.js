@@ -114,14 +114,10 @@ const deleteValuesSpecificDay = (event, body, months) => {
   let yearMonth = key.split('/')[0];
   if (target.dataset.action === 'delete') {
     if (REPORTS[key].values[target.id]) {
-      const cellsDay = Array.from(body.querySelectorAll('td')).filter(
-        (elem) => elem.id === target.id
-      );
       imitationConfirm(
         monthHTML,
         `Вы уверены, что желаете очистить все значения в столбце за <span class="modal__data">${target.id}-ое число </span> <span class="modal__data">месяца ${monthName}</span> <span class="modal__data">${yearMonth} года</span>?`,
         deleteValuesIsLocalStorage,
-        cellsDay,
         key,
         target
       );
@@ -129,13 +125,14 @@ const deleteValuesSpecificDay = (event, body, months) => {
   }
 };
 
-function deleteValuesIsLocalStorage(cellsDay, key, target) {
+function deleteValuesIsLocalStorage(key, target) {
+  const data = REPORTS[key].values
   const { publSum, videoSum, ppSum, hoursSum, izSum, hoursSumTotal } =
-    REPORTS[key].values['sum'];
-  const { publ, video, pp, hours, iz } = REPORTS[key].values[target.id];
-  const reports = REPORTS;
+    data['sum'];
+  const { publ, video, pp, hours, iz } = data[target.id][0];
 
-  reports[key].values['sum'] = {
+  data['sum'] = {
+    ...data['sum'],
     publSum: publSum - publ,
     videoSum: videoSum - video,
     ppSum: ppSum - pp,
@@ -146,15 +143,7 @@ function deleteValuesIsLocalStorage(cellsDay, key, target) {
 
   delete REPORTS[key].values[target.id];
   localStorageService.set('reports', REPORTS);
-  setTimeout(() => {
-    document
-      .querySelector(`[data-date="${target.id}"]`)
-      .classList.remove('mustardSeed__icon1');
-    document
-      .querySelector(`[data-date="${target.id}"]`)
-      .classList.remove('mustardSeed__icon2');
-    pullValuesToTable(key.split('/')[0], key.split('/')[1]);
-  }, 2100);
+    pullValuesToTable(key.split('/')[0], key.split('/')[1], target);
 }
 
 function getAndDeleteSlide(
@@ -269,12 +258,12 @@ function imitationAlert(str, obj) {
   modalBtnYes(obj, str);
 }
 
-function imitationConfirm(obj, str, func, cells, key, target) {
+function imitationConfirm(obj, str, func, key, target) {
   moveModalWindow(obj, str, true);
   let btns = obj.modalWindow.querySelector('.btns');
   btns.firstElementChild.onclick = function () {
     moveModalWindow(obj, str, true);
-    func(cells, key, target);
+    func( key, target);
     monthHTML.getAndDeleteOverlay();
   };
   btns.lastElementChild.onclick = function () {
@@ -513,6 +502,7 @@ function getChangeThemes(event) {
     menuBurger.getAndDeleteThemesMenu();
   }
 }
+
 function startRecalculate() {
   const rate = app.querySelector('.wrapper-table_title').dataset.key
   data = {...REPORTS[rate].values}
@@ -791,7 +781,7 @@ function getDropDownMenu(event) {
         return `<tr>
     <td>${idx}</td>
     <td>${displayDate(row['timestep'])}</td>
-    <td class='tds__drop-menu' data-timestep=${row['timestep']}>${
+    <td class='tds__drop-menu' data-timestep=${row['timestep']} id=${target.id}>${
           action === 'hours' ? convertMinutesToHours(row[action]) : row[action]
         }</td>
   </tr>`;

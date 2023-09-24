@@ -260,31 +260,46 @@ class MonthHTML {
 
 const monthHTML = new MonthHTML(app, REPORTS, 'slide wrapper-table');
 
-function getMusteredSeed(year, month) {
+function getMusteredSeed(year, month, target) {
   const rate = `${year}/${month}`;
-  if (!Object.keys(REPORTS[rate].values).length) return;
   const values = REPORTS[rate].values;
-  const arrDates = Object.keys(values).splice(0, Object.keys(values).length);
-  arrDates.slice(0, arrDates.length - 1).forEach((day) => {
-    if (values[day][0].hours >= 150) {
-      monthHTML.container
-        .querySelector(`[data-date="${day}"]`)
-        ?.classList.remove('mustardSeed__icon2');
-      monthHTML.container
-        .querySelector(`[data-date="${day}"]`)
-        ?.classList.add('mustardSeed__icon1');
-    } else if (
-      Object.values(values[day][0]).some((elem, idx) => idx > 0 && elem > 0)
-    ) {
-      monthHTML.container
-        .querySelector(`[data-date="${day}"]`)
-        ?.classList.remove('mustardSeed__icon1');
-      monthHTML.container
-        .querySelector(`[data-date="${day}"]`)
-        ?.classList.add('mustardSeed__icon2');
+  if (!target) {
+    if (!Object.keys(REPORTS[rate].values).length) return;
+    const arrDates = Object.keys(values).splice(0, Object.keys(values).length);
+    arrDates.slice(0, arrDates.length - 1).forEach((day) => {
+      if (values[day][0].hours >= 150) {
+        monthHTML.container
+          .querySelector(`[data-date="${day}"]`)
+          ?.classList.remove('mustardSeed__icon2');
+        monthHTML.container
+          .querySelector(`[data-date="${day}"]`)
+          ?.classList.add('mustardSeed__icon1');
+      } else if (
+        Object.values(values[day][0]).some((elem, idx) => idx > 0 && elem > 0)
+      ) {
+        monthHTML.container
+          .querySelector(`[data-date="${day}"]`)
+          ?.classList.remove('mustardSeed__icon1');
+        monthHTML.container
+          .querySelector(`[data-date="${day}"]`)
+          ?.classList.add('mustardSeed__icon2');
+      }
+    });
+  } else {
+    if (!values[target.id]) {
+      setTimeout(() => {
+        document
+          .querySelector(`[data-date="${target.id}"]`)
+          .classList.remove('mustardSeed__icon1');
+        document
+          .querySelector(`[data-date="${target.id}"]`)
+          .classList.remove('mustardSeed__icon2');
+      }, 2100);
     }
-  });
-  monthHTML.getMustardSeed(getCounters());
+  }
+  setTimeout(() => {
+    monthHTML.getMustardSeed(getCounters());
+  }, 2150);
 }
 
 function getCounters() {
@@ -304,13 +319,16 @@ pullValuesToTable(currentYear, currentMonth);
 
 getRandomColorRgba(monthHTML.title, alpha);
 
-//____Временное для исправления трансфера9
-if(REPORTS[currentYear+'/'+currentMonth].values.sum.hoursSumTransfer) {
-  const data = REPORTS[currentYear+'/'+currentMonth].values.sum.hoursSumTransfer
-  delete REPORTS[currentYear+'/'+currentMonth].values.sum.hoursSumTransfer
-  REPORTS[currentYear+'/'+currentMonth].values.sum.hoursSumTransferPrevious = data
-  localStorageService.set('reports', REPORTS)
-  pullValuesToTable(currentYear ,currentMonth)
+//____Временное для исправления трансфера
+if (REPORTS[currentYear + '/' + currentMonth].values.sum.hoursSumTransfer) {
+  const data =
+    REPORTS[currentYear + '/' + currentMonth].values.sum.hoursSumTransfer;
+  delete REPORTS[currentYear + '/' + currentMonth].values.sum.hoursSumTransfer;
+  REPORTS[
+    currentYear + '/' + currentMonth
+  ].values.sum.hoursSumTransferPrevious = data;
+  localStorageService.set('reports', REPORTS);
+  pullValuesToTable(currentYear, currentMonth);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -350,6 +368,15 @@ class Values {
   }
 
   getValues(reports) {
+    if (
+      (this.publ === 0) &
+      (this.video === 0) &
+      (this.pp === 0) &
+      (this.hours === 0) &
+      (this.iz === 0)
+    ) {
+      return;
+    }
     const data = reports[`${currentYear}/${currentMonth}`].values;
     const initialDay = {
       timestep: Date.now(),
@@ -358,22 +385,19 @@ class Values {
       pp: this.pp,
       hours: this.hours,
       iz: this.iz,
-    }
-    
+    };
+
     const sumObj = {
       name: 'daySum',
-      ...initialDay
+      ...initialDay,
     };
-    delete sumObj.timestep
+    delete sumObj.timestep;
 
     if (!data[this.day]) {
-      data[this.day] = [
-        sumObj,
-        initialDay
-      ];
+      data[this.day] = [sumObj, initialDay];
     } else {
       data[this.day].push(initialDay);
-  
+
       data[this.day][0] = {
         ...sumObj,
         publ: data[this.day][0].publ + this.publ,
@@ -381,7 +405,7 @@ class Values {
         pp: data[this.day][0].pp + this.pp,
         hours: data[this.day][0].hours + this.hours,
         iz: data[this.day][0].iz + this.iz,
-      }
+      };
     }
 
     data.sum = {
@@ -589,7 +613,7 @@ document.querySelector('.body_table').addEventListener('click', (event) => {
   deleteValuesSpecificDay(event, document.querySelector('.container'), months);
 });
 
-function pullValuesToTable(year, month) {
+function pullValuesToTable(year, month, target) {
   const cells = monthHTML.container.querySelectorAll('.cell'),
     cellsSum = monthHTML.container.querySelectorAll('.sum'),
     data = localStorageService.get('reports')[`${year}/${month}`].values;
@@ -610,9 +634,10 @@ function pullValuesToTable(year, month) {
   }
 
   const getPsevdoValueAndDraw = (selector, value, cell, transfer) => {
-    const val = transfer
+    let val = transfer
       ? '+ ' + convertMinutesToHours(value)
       : convertMinutesToHours(value);
+    if (val === '0 мин') val = '';
     cell.style.setProperty(selector, `"${val}"`);
   };
 
@@ -621,6 +646,18 @@ function pullValuesToTable(year, month) {
       if (cell.dataset.action === 'hoursSum') {
         if (data.sum.hoursSumTotal) {
           cell.textContent = convertMinutesToHours(data.sum['hoursSumTotal']);
+          getPsevdoValueAndDraw(
+            '--beforeHoursSum',
+            data.sum[cell.dataset.action],
+            cell
+          );
+        } else {
+          cell.textContent = '';
+          getPsevdoValueAndDraw(
+            '--beforeHoursSum',
+            data.sum[cell.dataset.action],
+            cell
+          );
         }
         if (data.sum.hoursSumTransferPrevious) {
           getPsevdoValueAndDraw(
@@ -652,7 +689,7 @@ function pullValuesToTable(year, month) {
       } else cell.textContent = data.sum[cell.dataset.action];
     }
   }
-  getMusteredSeed(year, month);
+  getMusteredSeed(year, month, target);
 }
 
 const switchingBetweenTables = (event) => {

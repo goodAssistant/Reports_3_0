@@ -40,6 +40,10 @@ class DeleteButton {
         },
       };
 
+      if(REPORTS[date].values[day].length === 1) {
+        delete REPORTS[date].values[day]
+      }
+
       if (action === 'hours') {
         REPORTS[date].values.sum.hoursSumTotal -= convertHoursToMinutes(
           td.textContent
@@ -63,7 +67,7 @@ class DeleteButton {
       }
 
       localStorageService.set('reports', REPORTS);
-      pullValuesToTable(date.split('/')[0], date.split('/')[1]);
+      pullValuesToTable(date.split('/')[0], date.split('/')[1], td);
     });
   }
 }
