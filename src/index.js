@@ -124,14 +124,6 @@ class MonthHTML {
       this.body.className = `app ${this.data.theme}`;
     }
 
-    if (localStorageService.get(adminActivate)) {
-      initAdminPage();
-    }
-
-    if (localStorageService.get(adminActivateValues)) {
-      initAdminPageValues();
-    }
-
     if (tableVerticalOrientation) {
       drawContentBeforeTds(data);
       getAndDeleteGoTopBtn(this.container, this.container.closest('.app'));
@@ -318,6 +310,14 @@ monthHTML.getReportsTitle();
 pullValuesToTable(currentYear, currentMonth);
 
 getRandomColorRgba(monthHTML.title, alpha);
+
+if (localStorageService.get(adminActivate)) {
+  initAdminPage();
+}
+
+if (localStorageService.get(adminActivateValues)) {
+  initAdminPageValues();
+}
 
 //____Временное для исправления трансфера
 if (REPORTS[currentYear + '/' + currentMonth].values.sum.hoursSumTransfer) {

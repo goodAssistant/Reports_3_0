@@ -32,6 +32,7 @@ function startAdminPage() {
 
 function initAdminPage() {
   const keyMonth = app.querySelector('.wrapper-table_title').dataset.key
+  console.log('keyMonth:', keyMonth)
   const dataLocal = Object.entries(localStorageService.get('reports')[keyMonth].values.sum)
   const str = `
   <h4 class="month__name">Данные из локалки</h4>
@@ -58,11 +59,13 @@ function initAdminPage() {
     </tbody>
   </table>
   `;
-  imitationAlert(str, monthHTML)
+  setTimeout(()=>imitationAlert(str, monthHTML),2000)
+  
 }
 
 function initAdminPageValues() {
   const keyMonth = app.querySelector('.wrapper-table_title').dataset.key
+  console.log('keyMonth:', keyMonth)
   const dataLocal = Object.entries(localStorageService.get('reports')[keyMonth].values)
   const str = `
   <h4 class="month__name">Данные из локалки</h4>
@@ -98,6 +101,6 @@ function initAdminPageValues() {
     </tbody>
   </table>
   `;
-  imitationAlert(str, monthHTML)
+  setTimeout(()=>imitationAlert(str, monthHTML),2000)
 }
 
