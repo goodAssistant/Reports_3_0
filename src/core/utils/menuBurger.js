@@ -20,18 +20,18 @@ class Menu {
       total__month: 'Итоги за месяц',
       total__year: 'Итоги за год',
       golden__retriever: 'Открыть тему...',
-      recalculate: 'Пересчитать значения текущего месяца',
-      admin_page: 'Страница администратора',
+      // recalculate: 'Пересчитать значения текущего месяца',
+      // admin_page: 'Страница администратора',
       clear__data: 'Очистить все данные',
-      fast__entry: () => `
-        <form class="menu__checkbox">
-          <label class="fast__entry__switch" for="fast__entry__switch">
-          </label>
-          <input class="fast__entry__input" type="checkbox" id="fast__entry__switch" name="fast__entry" onclick="getFastEntry(event)">
-          <span class="fast__entry__text">
-            Вкл/выкл быстрый ввод часов
-          </span>
-        </form>`,
+      // fast__entry: () => `
+      //   <form class="menu__checkbox">
+      //     <label class="fast__entry__switch" for="fast__entry__switch">
+      //     </label>
+      //     <input class="fast__entry__input" type="checkbox" id="fast__entry__switch" name="fast__entry" onclick="getFastEntry(event)">
+      //     <span class="fast__entry__text">
+      //       Вкл/выкл быстрый ввод часов
+      //     </span>
+      //   </form>`,
     };
 
     this.wrapperBurger.innerHTML = `

@@ -20,8 +20,10 @@ const DAYS_COLORS = {
 };
 
 function init(container, obj) {
-  for (const key in obj) {
-    container.style[key] = obj[key];
+  if (container) {
+    for (const key in obj) {
+      container.style[key] = obj[key];
+    }
   }
 }
 
