@@ -6,12 +6,12 @@ function getInputAdminPage() {
   <label class="menu__retriever" for="menu__retriever">
   Введите кодовое слово:
   </label>
-  <input class="menu__retriever__input" type="text" id="menu__retriever" name="retriever" oninput="getRetriever(event)"
+  <input class="menu__retriever__input" type="text" id="menu__retriever" name="retriever" oninput="getWord(event)"
 </form>
   `;
 }
 
-function getRetriever(event) {
+function getWord(event) {
   const { target } = event;
   adminPageWord = target.value.trim();
 }
@@ -26,8 +26,8 @@ function startAdminPage() {
   } else if (adminPageWord === 'cancel') {
     localStorageService.remove(adminActivate);
     localStorageService.remove(adminActivateValues);
+    location.reload();
   }
-  location.reload();
 }
 
 function initAdminPage() {
