@@ -506,13 +506,15 @@ function getChangeThemes(event) {
 function startRecalculate() {
   const rate = app.querySelector('.wrapper-table_title').dataset.key
   data = {...REPORTS[rate].values}
-  const dataSum = data.sum
+  let dataSum = data.sum
+  console.log('dataSum:', dataSum)
   delete data.sum
   data = Object.values(data).map(el=>el[0])
-
+  
   const getRecalculateValue = (separator) => data.reduce((acc, el)=> acc+el[separator], 0)
+  console.log('data:', data)
 
-  data.sum = {
+  dataSum = {
     ...dataSum,
     publSum: getRecalculateValue('publ'),
     videoSum: getRecalculateValue('video'),
@@ -522,13 +524,20 @@ function startRecalculate() {
     hoursSumTotal: getRecalculateValue('hours'),
   };
 
-  if(data.sum.hoursSumTransferNext) {
-    data.sum.hoursSumTotal = getRecalculateValue('hours') - data.sum.hoursSumTransferNext
+  if(dataSum.hoursSumTransferNext) {
+    dataSum.hoursSumTotal = getRecalculateValue('hours') - dataSum.hoursSumTransferNext
   }
-  if(data.sum.hoursSumTransferPrevious) {
-    data.sum.hoursSumTotal = getRecalculateValue('hours') + data.sum.hoursSumTransferPrevious
+  if(dataSum.hoursSumTransferPrevious) {
+    dataSum.hoursSumTotal = getRecalculateValue('hours') + dataSum.hoursSumTransferPrevious
   }
-  REPORTS[rate].values.sum = data.sum
+  if(dataSum.hoursSumTotal < dataSum.hoursSum) {
+    dataSum.hoursSumTransferNext = dataSum.hoursSum - dataSum.hoursSumTotal
+  }
+  if(dataSum.hoursSumTotal > dataSum.hoursSum) {
+    dataSum.hoursSumTransferPrevious = dataSum.hoursSumTotal - dataSum.hoursSum
+  }
+  REPORTS[rate].values.sum = dataSum
+  console.log('REPORTS[rate].values.sum:', REPORTS[rate].values.sum)
   localStorageService.set('reports', REPORTS)
   pullValuesToTable(rate.split('/')[0], rate.split('/')[1])
 }
