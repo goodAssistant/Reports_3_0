@@ -311,13 +311,17 @@ pullValuesToTable(currentYear, currentMonth);
 
 getRandomColorRgba(monthHTML.title, alpha);
 
-if (localStorageService.get(adminActivate)) {
-  initAdminPage();
-}
+// --------------------- Для запуска админ панелей после перезагрузки---------------------
+  /*
+    if (localStorageService.get(adminActivate)) {
+      initAdminPage();
+    }
 
-if (localStorageService.get(adminActivateValues)) {
-  initAdminPageValues();
-}
+    if (localStorageService.get(adminActivateValues)) {
+      initAdminPageValues();
+    }
+  */
+//=========================================================================================
 
 //____Временное для исправления трансфера
 if (REPORTS[currentYear + '/' + currentMonth].values.sum.hoursSumTransfer) {
